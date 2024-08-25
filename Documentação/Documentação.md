@@ -88,7 +88,7 @@ A
 | **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores. |
 ---
 | **RF3. CRUD de usuarios** |
-|---|
+|:---|
 | **Descrição:**<br>O usuário irá acessar o sistema e fornecer os dados necessários para criar uma nova conta de usuário. Este cadastro permitirá que o usuário utilize as funcionalidades do sistema. |
 | **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares |
 | **Usuários:**<br>Usuário normal |
