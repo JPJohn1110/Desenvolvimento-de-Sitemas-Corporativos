@@ -70,17 +70,18 @@ A
 # DETALHAMENTO DE REQUISITOS |
 
 RF1. CRUD de usuários administradores |
-
-Descrição:
+--------------------------------------
+Descrição: |
 O administrador chefe do sistema poderá criar cadastros para novos funcionários que irão administrar o sistema. Esse processo inclui a inserção de informações pessoais, um endereço de e-mail e uma senha para cada novo administrador. |
-
+--------------------------------------
 Fontes: |
-
-Usuários:
+--------------------------------------
+Usuários: |
 Administrador chefe |
-
-Informações de entrada:
+--------------------------------------
+Informações de entrada: |
 O administrador chefe deverá preencher os dados do novo funcionário, incluindo nome completo, endereço de e-mail, senha, cargo/posição, telefone de contato (opcional), data de nascimento (opcional) e endereço (opcional). |
-
-Informações de saída:
+--------------------------------------
+Informações de saída: |
 Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
+--------------------------------------
