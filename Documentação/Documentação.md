@@ -84,5 +84,8 @@ A
 | **Fontes:**<br>Documentação de segurança do sistema.<br>Políticas de autenticação e credenciais da empresa. |
 | **Usuários:**<br>Usuário administrador |
 | **Informações de entrada:**<br>O usuário administrador deverá fornecer seu e-mail e senha. |
+| **Informações de saída:**<br>Confirmação de Login, redirecionamento para a página inicial do painel de administração ou mensagem de falha caso haja falha de autenticação. |
+| **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores.
+|
 
 ---
