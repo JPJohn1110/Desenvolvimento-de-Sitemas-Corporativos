@@ -31,3 +31,38 @@ __O diagrama acima representa o processo de check-in
 ---
 
 # 3. LEVANTAMENTO DE REQUISITOS
+
+A
+
+---
+## 3.1. REQUISITOS FUNCIONAIS
+
+1. CRUD de usuários administradores
+2. Realizar login de usuários administradores
+3. CRUD de usuarios
+4. Realizar login de usuários
+5. CRUD controle de voos
+6. CRUD controle de passagem
+7. Realizar venda de passagens
+8. Realizar check-in
+9. Realizar busca de voos
+
+---
+
+## 3.2. REQUISITOS NÃO FUNCIONAIS
+
+1. A criação de usuários administradores deve ser feita por uma conta root.
+2. O cadastro dos usuários deve conter algum documento de identificação.
+3. Assento econômico 25% de lucro, Assento comum 35%, Primeira classe 65% 
+4. O cálculo das passagens deve ser realizado da seguinte forma: 
+5. O check-in deve ser permitido ao usuário 48 horas antes da viagem
+
+---
+
+## 3.3. REQUISITOS SUPLEMENTARES
+
+1. O sistema deve operar via interface Web
+2. O sistema deve ser desenvolvido na linguagem Java
+3. O sistema deve utilizar o banco de dados PostgreSQL
+
+---
