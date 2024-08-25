@@ -10,7 +10,7 @@
    3.3. [REQUISITOS SUPLEMENTARES](#33-requisitos-suplementares)
 
 4. [DETALHAMENTO DE REQUISITOS](#4-detalhamento-de-requisitos)
-5. [CASOS DE USO](#CASOS-DE-USO)
+5. [CASOS DE USO](#5-casos-de-uso)
 
 ---
 
@@ -106,3 +106,61 @@ A
 | **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores.  |
 
 ---
+
+| **RF5. CRUD controle de voos** |
+|---|
+| **Descrição:**<br>Este recurso permite que o usuário administrador cadastre, mantenha e exclua voos na companhia aérea. A funcionalidade abrange todas as operações necessárias para o gerenciamento de voos, garantindo que todas as informações relevantes estejam atualizadas e precisas. |
+| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil Manual do Sistema de Registro de Operações (SIROS). |
+| **Usuários:**<br>Usuário administrador |
+| **Informações de entrada:**<br>Para cadastrar ou manter um voo, o administrador deve fornecer o código do voo, que é um identificador único do voo (por exemplo, AB1234). É necessário também informar a origem, especificando o aeroporto de partida (como GRU - Aeroporto Internacional de São Paulo/Guarulhos), e o destino, que corresponde ao aeroporto de chegada (como JFK - Aeroporto Internacional John F. Kennedy).
+Além disso, é preciso indicar a duração do voo. A quantidade máxima de passageiros permitidos deve ser especificada no campo de quantidade de passageiros. A aeronave utilizada deve ser informada, incluindo o modelo e a marca (por exemplo, Boeing 737). Outros dados essenciais incluem o peso máximo permitido para bagagens e carga (em kg) e as datas programadas para manutenção da aeronave, referidas como período de manutenção. |
+| **Informações de saída:**<br>Confirmação da criação, atualização ou exclusão de um voo, exibição de uma lista atualizada de voos cadastrados, mostrando detalhes como código do voo, origem, destino, horário ou uma mensagem de erro em caso de falha na operação, como código de voo duplicado ou dados inválidos.  |
+| **Requisitos não funcionais:**<br>O sistema deve restringir o acesso ao CRUD de voos apenas a usuários administradores, o sistema deverá ser capaz de gerenciar um grande número de voos sem perda de desempenho, especialmente em períodos de alta demanda.  |
+
+---
+
+| **RF6. CRUD controle de passagem** |
+|---|
+| **Descrição:**<br>Este recurso permite que o usuário administrador cadastre, mantenha e exclua passagens na companhia aérea. Para que uma passagem possa ser criada, é necessário que já exista um voo cadastrado vinculado a ela. |
+| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil do Manual do Sistema de Registro de Operações (SIROS) |
+| **Usuários:**<br>Usuário administrador |
+| **Informações de entrada:**<br>Para cadastrar ou manter uma passagem, o administrador deve fornecer o código da passagem, que é um identificador único para a passagem. Também deve ser informada a data e horário de partida, correspondente ao voo associado à passagem. É essencial vincular a passagem a um código de voo já cadastrado, garantindo que a quantidade de passagens corresponda à quantidade de passageiros permitidos no voo. |
+| **Informações de saída:**<br>Confirmação de Operação no qual mostra mensagens de sucesso ou erro ao criar, atualizar ou excluir uma passagem e apresentam os dados da passagem, incluindo código, voo associado, data e horário de partida.  |
+| **Requisitos não funcionais:**<br>Somente administradores autenticados podem realizar operações de CRUD sobre passagens e garantir que o número de passagens emitidas não ultrapasse a capacidade do voo.  |
+
+---
+
+| **RF7. Realizar venda de passagens** |
+|---|
+| **Descrição:**<br>Este recurso permite que o usuário acesse o sistema, procure por passagens disponíveis e realize a compra das mesmas. O sistema deve facilitar a busca, seleção e aquisição das passagens de maneira eficiente e segura. |
+| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil Manual do Sistema de Registro de Operações (SIROS). |
+| **Usuários:**<br>Usuário normal |
+| **Informações de entrada:**<br>Para realizar a compra, o usuário deverá fornecer as informações de origem e destino, selecionar os assentos de acordo com o trajeto, fornecer dados pessoais caso não esteja cadastrado, escolher o meio de pagamento e fornecer os dados necessários para o pagamento. |
+| **Informações de saída:**<br>Resumo da compra para confirmação, incluindo detalhes da passagem, voo, e assento selecionado, com comprovante da transação realizada, incluindo número da compra, valor pago, e forma de pagamento e contato da empresa responsável pelo voo para demais situações.  |
+| **Requisitos não funcionais:**<br>O sistema deve garantir a proteção dos dados pessoais e financeiros do usuário, utilizando criptografia e protocolos de segurança adequados e ser intuitivo e fácil de usar, garantindo uma experiência positiva para o usuário final.  |
+
+---
+
+| **RF8. Realizar check-in** |
+|---|
+| **Descrição:**<br>Este recurso permite que o usuário acesse o sistema, procure por suas passagens disponíveis e realize o check-in. O sistema deve facilitar a busca e o check-in das passagens de maneira eficiente e segura. |
+| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil juntamente aos dados fornecidos pelas companhias aéreas. |
+| **Usuários:**<br>Usuário normal |
+| **Informações de entrada:**<br>Para realizar o check-in, o usuário deve fornecer o código do vôo (código localizador) e o aeroporto de partida, selecionar os passageiros que irão realizar o voo, fornecer os dados necessários para o check-in caso não estejam cadastrados, e selecionar os assentos caso ainda não tenham sido escolhidos. |
+| **Informações de saída:**<br>Comprovante de check-in juntamente com o cartão de embarque.  |
+| **Requisitos não funcionais:**<br>O sistema deve garantir a proteção dos dados pessoais e financeiros do usuário utilizando protocolos de segurança adequados.  |
+
+---
+
+| **RF9. Realizar busca de voos** |
+|---|
+| **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores e altere informações de viagens futuras, quando possível. |
+| **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares. |
+| **Usuários:**<br>Usuário normal |
+| **Informações de entrada:**<br>O usuário pode informar a origem, destino, código da viagem e data para localizar a viagem. Para viagens futuras, o usuário pode alterar dados da viagem conforme permitido. |
+| **Informações de saída:**<br>Tela com as informações de voos compatíveis com a busca, priorizando uma ordem.  |
+| **Requisitos não funcionais:**<br>a  |
+
+---
+
+## 5. CASOS DE USO
