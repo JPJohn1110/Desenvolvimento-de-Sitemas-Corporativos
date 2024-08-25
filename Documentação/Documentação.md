@@ -77,7 +77,7 @@ A
 | **Informações de entrada:**<br>O administrador chefe deverá preencher os dados do novo funcionário, incluindo nome completo, endereço de e-mail, senha, cargo/posição, telefone de contato (opcional), data de nascimento (opcional) e endereço (opcional). |
 | **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
-
+---
 | **RF2. Realizar login de usuários administradores** |
 |---|
 | **Descrição:**<br>O usuário administrador irá acessar o sistema fornecendo suas credenciais para autenticação e autorização de acesso. |
@@ -85,7 +85,24 @@ A
 | **Usuários:**<br>Usuário administrador |
 | **Informações de entrada:**<br>O usuário administrador deverá fornecer seu e-mail e senha. |
 | **Informações de saída:**<br>Confirmação de Login, redirecionamento para a página inicial do painel de administração ou mensagem de falha caso haja falha de autenticação. |
-| **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores.
-|
+| **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores. |
+---
+| **RF3. CRUD de usuarios** |
+|---|
+| **Descrição:**<br>O usuário irá acessar o sistema e fornecer os dados necessários para criar uma nova conta de usuário. Este cadastro permitirá que o usuário utilize as funcionalidades do sistema. |
+| **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares |
+| **Usuários:**<br>Usuário normal |
+| **Informações de entrada:**<br>O usuário deverá preencher os dados, incluindo nome completo, endereço de e-mail, senha, telefone de contato (opcional), data de nascimento (opcional) e endereço (opcional). |
+| **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição de acesso geradas.  |
+| **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia.  |
+---
+| **RF4. Realizar login de usuários** |
+|---|
+| **Descrição:**<br>Este recurso permite que um usuário normal acesse o sistema através da autenticação com suas credenciais pessoais. Após o fornecimento de e-mail e senha, o sistema valida as informações e concede acesso com base na autorização apropriada. |
+| **Fontes:**<br>Documentação do sistema |
+| **Usuários:**<br>Usuário normal |
+| **Informações de entrada:**<br>O usuário deverá fornecer seu e-mail e senha. |
+| **Informações de saída:**<br>Confirmação de Login, redirecionamento para a página inicial do sistema ou mensagem de falha caso haja falha de autenticação.  |
+| **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores.  |
 
 ---
