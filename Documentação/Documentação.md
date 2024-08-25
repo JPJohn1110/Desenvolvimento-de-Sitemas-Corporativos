@@ -26,7 +26,7 @@ O sistema deve gerenciar o controle de passagens e assentos da empresa aérea de
 _O diagrama acima representa o processo de compra da passagem_
 
 ![Diagrama de Atividades Check-in](Diagramas/Diagrama%20de%20atividade%20-%20Check-in.svg)
-__O diagrama acima representa o processo de check-in
+_O diagrama acima representa o processo de check-in_
 
 ---
 
