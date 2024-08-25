@@ -71,8 +71,8 @@ A
 
 | **RF1. CRUD de usuários administradores** |
 |-------------------------------------------|
-| **Descrição:** |
-| O administrador chefe do sistema poderá criar cadastros para novos funcionários que irão administrar o sistema. Esse processo inclui a inserção de informações pessoais, um endereço de e-mail e uma senha para cada novo administrador. |
+| **Descrição:** 
+ O administrador chefe do sistema poderá criar cadastros para novos funcionários que irão administrar o sistema. Esse processo inclui a inserção de informações pessoais, um endereço de e-mail e uma senha para cada novo administrador. |
 | **Fontes:** |
 |  |
 | **Usuários:** |
