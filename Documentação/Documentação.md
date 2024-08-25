@@ -70,7 +70,7 @@ A
 ## 4. DETALHAMENTO DE REQUISITOS 
 
 | **RF1. CRUD de usuários administradores** |
-|---|
+|:---|
 | **Descrição:**<br>O administrador chefe do sistema poderá criar cadastros para novos funcionários que irão administrar o sistema. Esse processo inclui a inserção de informações pessoais, um endereço de e-mail e uma senha para cada novo administrador. |
 | **Fontes:** |
 | **Usuários:**<br>Administrador chefe |
@@ -79,7 +79,7 @@ A
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
 ---
 | **RF2. Realizar login de usuários administradores** |
-|---|
+|:---|
 | **Descrição:**<br>O usuário administrador irá acessar o sistema fornecendo suas credenciais para autenticação e autorização de acesso. |
 | **Fontes:**<br>Documentação de segurança do sistema.<br>Políticas de autenticação e credenciais da empresa. |
 | **Usuários:**<br>Usuário administrador |
@@ -97,7 +97,7 @@ A
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia.  |
 ---
 | **RF4. Realizar login de usuários** |
-|---|
+|:---|
 | **Descrição:**<br>Este recurso permite que um usuário normal acesse o sistema através da autenticação com suas credenciais pessoais. Após o fornecimento de e-mail e senha, o sistema valida as informações e concede acesso com base na autorização apropriada. |
 | **Fontes:**<br>Documentação do sistema |
 | **Usuários:**<br>Usuário normal |
@@ -108,7 +108,7 @@ A
 ---
 
 | **RF5. CRUD controle de voos** |
-|---|
+|:---|
 | **Descrição:**<br>Este recurso permite que o usuário administrador cadastre, mantenha e exclua voos na companhia aérea. A funcionalidade abrange todas as operações necessárias para o gerenciamento de voos, garantindo que todas as informações relevantes estejam atualizadas e precisas. |
 | **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil Manual do Sistema de Registro de Operações (SIROS). |
 | **Usuários:**<br>Usuário administrador |
@@ -120,7 +120,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 | **RF6. CRUD controle de passagem** |
-|---|
+|:---|
 | **Descrição:**<br>Este recurso permite que o usuário administrador cadastre, mantenha e exclua passagens na companhia aérea. Para que uma passagem possa ser criada, é necessário que já exista um voo cadastrado vinculado a ela. |
 | **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil do Manual do Sistema de Registro de Operações (SIROS) |
 | **Usuários:**<br>Usuário administrador |
@@ -131,7 +131,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 | **RF7. Realizar venda de passagens** |
-|---|
+|:---|
 | **Descrição:**<br>Este recurso permite que o usuário acesse o sistema, procure por passagens disponíveis e realize a compra das mesmas. O sistema deve facilitar a busca, seleção e aquisição das passagens de maneira eficiente e segura. |
 | **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil Manual do Sistema de Registro de Operações (SIROS). |
 | **Usuários:**<br>Usuário normal |
@@ -142,7 +142,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 | **RF8. Realizar check-in** |
-|---|
+|:---|
 | **Descrição:**<br>Este recurso permite que o usuário acesse o sistema, procure por suas passagens disponíveis e realize o check-in. O sistema deve facilitar a busca e o check-in das passagens de maneira eficiente e segura. |
 | **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil juntamente aos dados fornecidos pelas companhias aéreas. |
 | **Usuários:**<br>Usuário normal |
@@ -153,7 +153,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 | **RF9. Realizar busca de voos** |
-|---|
+|:---|
 | **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores e altere informações de viagens futuras, quando possível. |
 | **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares. |
 | **Usuários:**<br>Usuário normal |
