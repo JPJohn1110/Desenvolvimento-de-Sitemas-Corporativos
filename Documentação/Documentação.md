@@ -2,9 +2,9 @@
 1. [VISÃO GERAL DO SISTEMA](#1-visão-geral-do-sistema)
 2. [DIAGRAMA DE ATIVIDADES](#2-diagrama-de-atividades)
 3. [LEVANTAMENTO DE REQUISITOS](#3-levantamento-de-requisitos)
-   3. [REQUISITOS FUNCIONAIS](#REQUISITOS-FUNCIONAIS)
-   3. [REQUISITOS NÃO FUNCIONAIS](#REQUISITOS-NÃO-FUNCIONAIS)
-   3. [REQUISITOS SUPLEMENTARES](#REQUISITOS-SUPLEMENTARES)
+   - 3.1. [REQUISITOS FUNCIONAIS](#REQUISITOS-FUNCIONAIS)
+   - 3.2. [REQUISITOS NÃO FUNCIONAIS](#REQUISITOS-NÃO-FUNCIONAIS)
+   - 3.3. [REQUISITOS SUPLEMENTARES](#REQUISITOS-SUPLEMENTARES)
 4. [DETALHAMENTO DE REQUISITOS](#DETLHAMENTO-DE-REQUISITOS)
 5. [CASOS DE USO](#CASOS-DE-USO)
 
@@ -19,7 +19,10 @@ O sistema deve gerenciar o controle de passagens e assentos da empresa aérea de
 ## 2. DIAGRAMA DE ATIVIDADES
 
 ![Diagrama de Atividades](Diagramas/Diagrama%20de%20atividade%20-%20Compra.svg)
-_O diagrama acima representa a compra de passagem_
+_O diagrama acima representa o processo de compra da passagem_
+
+![Diagrama de Atividades Check-in](Diagramas/Diagrama%20de%20atividade%20-%20Check-in.svg)
+__O diagrama acima representa o processo de check-in
 
 ---
 
