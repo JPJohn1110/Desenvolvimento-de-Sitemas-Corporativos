@@ -3,13 +3,13 @@
 2. [DIAGRAMA DE ATIVIDADES](#2-diagrama-de-atividades)
 3. [LEVANTAMENTO DE REQUISITOS](#3-levantamento-de-requisitos)
 
-   3.1. [REQUISITOS FUNCIONAIS](#REQUISITOS-FUNCIONAIS)
+   3.1. [REQUISITOS FUNCIONAIS](#31-requisitos-funcionais)
    
-   3.2. [REQUISITOS NÃO FUNCIONAIS](#REQUISITOS-NÃO-FUNCIONAIS)
+   3.2. [REQUISITOS NÃO FUNCIONAIS](#32-requisitos-não-funcionais)
    
-   3.3. [REQUISITOS SUPLEMENTARES](#REQUISITOS-SUPLEMENTARES)
+   3.3. [REQUISITOS SUPLEMENTARES](#33-requisitos-suplementares)
 
-4. [DETALHAMENTO DE REQUISITOS](#DETLHAMENTO-DE-REQUISITOS)
+4. [DETALHAMENTO DE REQUISITOS]()
 5. [CASOS DE USO](#CASOS-DE-USO)
 
 ---
@@ -66,3 +66,22 @@ A
 3. O sistema deve utilizar o banco de dados PostgreSQL
 
 ---
+
+# DETALHAMENTO DE REQUISITOS
+
+RF1. CRUD de usuários administradores
+----------------------------------------
+Descrição:
+O administrador chefe do sistema poderá criar cadastros para novos funcionários que irão administrar o sistema. Esse processo inclui a inserção de informações pessoais, um endereço de e-mail e uma senha para cada novo administrador.
+------------------------------------------
+Fontes:
+------------------------------------------
+Usuários:
+Administrador chefe
+------------------------------------------
+Informações de entrada:
+O administrador chefe deverá preencher os dados do novo funcionário, incluindo nome completo, endereço de e-mail, senha, cargo/posição, telefone de contato (opcional), data de nascimento (opcional) e endereço (opcional).
+------------------------------------------
+Informações de saída:
+Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. 
+------------------------------------------
