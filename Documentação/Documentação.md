@@ -10,7 +10,8 @@
    3.3. [REQUISITOS SUPLEMENTARES](#33-requisitos-suplementares)
 
 4. [DETALHAMENTO DE REQUISITOS](#4-detalhamento-de-requisitos)
-5. [CASOS DE USO](#5-casos-de-uso)
+5. [DIAGRAMA DE ESTADO DE MÁQUINA](#5-diagrama-de-estado-de-maquina)
+6. [CASOS DE USO](#5-casos-de-uso)
 
 ---
 
@@ -26,14 +27,12 @@ O sistema deve gerenciar o controle de passagens e assentos da empresa aérea de
 _O diagrama acima representa o processo de compra da passagem_
 
 ![Diagrama de Atividades Check-in](Diagramas/Diagrama%20de%20atividade%20-%20Check-in.svg)
-__O diagrama acima representa o processo de check-in
+_O diagrama acima representa o processo de check-in_
 
 ---
 
 ## 3. LEVANTAMENTO DE REQUISITOS
-
-A
-
+Aa
 ---
 ### 3.1. REQUISITOS FUNCIONAIS
 
@@ -56,6 +55,9 @@ A
 3. Assento econômico 25% de lucro, Assento comum 35%, Primeira classe 65% 
 4. O cálculo das passagens deve ser realizado da seguinte forma: 
 5. O check-in deve ser permitido ao usuário 48 horas antes da viagem
+6. O sistema deve obter tempo de resposta para reservas, check-ins de forma quase instantânea.
+7. O Sistema deve garantir proteção dos dados dos clientes, autenticação segura por condig.
+8. Possuir compatibilidade e acessibiblidade em qualquer navegador.
 
 ---
 
@@ -164,3 +166,32 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 ## 5. CASOS DE USO
+
+![estadoDeMaquinaVoo](/Documentação/Diagramas/State-machine-voo.png)
+_Diagrama acima mostra o estado de máquina para as passagens de voo_ <br>
+![estadoDeMaquinaAssento](/Documentação/Diagramas/state-machine-assento.png)
+_Diagrama acima mostra o estado de máquina para os assentos de cada voo_
+
+
+## 6. CASOS DE USO
+
+| **UC01. CADASTRO DE USUÁRIO** |
+|:---|
+| **NOME DO CASO DE USO:**<br> Cadastro de usuário |
+| **ATOR:**<br>Cliente |
+| **OBJETIVO:**<br> Oforrecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
+| **PRÉ-CONDIÇÕES:**<br> 1. O usuário não deve possuir uma conta registrada no sistema.|
+| **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
+| **CENÁRIO PRINCIPAL:** <br> 1. [INT]O usuário acessa a página de cadastro. <br> 2. [INT] O usuário preenche o formulário de cadastro com as informações necessárias <br>3. [OUT] O sistema valida as informações fornecidas. <br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.|
+| **CENÁRIO ALTERNATIVO:**<br> 1. [OUT]Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente (Passo 3A). <br> 2. [OUT]Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações (Passo 3B).|
+
+| **UC0X. COMPRA DE PASSAGEM** |
+|:---|
+| **NOME DO CASO DE USO:**<br> Comprar passagens |
+| **ATOR:**<br>Cliente |
+| **OBJETIVO:**<br> Oforrecer a possibilidade de aquisição de passagens e pagamento|
+| **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema.|
+| **PÓS-CONDIÇOES:**<br> E-mail de confimação|
+| **CENÁRIO PRINCIPAL:** <br> 1. [INT]O usuário acessa a página de busca de voos. <br> 2. [OUT] O sistema mostra a página de busca <br>3. [INT] O usuário insere os detalhes do voo desejado, como origem, destino e datas. <br> 4.[OUT] O sistema apresenta uma lista de voos disponíveis. <br> 5.[INT] O usuário seleciona um voo e escolhe o assento desejado. <br> 6. [INT] O usuário revisa os detalhes da compra (voo, assento, preço). <br> 6. [OUT] O sistema mostra as opções de pagamento. <br> 7. [INT] O usuário seleciona o método de pagamento e insere os dados necessários. <br> 8. [OUT] O sistema processa o pagamento através do sistema de Pagamento. Após a confirmação do pagamento, o sistema gera e exibe a passagem para o usuário. <br> 9. [OUT] O sistema envia um e-mail de confirmação da compra ao usuário. |
+| **CENÁRIO ALTERNATIVO:**<br> 1. [OUT]Se o voo desejado não estiver disponível, o sistema informa ao usuário e sugere voos alternativos (Passo 3A). <br> 2. [OUT]Se o pagamento for recusado, o sistema notifica o usuário e solicita que ele tente outro método de pagamento (Passo 7A). <br> 3. [OUT]Se o usuário não estiver logado, o sistema redireciona para a página de login (Pré-condição 1A).|
+
