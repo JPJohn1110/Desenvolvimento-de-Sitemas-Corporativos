@@ -11,7 +11,7 @@
 
 4. [DETALHAMENTO DE REQUISITOS](#4-detalhamento-de-requisitos)
 5. [DIAGRAMA DE ESTADO DE MÁQUINA](#5-diagrama-de-estado-de-maquina)
-6. [CASOS DE USO](#5-casos-de-uso)
+6. [CASOS DE USO](#6-casos-de-uso)
 
 ---
 
@@ -163,6 +163,8 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **Requisitos não funcionais:**<br>a  |
 
 ---
+
+## 5. DIAGRMAS DE CASO DE USO
 
 ![estadoDeMaquinaVoo](/Documentação/Diagramas/State-machine-voo.png)
 <br>_Diagrama acima mostra o estado de máquina para as passagens de voo_ <br>
