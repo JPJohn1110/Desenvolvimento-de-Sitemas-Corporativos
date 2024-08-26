@@ -164,8 +164,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 
 ---
 
-## 5. DIAGRMAS DE CASO DE USO
-
+## 5. DIAGRMAS DE ESTADO DE MÁQUINA
 ![estadoDeMaquinaVoo](/Documentação/Diagramas/State-machine-voo.png)
 <br>_Diagrama acima mostra o estado de máquina para as passagens de voo_ <br>
 ![estadoDeMaquinaAssento](/Documentação/Diagramas/state-machine-assento.png)
