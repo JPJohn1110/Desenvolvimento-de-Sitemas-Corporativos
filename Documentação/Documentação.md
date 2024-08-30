@@ -37,15 +37,12 @@ A
 ---
 ### 3.1. REQUISITOS FUNCIONAIS
 
-1. CRUD de usuários administradores
-2. Realizar login de usuários administradores
-3. CRUD de usuarios
-4. Realizar login de usuários
-5. CRUD controle de voos
-6. CRUD controle de passagem
-7. Realizar venda de passagens
-8. Realizar check-in
-9. Realizar busca de voos
+1. Gerenciar usuarios
+2. Gerenciar controle de voos
+3. Gerenciar controle de passagem
+4. Realizar venda de passagens
+5. Realizar check-in
+6. Gerenciar viagens do usuario
 
 ---
 
@@ -56,6 +53,7 @@ A
 3. Assento econômico 25% de lucro, Assento comum 35%, Primeira classe 65% 
 4. O cálculo das passagens deve ser realizado da seguinte forma: 
 5. O check-in deve ser permitido ao usuário 48 horas antes da viagem
+6. Controle de Acesso
 
 ---
 
