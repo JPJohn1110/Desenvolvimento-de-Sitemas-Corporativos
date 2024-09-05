@@ -1,4 +1,4 @@
-package com.sistemadsc.Companhia_Area;
+package com.projeto_dsc.Companhia_Area;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

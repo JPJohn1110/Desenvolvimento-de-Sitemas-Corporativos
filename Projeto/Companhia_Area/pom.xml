@@ -8,11 +8,11 @@
 		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sistemadsc</groupId>
+	<groupId>com.projeto_dsc</groupId>
 	<artifactId>Companhia_Area</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Companhia_Area</name>
-	<description>Projeto de vendas de passagens Áreas</description>
+	<description>Venda de passagens áreas para disciplina DSC</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -55,6 +55,12 @@
 			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
