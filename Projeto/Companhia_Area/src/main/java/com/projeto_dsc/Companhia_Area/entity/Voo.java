@@ -1,4 +1,4 @@
-package com.projeto_dsc.Companhia_Area.modelo;
+package com.projeto_dsc.Companhia_Area.entity;
 
 public class Voo {
     private int id;
