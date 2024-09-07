@@ -1,4 +1,4 @@
-package com.projeto_dsc.Companhia_Area.entity;
+    package com.projeto_dsc.Companhia_Area.entity;
 
 import com.projeto_dsc.Companhia_Area.dto.UsuarioDTO;
 import jakarta.persistence.*;
@@ -34,6 +34,7 @@ public class UsuarioEntity {
 
     @Column (nullable = false)
     private String dataNascimento;
+    
 
     public UsuarioEntity(UsuarioDTO usuarioDTO) {
         BeanUtils.copyProperties(usuarioDTO, this);
