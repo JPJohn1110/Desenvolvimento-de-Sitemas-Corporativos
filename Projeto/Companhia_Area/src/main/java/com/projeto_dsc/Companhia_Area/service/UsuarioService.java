@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class UsuarioService {
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -37,4 +38,5 @@ public class UsuarioService {
         UsuarioEntity usuario = usuarioRepository.findById(id).get();
         return new UsuarioDTO(usuario);
     }
+
 }
