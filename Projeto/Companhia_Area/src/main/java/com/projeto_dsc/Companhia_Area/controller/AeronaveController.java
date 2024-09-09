@@ -29,7 +29,7 @@ public class AeronaveController {
         aeronaveService.alterar(aeronaveDTO);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public void excluir(@PathVariable Long id){
         aeronaveService.excluir(id);
     }

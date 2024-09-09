@@ -62,11 +62,11 @@ public class VooEntity {
         this.destino = destino;
     }
 
-    public String getHoraSaida() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setHoraSaida(String duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 
