@@ -17,7 +17,7 @@ import com.projeto_dsc.Companhia_Area.dto.UsuarioDTO;
 import com.projeto_dsc.Companhia_Area.service.UsuarioService;
 
 @RestController
-@RequestMapping(value = "/usuarioControler")
+@RequestMapping(value = "/usuario")
 public class UsuarioController {
 
 	@Autowired
@@ -26,28 +26,21 @@ public class UsuarioController {
 	@GetMapping
 	public List<UsuarioDTO> listarTodos(){
 		return usuarioService.listarTodos();
-
 	}
 
 	@PostMapping
 	public void inserir(@RequestBody UsuarioDTO usuario){
 		usuarioService.inserir(usuario);
-
 	}
-
 
 	@PutMapping
 	public UsuarioDTO alterar(@RequestBody UsuarioDTO usuario){
 		return usuarioService.alterar(usuario);
-	
 	}
-
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
 		usuarioService.excluir(id);
 		return ResponseEntity.ok().build();
-
 	}
-
 }

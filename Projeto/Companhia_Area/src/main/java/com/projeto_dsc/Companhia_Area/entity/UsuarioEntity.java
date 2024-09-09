@@ -36,17 +36,18 @@ public class UsuarioEntity {
     private String dataNascimento;
     
 
-    public UsuarioEntity(UsuarioDTO usuarioDTO) {
-        BeanUtils.copyProperties(usuarioDTO, this);
+    public UsuarioEntity(UsuarioDTO usuario) {
+        BeanUtils.copyProperties(usuario, this);
     }
     public UsuarioEntity() {
+
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

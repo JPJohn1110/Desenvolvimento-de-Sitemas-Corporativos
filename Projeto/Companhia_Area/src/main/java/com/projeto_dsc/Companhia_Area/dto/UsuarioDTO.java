@@ -18,6 +18,7 @@ public class UsuarioDTO {
         BeanUtils.copyProperties(usuario, this);
     }
     public UsuarioDTO() {
+
     }
 
     public String getDataNascimento() {
