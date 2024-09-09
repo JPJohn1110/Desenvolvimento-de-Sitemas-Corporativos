@@ -1,17 +1,16 @@
 package com.projeto_dsc.Companhia_Area.dto;
 
 import org.springframework.beans.BeanUtils;
-import com.projeto_dsc.Companhia_Area.entity.Voo;
+import com.projeto_dsc.Companhia_Area.entity.VooEntity;
 
 public class VooDTO {
 
 	private Long id;
     private String origem;
     private String destino;
-    private String horaSaida;
-    private String horaChegada;
+    private String duracao;
 
-	public VooDTO(Voo voo) {
+	public VooDTO(VooEntity voo) {
 		BeanUtils.copyProperties(voo, this);
     }
 
@@ -44,23 +43,13 @@ public class VooDTO {
 	}
 
 	public String getHoraSaida() {
-		return horaSaida;
+		return duracao;
 	}
 
-	public void setHoraSaida(String horaSaida) {
-		this.horaSaida = horaSaida;
+	public void setHoraSaida(String duracao) {
+		this.duracao = duracao;
 	}
-
-	public String getHoraChegada() {
-		return horaChegada;
-	}
-
-	public void setHoraChegada(String horaChegada) {
-		this.horaChegada = horaChegada;
-	}
-
 
 	//Getters e Setters
-
 
 }

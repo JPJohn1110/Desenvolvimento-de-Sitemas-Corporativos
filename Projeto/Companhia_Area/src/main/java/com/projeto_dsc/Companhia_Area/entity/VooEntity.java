@@ -12,8 +12,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "Voo")
-public class Voo {
+@Table (name = "VOO")
+public class VooEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,16 +26,14 @@ public class Voo {
     private String destino;
 
     @Column (nullable = false)
-    private String horaSaida;
+    private String duracao;
 
-    @Column (nullable = false)
-    private String horaChegada;
-
-    public Voo(VooDTO vooDTO) {
-        BeanUtils.copyProperties(vooDTO, this);
+    public VooEntity(VooDTO voo) {
+        BeanUtils.copyProperties(voo, this);
     }
 
-    public Voo() {
+    public VooEntity() {
+
     }
 
     //Getter e Setter
@@ -64,21 +63,12 @@ public class Voo {
     }
 
     public String getHoraSaida() {
-        return horaSaida;
+        return duracao;
     }
 
-    public void setHoraSaida(String horaSaida) {
-        this.horaSaida = horaSaida;
+    public void setHoraSaida(String duracao) {
+        this.duracao = duracao;
     }
-
-    public String getHoraChegada() {
-        return horaChegada;
-    }
-
-    public void setHoraChegada(String horaChegada) {
-        this.horaChegada = horaChegada;
-    }
-
 
 
 }
