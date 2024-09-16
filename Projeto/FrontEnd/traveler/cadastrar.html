@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="stylesCadastro.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/cadastrar" method="POST">
+            <h2>Informações Pessoais</h2>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="Informe seu CPF" required>
+
+            <label for="first-name">Primeiro Nome:</label>
+            <input type="text" id="first-name" name="firstName" placeholder="Informe o primeiro nome" required>
+
+            <label for="dob">Data de Nascimento:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Gênero:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Selecione</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="O">Outro</option>
+            </select>
+
+            <h2>Informações de Endereço</h2>
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" placeholder="Informe o CEP" required>
+
+            <label for="address">Endereço:</label>
+            <input type="text" id="address" name="address" placeholder="Informe o endereço" required>
+
+            <label for="number">Número:</label>
+            <input type="text" id="number" name="number" placeholder="Informe o número" required>
+
+            <label for="neighborhood">Bairro:</label>
+            <input type="text" id="neighborhood" name="neighborhood" placeholder="Informe o bairro" required>
+
+            <label for="city">Cidade:</label>
+            <input type="text" id="city" name="city" placeholder="Informe a cidade" required>
+
+            <label for="state">Estado:</label>
+            <select id="state" name="state" required>
+                <option value="">Selecione o estado</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <!-- Adicionar mais estados -->
+            </select>
+
+            <h2>Informações de Cadastro</h2>
+            <label for="promo-code">Código Promocional (Opcional):</label>
+            <input type="text" id="promo-code" name="promoCode" placeholder="Digite aqui">
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
