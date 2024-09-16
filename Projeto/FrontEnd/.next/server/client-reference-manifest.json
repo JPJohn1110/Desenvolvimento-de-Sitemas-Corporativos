@@ -40,14 +40,6 @@
         "async": false
       }
     },
-    "(app-client)/./app/layout.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/layout.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./app/(main)/page.tsx": {
       "*": {
         "id": "(sc_client)/./app/(main)/page.tsx",
@@ -59,6 +51,14 @@
     "(app-client)/./layout/layout.tsx": {
       "*": {
         "id": "(sc_client)/./layout/layout.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/layout.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/layout.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -155,14 +155,6 @@
       ],
       "async": false
     },
-    "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/layout.tsx": {
-      "id": "(app-client)/./app/layout.tsx",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
     "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/(main)/page.tsx": {
       "id": "(app-client)/./app/(main)/page.tsx",
       "name": "*",
@@ -179,6 +171,14 @@
       ],
       "async": false
     },
+    "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/layout.tsx": {
+      "id": "(app-client)/./app/layout.tsx",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
     "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/(main)/pages/aeronave/page.tsx": {
       "id": "(app-client)/./app/(main)/pages/aeronave/page.tsx",
       "name": "*",
@@ -189,11 +189,11 @@
     }
   },
   "entryCSSFiles": {
+    "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/(main)/page": [],
+    "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/(main)/layout": [],
     "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/layout": [
       "static/css/app/layout.css"
     ],
-    "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/(main)/page": [],
-    "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/(main)/layout": [],
     "/home/kelton/Documentos/Meus Projetos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/FrontEnd/app/(main)/pages/aeronave/page": []
   }
 }
