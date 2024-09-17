@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.navbar {
+    list-style: none; /* Remove bullets */
+    display: flex;
+    justify-content: center; /* Centraliza a navbar */
+    gap: 40px; /* Espaçamento entre itens */
+    padding: 0;
+}
+
+.navbar li {
+    display: inline; /* Remove estilo de bloco */
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #007bff; /* Ajusta a cor do link */
+    font-weight: bold;
+    padding: 8px 15px; /* Adiciona espaçamento interno */
+    font-size: 1rem;
+    transition: color 0.3s ease; /* Efeito de hover suave */
+}
+
+.navbar li a:hover {
+    color: #0056b3; /* Cor diferente ao passar o mouse */
+}
+
+.user-options {
+    display: flex;
+    gap: 15px;
+}
+
+.user-options a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9em;
+}
+
+.search-section {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 900px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-section h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.flight-search {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.input-group input,
+.input-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #f47920;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d8671b;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-top: 2px solid #ccc;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-icons img {
+    height: 30px;
+    margin: 0 10px;
+}
+
+#modal{
+    background-color: red;
+    width: 500px;
+    height: 500px;
+    display: none;
+}
