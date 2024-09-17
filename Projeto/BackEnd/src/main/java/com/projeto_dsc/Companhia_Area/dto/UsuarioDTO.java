@@ -13,6 +13,10 @@ public class UsuarioDTO {
     private String cpf;
     private String telefone;
     private String dataNascimento;
+    private String genero;
+    private String tipoDocumento;
+    private Long numeroDocumento;
+    private String cep;
 
     public UsuarioDTO(UsuarioEntity usuario) {
         BeanUtils.copyProperties(usuario, this);
@@ -84,4 +88,30 @@ public class UsuarioDTO {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+    public Long getNumeroDocumento() {
+        return numeroDocumento;
+    }
+    public void setNumeroDocumento(Long numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+    public String getCep() {
+        return cep;
+    }
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
 }

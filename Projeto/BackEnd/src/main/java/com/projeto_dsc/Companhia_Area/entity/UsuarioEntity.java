@@ -20,6 +20,20 @@ public class UsuarioEntity {
     @Column (nullable = false, unique = true)
     private String login;
 
+    @Column (nullable = false, unique = true)
+    private String genero; //Tem que fazer no DTO, controller e Ser
+
+
+    @Column (nullable = false, unique = true)
+    private String tipoDocumento; //Tem que fazer no DTO, controller e Ser
+
+    @Column (nullable = false, unique = true)
+    private Long numeroDocumento; //Tem que fazer no DTO, controller e Ser
+
+
+    @Column (nullable = false, unique = true)
+    private String cep; //Tem que fazer no DTO, controller e Ser
+
     @Column (nullable = false)
     private String senha;
 
@@ -28,6 +42,8 @@ public class UsuarioEntity {
 
     @Column (nullable = false)
     private String email;
+
+   
 
     @Column (nullable = false)
     private String telefone;
@@ -105,6 +121,31 @@ public class UsuarioEntity {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+    public Long getNumeroDocumento() {
+        return numeroDocumento;
+    }
+    public void setNumeroDocumento(Long numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+    public String getCep() {
+        return cep;
+    }
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     @Override

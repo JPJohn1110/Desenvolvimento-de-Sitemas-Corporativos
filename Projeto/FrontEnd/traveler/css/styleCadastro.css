@@ -1,18 +1,20 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(to right, #2f017a, #006fcf, #00bed3);
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
-    background-color: #fff;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(18, 48, 148, 0.1);
+    background-color: #e3f3fc;
+    border-radius: 12px;
     margin-top: 50px;
+    box-sizing: border-box; /* Garante que o padding e a largura sejam calculados corretamente */
+
 }
 
 h2 {
@@ -21,19 +23,35 @@ h2 {
     padding-bottom: 10px;
 }
 
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-group {
+    width: 48%;
+    flex: 1 1 calc(50% - 10px); /* Garante que cada coluna ocupe metade da largura disponível com espaço entre elas */
+    min-width: 200px; /* Define uma largura mínima para evitar inputs muito pequenos em telas menores */
+
+}
 label {
     font-weight: bold;
     display: block;
-    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 input, select {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     margin-top: 5px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 25px;
+    box-sizing: border-box; /* Inclui o padding na largura do input */
+
+
 }
 
 button {
@@ -43,10 +61,11 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 28px;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #1e3d6d;
 }
+
