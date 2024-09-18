@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprar Passagem - GOL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../static/css/stylePrincipal.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="logo-gol.png" alt="GOL Logo">
+            <img src="../static/images/cavalo2.png" alt="Cavalo Airplane Logo">
         </div>
         <nav>
             <ul class="navbar">
                 <li><a href="#">Comprar passagem</a></li>
                 <li><a href="#">Check-in</a></li>
                 <li><a href="#">Minhas viagens</a></li>
-                <li id="teste"><a href="">Criar ou acessar conta</a></li>
+                <li><a href="#" id="accountButton">Criar ou Acessar Conta  <i class="fas fa-user-circle"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -71,9 +72,22 @@
         </div>
     </main>
 
-    <article id="modal">
-        <h2>teste</h2>
-    </article>
+    <!-- Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Acesse sua conta GOL</h2>
+            <ul>
+                <li>Administre suas viagens com mais facilidade</li>
+                <li>Cadastre programas de fidelidade</li>
+                <li>Agilize suas compras de passagens</li>
+            </ul>
+            <div class="modal-actions">
+                <button class="modal-btn login-btn">Acessar conta</button>
+                <button class="modal-btn create-account-btn">Criar conta</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-links">
@@ -87,19 +101,30 @@
             <img src="smiles.png" alt="Smiles">
         </div>
     </footer>
-    <script>
-        const teste = document.getElementById("teste")
-        const modal = document.getElementById("modal")
-        teste.addEventListener("click", (event) => {
-            event.preventDefault()
 
-            if(modal.style.display === "none" || modal.style.display === " "){
-                modal.style.display = "block"
-            } else {
-                modal.style.display = "none"
+    <script>
+        // Modal functionality
+        document.getElementById("accountButton").onclick = function() {
+            document.getElementById("accountModal").style.display = "block";
+        }
+
+        document.getElementById("closeModal").onclick = function() {
+            document.getElementById("accountModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("accountModal")) {
+                document.getElementById("accountModal").style.display = "none";
             }
-            
-        })
+        }
+
+        document.querySelector('.create-account-btn').onclick = function() {
+            window.location.href = "/templates/cadastrar.html"; 
+        }
+
+        document.querySelector('.login-btn').onclick = function() {
+            window.location.href = "/templates/login.html";
+        }
     </script>
 </body>
 </html>
