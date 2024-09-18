@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@RestController
+@Controller
 @RequestMapping(value = "/usuario")
 public class UsuarioController {
 
@@ -18,27 +17,25 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
+		public List<UsuarioDTO> listarTodos(){
+			return usuarioService.listarTodos();
+		}
 
-	@GetMapping
-	public List<UsuarioDTO> listarTodos(){
-		return usuarioService.listarTodos();
-	}
+		@PostMapping
+		public void inserir(@RequestBody UsuarioDTO usuario){
+			usuarioService.inserir(usuario);
+		}
 
-	@PostMapping
-	public void inserir(@RequestBody UsuarioDTO usuario){
-		usuarioService.inserir(usuario);
-	}
+		@PutMapping
+		public UsuarioDTO alterar(@RequestBody UsuarioDTO usuario){
+			return usuarioService.alterar(usuario);
+		}
 
-	@PutMapping
-	public UsuarioDTO alterar(@RequestBody UsuarioDTO usuario){
-		return usuarioService.alterar(usuario);
-	}
-
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
-		usuarioService.excluir(id);
-		return ResponseEntity.ok().build();
-	}
+		@DeleteMapping("/{id}")
+		public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
+			usuarioService.excluir(id);
+			return ResponseEntity.ok().build();
+		}
 
 }
 
