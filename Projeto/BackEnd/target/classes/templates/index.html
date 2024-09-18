@@ -76,11 +76,11 @@
     <div id="accountModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeModal">&times;</span>
-            <h2>Acesse sua conta GOL</h2>
-            <ul>
-                <li>Administre suas viagens com mais facilidade</li>
-                <li>Cadastre programas de fidelidade</li>
-                <li>Agilize suas compras de passagens</li>
+            <h2 class="modal-header">Acesse sua conta Arline</h2>
+            <ul class="modal-list">
+                <li><i class="fas fa-check"></i> Administre suas viagens com mais facilidade</li>
+                <li><i class="fas fa-check"></i> Cadastre programas de fidelidade</li>
+                <li><i class="fas fa-check"></i> Agilize suas compras de passagens</li>
             </ul>
             <div class="modal-actions">
                 <button class="modal-btn login-btn">Acessar conta</button>
@@ -88,6 +88,7 @@
             </div>
         </div>
     </div>
+    
 
     <footer>
         <div class="footer-links">
@@ -103,18 +104,32 @@
     </footer>
 
     <script>
-        // Modal functionality
-        document.getElementById("accountButton").onclick = function() {
-            document.getElementById("accountModal").style.display = "block";
+        // Dropdown modal functionality
+        document.getElementById("accountButton").onclick = function(event) {
+            const modal = document.getElementById("accountModal");
+            
+            // Alternar a visibilidade do modal
+            if (modal.style.display === "block") {
+                modal.style.display = "none";
+            } else {
+                modal.style.display = "block";
+                
+                // Ajuste para exibir abaixo do botão sem sobrepor
+                const buttonRect = event.target.getBoundingClientRect();
+                modal.style.top = buttonRect.bottom + window.scrollY + "px"; // Exibir logo abaixo do botão
+                modal.style.left = buttonRect.left + window.scrollX + "px"; // Alinhamento à esquerda do botão
+            }
         }
 
         document.getElementById("closeModal").onclick = function() {
             document.getElementById("accountModal").style.display = "none";
         }
 
+        // Close the modal when clicking outside
         window.onclick = function(event) {
-            if (event.target == document.getElementById("accountModal")) {
-                document.getElementById("accountModal").style.display = "none";
+            const modal = document.getElementById("accountModal");
+            if (event.target !== modal && event.target !== document.getElementById("accountButton")) {
+                modal.style.display = "none";
             }
         }
 
