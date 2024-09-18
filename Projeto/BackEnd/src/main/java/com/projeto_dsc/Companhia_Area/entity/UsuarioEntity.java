@@ -34,10 +34,10 @@ public class UsuarioEntity {
     @Column (nullable = false)
     private String cep; //Tem que fazer no DTO, controller e Ser
 
-    @Column (nullable = false)
+    @Column (nullable = false, unique = true)
     private String senha;
 
-    @Column (nullable = false)
+    @Column (nullable = false, unique = true)
     private String cpf;
 
     @Column (nullable = false)
