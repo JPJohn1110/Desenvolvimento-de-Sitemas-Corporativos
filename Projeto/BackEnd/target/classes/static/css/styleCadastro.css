@@ -48,7 +48,7 @@ input, select {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 25px;
+    font-size: 20px;
     box-sizing: border-box; /* Inclui o padding na largura do input */
 
 
@@ -61,7 +61,7 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 28px;
+    font-size: 25px;
     cursor: pointer;
 }
 

@@ -24,7 +24,7 @@ import com.projeto_dsc.Companhia_Area.service.UsuarioService;
 
 @Controller
 @CrossOrigin("*")
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "cavaloairplane")
 public class UsuarioController {
 
 	
@@ -68,7 +68,14 @@ public class UsuarioController {
 
 //FIM DE LOGIN
 
+//ABRIR O INDEX
 
+@GetMapping("/index")
+    public String index() {
+		return "index"; // Retorna o nome do arquivo HTML (sem extensão)
+    }
+
+//FIM
 	@GetMapping
 	public List<UsuarioDTO> listarTodos(){
 		return usuarioService.listarTodos();
@@ -97,5 +104,7 @@ public class UsuarioController {
         usuarioService.inserir(usuario);
         return "Cadastro realizado com sucesso!";
     }
+
+
 }
 

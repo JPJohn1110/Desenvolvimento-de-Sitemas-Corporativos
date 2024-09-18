@@ -103,5 +103,62 @@
             <button type="submit">Cadastrar</button>
         </form>
     </div>
+
+    
+    <script>
+        // Selecionar o formulário e adicionar o evento de submit
+        document.getElementById("formUsuario").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevenir o envio padrão do formulário
+
+            // Obter os valores dos campos
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const cpf = document.getElementById("cpf").value;
+            const genero = document.getElementById("genero").value;
+            const numeroDocumento = document.getElementById("numeroDocumento").value;
+            const tipoDocumento = document.getElementById("tipoDocumento").value;
+            const login = document.getElementById("login").value;
+            const telefone = document.getElementById("telefone").value;
+            const cep = document.getElementById("cep").value;
+
+
+
+            // Criar o objeto de dados (deve corresponder ao DTO no backend)
+            const usuario = {
+                nome: nome,
+                email: email,
+                senha: senha,
+                cpf: cpf,
+                genero: gener,
+                numeroDocumento:numeroDocumento,
+                tipoDocumento: tipoDocumento,
+                telefone: telefone,
+                cep: cep
+            };
+
+            // Enviar a requisição POST usando fetch API
+            fetch("/usuario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(usuario)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirecionar para a página /usuario
+                    window.location.href = "/usuario";
+                } else {
+                    alert("Erro ao cadastrar usuário.");
+                }
+            })
+            .catch(error => {
+                console.error("Erro na requisição:", error);
+            });
+        });
+    </script>
+
+
 </body>
 </html>
