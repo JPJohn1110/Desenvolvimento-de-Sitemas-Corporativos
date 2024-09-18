@@ -17,6 +17,15 @@ body {
 
 }
 
+.left-image {
+    width: 40%; /* Largura do lado esquerdo */
+    background-image: url('sua-imagem.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center;
+    opacity: 0.5; /* Transparência de 50% */
+}
+
 h2 {
     color: #2e5c9a;
     border-bottom: 2px solid #ddd;
