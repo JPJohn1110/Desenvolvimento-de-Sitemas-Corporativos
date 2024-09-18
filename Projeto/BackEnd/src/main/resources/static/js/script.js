@@ -45,3 +45,4 @@ document.getElementById("formCadastro").addEventListener("submit", async functio
         document.getElementById("mensagem").innerText = "Erro de conexão com o servidor.";
     }
 });
+
