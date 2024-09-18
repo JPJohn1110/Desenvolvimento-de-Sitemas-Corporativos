@@ -20,10 +20,12 @@ header {
 
 .logo img {
     height: 70px;
+    
 }
 
 nav {
     flex-grow: 1;
+    margin-left: 20px;
 }
 
 .navbar {

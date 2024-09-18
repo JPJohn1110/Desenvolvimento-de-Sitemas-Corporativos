@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/styleCadastro.css">
+=======
+    <link rel="stylesheet" href="css/styleCadastro.css">
+>>>>>>> 61dc087ef30a6ef1a9f29d4df63f0b2e904accdb
 </head>
 <body>
-    
     <div class="container">
-        <form action="/cadastrar" method="POST">
+        <form id="formCadastro">
             <h2>Informações Pessoais</h2>
             <div class="form-row">
                 <div class="form-group">
@@ -73,7 +76,7 @@
             </div>
 
             <div class="form-row">
-				<div class="form-group">
+                <div class="form-group">
                     <label for="document-type">Tipo de Documento:</label>
                     <select id="document-type" name="tipoDocumento" required>
                         <option value="">Selecione</option>
@@ -83,14 +86,13 @@
                         <option value="carteira-trabalho">Carteira de Trabalho</option>
                         <option value="reservista">Reservista</option>
                     </select>
-				</div>
+                </div>
 
-				<div class="form-group">
+                <div class="form-group">
                     <label for="cep">CEP:</label>
                     <input type="text" id="cep" name="cep" placeholder="Informe o CEP" required>
                 </div>
             </div>
-
 
             <h2>Informações de Cadastro</h2>
             <div class="form-row">
@@ -102,63 +104,9 @@
             
             <button type="submit">Cadastrar</button>
         </form>
+        <div id="mensagem"></div>
     </div>
 
-    
-    <script>
-        // Selecionar o formulário e adicionar o evento de submit
-        document.getElementById("formUsuario").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevenir o envio padrão do formulário
-
-            // Obter os valores dos campos
-            const nome = document.getElementById("nome").value;
-            const email = document.getElementById("email").value;
-            const senha = document.getElementById("senha").value;
-            const cpf = document.getElementById("cpf").value;
-            const genero = document.getElementById("genero").value;
-            const numeroDocumento = document.getElementById("numeroDocumento").value;
-            const tipoDocumento = document.getElementById("tipoDocumento").value;
-            const login = document.getElementById("login").value;
-            const telefone = document.getElementById("telefone").value;
-            const cep = document.getElementById("cep").value;
-
-
-
-            // Criar o objeto de dados (deve corresponder ao DTO no backend)
-            const usuario = {
-                nome: nome,
-                email: email,
-                senha: senha,
-                cpf: cpf,
-                genero: gener,
-                numeroDocumento:numeroDocumento,
-                tipoDocumento: tipoDocumento,
-                telefone: telefone,
-                cep: cep
-            };
-
-            // Enviar a requisição POST usando fetch API
-            fetch("/usuario", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(usuario)
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Redirecionar para a página /usuario
-                    window.location.href = "/usuario";
-                } else {
-                    alert("Erro ao cadastrar usuário.");
-                }
-            })
-            .catch(error => {
-                console.error("Erro na requisição:", error);
-            });
-        });
-    </script>
-
-
+    <script src="js/script.js"></script>
 </body>
 </html>
