@@ -24,7 +24,7 @@ import com.projeto_dsc.Companhia_Area.service.UsuarioService;
 
 @Controller
 @CrossOrigin("*")
-@RequestMapping(value = "cavaloairplane")
+@RequestMapping(value = "/usuario")
 public class UsuarioController {
 
 	
@@ -76,6 +76,8 @@ public class UsuarioController {
     }
 
 //FIM
+
+
 	@GetMapping
 	public List<UsuarioDTO> listarTodos(){
 		return usuarioService.listarTodos();

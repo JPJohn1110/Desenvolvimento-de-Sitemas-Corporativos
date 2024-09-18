@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprar Passagem - CAVALO AIRPLANE</title>
-    <link rel="stylesheet" href="/css/stylePrincipal.css">
+    <link rel="stylesheet" href="../static/css/stylePrincipal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="/images/cavalo2.png" alt="Cavalo Airplane Logo">
+            <img src="../static/images/cavalo2.png" alt="Cavalo Airplane Logo">
         </div>
         <nav>
             <ul class="navbar">
@@ -88,7 +88,32 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="container">
+        <h2>Faça seu Check-in</h2>
+        <form>
+            <div class="form-group">
+                <label for="codigoReserva">Código de Reserva:</label>
+                <input type="text" id="codigoReserva" placeholder="Informe o código da reserva">
+            </div>
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" placeholder="Informe seu sobrenome">
+            </div>
+            <button type="button" id="checkinButton">Fazer Check-in</button>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div id="checkinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Confirmar Check-in</h2>
+            <p>Seu check-in foi realizado com sucesso.</p>
+        </div>
+    </div>
+
+
 
     <footer>
         <div class="footer-links">
@@ -141,5 +166,7 @@
             window.location.href = "/cavaloairplane/login";
         }
     </script>
+
+
 </body>
 </html>
