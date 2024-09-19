@@ -17,32 +17,51 @@ document.getElementById("formCadastro").addEventListener("submit", async functio
         cep: document.getElementById("cep").value,
         promoCode: document.getElementById("promo-code").value
     };
+            // Verificar se as senhas coincidem
+            if (formData.senha !== formData.confirmaSenha) {
+                exibirModal("As senhas não coincidem!");
+                return;
+            }
 
-    // Validando se as senhas coincidem
-    if (formData.senha !== formData.confirmaSenha) {
-        document.getElementById("mensagem").innerText = "As senhas não coincidem!";
-        return;
-    }
+            try {
+                // Enviando os dados ao backend via POST
+                const response = await fetch("http://localhost:8080/usuario", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-    try {
-        // Enviando os dados ao backend via POST
-        const response = await fetch("http://localhost:8080/usuario", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
+                // Tratando a resposta como texto
+                const result = await response.text();
+
+                if (response.ok) {
+                    exibirModal(result);  // Mostra a mensagem de sucesso no modal
+                } else {
+                    exibirModal("Erro ao cadastrar. Tente novamente.");  // Mostra a mensagem de erro
+                }
+
+            } catch (error) {
+                exibirModal("Erro de conexão com o servidor.");  // Mostra erro de conexão no modal
+            }
         });
 
-        // Tratando a resposta
-        if (response.ok) {
-            const result = await response.json();
-            document.getElementById("mensagem").innerText = "Cadastro realizado com sucesso!";
-        } else {
-            document.getElementById("mensagem").innerText = "Erro ao cadastrar. Tente novamente.";
-        }
-    } catch (error) {
-        document.getElementById("mensagem").innerText = "Erro de conexão com o servidor.";
-    }
-});
+        // Funções de exibição do modal e eventos de fechamento
+   const modal = document.getElementById("modalMensagem");
+   const closeButton = document.getElementsByClassName("close")[0];
 
+   closeButton.onclick = function() {
+       modal.style.display = "none";
+   }
+
+   window.onclick = function(event) {
+       if (event.target == modal) {
+           modal.style.display = "none";
+       }
+   }
+   
+   function exibirModal(mensagem) {
+    document.getElementById("mensagemModal").innerText = mensagem;
+    modal.style.display = "flex";  // Exibe o modal
+}
