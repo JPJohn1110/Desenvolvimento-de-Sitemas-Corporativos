@@ -8,16 +8,18 @@ public class UsuarioDTO {
     private Long id;
     private String nome;
     private String email;
-    private String login;
     private String senha;
-    private String cpf;
     private String telefone;
-    private String dataNascimento;
-    private String genero;
-    private String tipoDocumento;
-    private Long numeroDocumento;
-    private String cep;
+    private String codigoAcesso;
+    private String cpf;
 
+
+    public String getCpf() {
+        return cpf;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
     public UsuarioDTO(UsuarioEntity usuario) {
         BeanUtils.copyProperties(usuario, this);
     }
@@ -27,10 +29,6 @@ public class UsuarioDTO {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -49,13 +47,6 @@ public class UsuarioDTO {
         this.email = email;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
     public String getSenha() {
         return senha;
@@ -63,14 +54,6 @@ public class UsuarioDTO {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public String getTelefone() {
@@ -81,43 +64,11 @@ public class UsuarioDTO {
         this.telefone = telefone;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
+    public String getCodigoAcesso() {
+        return codigoAcesso;
+    }
+    public void setCodigoAcesso(String codigoAcesso) {
+        this.codigoAcesso = codigoAcesso;
     }
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public Long getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(Long numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
 }

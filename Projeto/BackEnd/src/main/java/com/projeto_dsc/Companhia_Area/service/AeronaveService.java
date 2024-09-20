@@ -14,8 +14,6 @@ import java.util.List;
 public class AeronaveService {
     @Autowired
     AeronaveRepository aeronaveRepository;
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
     public List<AeronaveDTO> listarTodos() {
         List<AeronaveEntity> aeronave = aeronaveRepository.findAll();

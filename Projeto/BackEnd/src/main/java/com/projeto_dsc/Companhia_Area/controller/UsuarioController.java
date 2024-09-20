@@ -30,11 +30,11 @@ public class UsuarioController {
             // Chame o serviço para inserir o usuário no banco de dados
             usuarioService.inserir(usuario);
 
-			return ResponseEntity.ok("Usuário cadastrado com sucesso!");
+			return ResponseEntity.ok("Fucionário cadastrado com sucesso!");
 
         } catch (Exception e) {
             // Em caso de erro, retorne uma resposta de erro (HTTP 500 Internal Server Error)
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao cadastrar o usuário.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao cadastrar.");
         }
 
 		}

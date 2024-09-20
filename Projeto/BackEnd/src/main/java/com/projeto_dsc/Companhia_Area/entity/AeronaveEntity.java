@@ -17,6 +17,39 @@ public class AeronaveEntity {
     @Column (nullable = false)
     private int capacidade;
 
+    @Column (nullable = false)
+    private int assentosPrimeiraClasse;
+
+    @Column (nullable = false)
+    private int assentosSegundaClasse;
+
+    @Column (nullable = false)
+    private int portaEmbarque;
+
+    public int getAssentosPrimeiraClasse() {
+        return assentosPrimeiraClasse;
+    }
+
+    public void setAssentosPrimeiraClasse(int assentosPrimeiraClasse) {
+        this.assentosPrimeiraClasse = assentosPrimeiraClasse;
+    }
+
+    public int getAssentosSegundaClasse() {
+        return assentosSegundaClasse;
+    }
+
+    public void setAssentosSegundaClasse(int assentosSegundaClasse) {
+        this.assentosSegundaClasse = assentosSegundaClasse;
+    }
+
+    public int getPortaEmbarque() {
+        return portaEmbarque;
+    }
+
+    public void setPortaEmbarque(int portaEmbarque) {
+        this.portaEmbarque = portaEmbarque;
+    }
+
     public AeronaveEntity(AeronaveDTO aeronave) {
         BeanUtils.copyProperties(aeronave, this);
     }

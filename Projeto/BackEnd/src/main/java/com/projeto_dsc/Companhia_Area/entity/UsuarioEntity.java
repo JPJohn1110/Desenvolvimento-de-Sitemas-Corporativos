@@ -18,39 +18,20 @@ public class UsuarioEntity {
     private String nome;
 
     @Column (nullable = false, unique = true)
-    private String login;
-
-    @Column (nullable = false)
-    private String genero; //Tem que fazer no DTO, controller e Ser
-
-
-    @Column (nullable = false)
-    private String tipoDocumento; //Tem que fazer no DTO, controller e Ser
-
-    @Column (nullable = false)
-    private Long numeroDocumento; //Tem que fazer no DTO, controller e Ser
-
-
-    @Column (nullable = false)
-    private String cep; //Tem que fazer no DTO, controller e Ser
-
-    @Column (nullable = false, unique = true)
     private String senha;
-
-    @Column (nullable = false, unique = true)
-    private String cpf;
 
     @Column (nullable = false)
     private String email;
 
-   
 
     @Column (nullable = false)
     private String telefone;
 
     @Column (nullable = false)
-    private String dataNascimento;
+    private String codigoAcesso;
     
+    @Column (nullable = false)
+    private String cpf;
 
     public UsuarioEntity(UsuarioDTO usuario) {
         BeanUtils.copyProperties(usuario, this);
@@ -75,46 +56,6 @@ public class UsuarioEntity {
         this.nome = nome;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public Long getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(Long numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -123,13 +64,6 @@ public class UsuarioEntity {
         this.senha = senha;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public String getEmail() {
         return email;
@@ -147,12 +81,19 @@ public class UsuarioEntity {
         this.telefone = telefone;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
+
+    public String getCpf() {
+        return cpf;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public String getCodigoAcesso() {
+        return codigoAcesso;
+    }
+    public void setCodigoAcesso(String codigoAcesso) {
+        this.codigoAcesso = codigoAcesso;
     }
 
     @Override
@@ -167,4 +108,5 @@ public class UsuarioEntity {
         UsuarioEntity that = (UsuarioEntity) o;
         return id == that.id;
     }
+   
 }

@@ -23,4 +23,9 @@ public class AuthController {
     public String paginaLogin() {
         return "login";
     }
+
+    @GetMapping("/aeronave")
+    public String aeronaves() {
+        return "aeronave";
+    }
 }
