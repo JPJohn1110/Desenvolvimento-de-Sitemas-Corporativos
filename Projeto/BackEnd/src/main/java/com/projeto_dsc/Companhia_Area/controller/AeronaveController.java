@@ -34,12 +34,23 @@ public class AeronaveController {
     }
 
     @PutMapping
-    public void atualizar(@RequestBody AeronaveDTO aeronaveDTO){
-        aeronaveService.alterar(aeronaveDTO);
+    public ResponseEntity<String> atualizar(@RequestBody AeronaveDTO aeronaveDTO){
+        try {
+            aeronaveService.alterar(aeronaveDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Aeronave atualizada com sucesso!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao atualizar a aeronave: " + e.getMessage());
+        }
+
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id){
-        aeronaveService.excluir(id);
+    public ResponseEntity<String> excluir(@PathVariable Long id){
+        try {
+            aeronaveService.excluir(id);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Aeronave excluida com sucesso!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao excluir a aeronave: " + e.getMessage());
+        }
     }
 }
