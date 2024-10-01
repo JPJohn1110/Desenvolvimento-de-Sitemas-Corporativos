@@ -4,59 +4,45 @@ import com.projeto_dsc.Companhia_Area.dto.AeronaveDTO;
 import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
+import java.util.Objects;
+
 @Entity
 @Table (name = "Aeronave")
 public class AeronaveEntity {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String modelo;
 
-    @Column (nullable = false)
-    private int capacidade;
+    @Column(nullable = false)
+    private String tipo;
 
-    @Column (nullable = false)
-    private int assentosPrimeiraClasse;
+    @Column(nullable = false)
+    private Double pesoMaxDecol;
 
-    @Column (nullable = false)
-    private int assentosSegundaClasse;
+    @Column(nullable = false)
+    private Double pesoVazio;
 
-    @Column (nullable = false)
-    private int portaEmbarque;
+    @Column(nullable = false)
+    private int capacidadeOcupantes;
 
-    public int getAssentosPrimeiraClasse() {
-        return assentosPrimeiraClasse;
-    }
+    @Column(nullable = false)
+    private Double velocidadeMedia;
 
-    public void setAssentosPrimeiraClasse(int assentosPrimeiraClasse) {
-        this.assentosPrimeiraClasse = assentosPrimeiraClasse;
-    }
+    @Column(nullable = false)
+    private Double combustivelMax;
 
-    public int getAssentosSegundaClasse() {
-        return assentosSegundaClasse;
-    }
+    @Column(nullable = false)
+    private Double consumoHora;
 
-    public void setAssentosSegundaClasse(int assentosSegundaClasse) {
-        this.assentosSegundaClasse = assentosSegundaClasse;
-    }
-
-    public int getPortaEmbarque() {
-        return portaEmbarque;
-    }
-
-    public void setPortaEmbarque(int portaEmbarque) {
-        this.portaEmbarque = portaEmbarque;
-    }
-
-    public AeronaveEntity(AeronaveDTO aeronave) {
-        BeanUtils.copyProperties(aeronave, this);
-    }
-
+    //Construtores
     public AeronaveEntity() {
     }
+    public AeronaveEntity(AeronaveDTO aeronave) {BeanUtils.copyProperties(aeronave, this);}
 
+    //Get e Set id
     public Long getId() {
         return id;
     }
@@ -65,6 +51,7 @@ public class AeronaveEntity {
         this.id = id;
     }
 
+    //Get e Set modelo
     public String getModelo() {
         return modelo;
     }
@@ -73,11 +60,80 @@ public class AeronaveEntity {
         this.modelo = modelo;
     }
 
-    public int getCapacidade() {
-        return capacidade;
+    //Get e Set PesoMaxDecol
+    public Double getPesoMaxDecol() {
+        return pesoMaxDecol;
     }
 
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    public void setPesoMaxDecol(Double pesoMaxDecol) {
+        this.pesoMaxDecol = pesoMaxDecol;
+    }
+
+    //Get e Set PesoVazio
+    public Double getPesoVazio() {
+        return pesoVazio;
+    }
+
+    public void setPesoVazio(Double pesoVazio) {
+        this.pesoVazio = pesoVazio;
+    }
+
+    //Get e Set CapacidadeOcupantes
+    public int getCapacidadeOcupantes() {
+        return capacidadeOcupantes;
+    }
+
+    public void setCapacidadeOcupantes(int capacidadeOcupantes) {
+        this.capacidadeOcupantes = capacidadeOcupantes;
+    }
+
+    //Get e Set VelocidadeMedia
+    public Double getVelocidadeMedia() {
+        return velocidadeMedia;
+    }
+
+    public void setVelocidadeMedia(Double velocidadeMedia) {
+        this.velocidadeMedia = velocidadeMedia;
+    }
+
+    //Get e Set CombustivelMax
+    public Double getCombustivelMax() {
+        return combustivelMax;
+    }
+
+    public void setCombustivelMax(Double combustivelMax) {
+        this.combustivelMax = combustivelMax;
+    }
+
+    //Get e Set ConsumoHora
+    public Double getConsumoHora() {
+        return consumoHora;
+    }
+
+    public void setConsumoHora(Double consumoHora) {
+        this.consumoHora = consumoHora;
+    }
+
+    //Get e Set Tipo
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    //Hassh e equal
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AeronaveEntity that = (AeronaveEntity) o;
+        return id == that.id;
     }
 }

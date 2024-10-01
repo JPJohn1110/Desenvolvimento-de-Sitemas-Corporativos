@@ -1,27 +1,35 @@
 package com.projeto_dsc.Companhia_Area.dto;
 
 import com.projeto_dsc.Companhia_Area.entity.AeronaveEntity;
+import jakarta.persistence.Column;
 import org.springframework.beans.BeanUtils;
 
 public class AeronaveDTO {
+
     private Long id;
     private String modelo;
-    private int capacidade;
-    private int assentosPrimeiraClasse;
-    private int assentosSegundaClasse;
-    private int portaEmbarque;
+    private String tipo;
+    private Double pesoMaxDecol;
+    private Double pesoVazio;
+    private int capacidadeOcupantes;
+    private Double velocidadeMedia;
+    private Double combustivelMax;
+    private Double consumoHora;
 
-    public AeronaveDTO(AeronaveEntity aeronave) {
-        BeanUtils.copyProperties(aeronave, this);
-    }
+    //Construtores
+    public AeronaveDTO(AeronaveEntity aeronave) {BeanUtils.copyProperties(aeronave, this);}
+    public AeronaveDTO() {}
 
-    public AeronaveDTO() {
-    }
-
+    //Get e Set id
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    //Get e Set modelo
     public String getModelo() {
         return modelo;
     }
@@ -30,37 +38,67 @@ public class AeronaveDTO {
         this.modelo = modelo;
     }
 
-    public int getCapacidade() {
-        return capacidade;
+    //Get e Set PesoMaxDecol
+    public Double getPesoMaxDecol() {
+        return pesoMaxDecol;
     }
 
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    public void setPesoMaxDecol(Double pesoMaxDecol) {
+        this.pesoMaxDecol = pesoMaxDecol;
     }
 
-    public int getAssentosPrimeiraClasse() {
-        return assentosPrimeiraClasse;
+    //Get e Set PesoVazio
+    public Double getPesoVazio() {
+        return pesoVazio;
     }
 
-    public void setAssentosPrimeiraClasse(int assentosPrimeiraClasse) {
-        this.assentosPrimeiraClasse = assentosPrimeiraClasse;
+    public void setPesoVazio(Double pesoVazio) {
+        this.pesoVazio = pesoVazio;
     }
 
-    public int getAssentosSegundaClasse() {
-        return assentosSegundaClasse;
+    //Get e Set CapacidadeOcupantes
+    public int getCapacidadeOcupantes() {
+        return capacidadeOcupantes;
     }
 
-    public void setAssentosSegundaClasse(int assentosSegundaClasse) {
-        this.assentosSegundaClasse = assentosSegundaClasse;
+    public void setCapacidadeOcupantes(int capacidadeOcupantes) {
+        this.capacidadeOcupantes = capacidadeOcupantes;
     }
 
-    public int getPortaEmbarque() {
-        return portaEmbarque;
+    //Get e Set VelocidadeMedia
+    public Double getVelocidadeMedia() {
+        return velocidadeMedia;
     }
 
-    public void setPortaEmbarque(int portaEmbarque) {
-        this.portaEmbarque = portaEmbarque;
+    public void setVelocidadeMedia(Double velocidadeMedia) {
+        this.velocidadeMedia = velocidadeMedia;
     }
 
+    //Get e Set CombustivelMax
+    public Double getCombustivelMax() {
+        return combustivelMax;
+    }
+
+    public void setCombustivelMax(Double combustivelMax) {
+        this.combustivelMax = combustivelMax;
+    }
+
+    //Get e Set ConsumoHora
+    public Double getConsumoHora() {
+        return consumoHora;
+    }
+
+    public void setConsumoHora(Double consumoHora) {
+        this.consumoHora = consumoHora;
+    }
+
+    //Get e Set Tipo
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
 }
