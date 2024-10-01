@@ -4,12 +4,15 @@ import com.projeto_dsc.Companhia_Area.dto.UsuarioDTO;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
 import com.projeto_dsc.Companhia_Area.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UsuarioService {
+public class UsuarioService implements UserDetailsService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -37,6 +40,11 @@ public class UsuarioService {
     public UsuarioDTO buscarPorId(Long id) {
         UsuarioEntity usuario = usuarioRepository.findById(id).get();
         return new UsuarioDTO(usuario);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return usuarioRepository.findByEmail(email);
     }
 
 }

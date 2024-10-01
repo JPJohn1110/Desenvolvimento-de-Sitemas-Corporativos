@@ -5,6 +5,8 @@ import com.projeto_dsc.Companhia_Area.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.http.ResponseEntity.HeadersBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +16,6 @@ import java.util.List;
 @RequestMapping(value = "/usuario")
 public class UsuarioController {
 
-	
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -27,13 +28,11 @@ public class UsuarioController {
 		@ResponseStatus(HttpStatus.OK)
 		public ResponseEntity<String> inserir(@RequestBody UsuarioDTO usuario){
 			try {
-            // Chame o serviço para inserir o usuário no banco de dados
             usuarioService.inserir(usuario);
-
-			return ResponseEntity.ok("Fucionário cadastrado com sucesso!");
+			
+			return ((HeadersBuilder<BodyBuilder>) ResponseEntity.ok()).build();
 
         } catch (Exception e) {
-            // Em caso de erro, retorne uma resposta de erro (HTTP 500 Internal Server Error)
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao cadastrar.");
         }
 
@@ -45,8 +44,8 @@ public class UsuarioController {
 		}
 
 		@DeleteMapping("/{id}")
-		public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
-			usuarioService.excluir(id);
+		public ResponseEntity<Void> excluir(@PathVariable("id") Long id_){
+			usuarioService.excluir(id_);
 			return ResponseEntity.ok().build();
 		}
 
