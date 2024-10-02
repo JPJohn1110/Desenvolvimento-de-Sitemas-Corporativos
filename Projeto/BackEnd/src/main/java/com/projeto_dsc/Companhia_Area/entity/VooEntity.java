@@ -1,15 +1,11 @@
 package com.projeto_dsc.Companhia_Area.entity;
 
+import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
 import com.projeto_dsc.Companhia_Area.dto.VooDTO;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table (name = "VOO")
@@ -23,10 +19,17 @@ public class VooEntity {
     private String origem;
 
     @Column (nullable = false)
+    private String numeroVoo;
+
+    @Column (nullable = false)
     private String destino;
 
     @Column (nullable = false)
     private String duracao;
+
+    @ManyToOne
+    @JoinColumn(name = "aeronave_id")
+    private AeronaveEntity aeronave;
 
     public VooEntity(VooDTO voo) {
         BeanUtils.copyProperties(voo, this);
@@ -36,8 +39,7 @@ public class VooEntity {
 
     }
 
-    //Getter e Setter
-
+    //Get e Set Id
     public Long getId() {
         return id;
     }
@@ -46,6 +48,7 @@ public class VooEntity {
         this.id = id;
     }
 
+    //Get e Set origem
     public String getOrigem() {
         return origem;
     }
@@ -54,6 +57,7 @@ public class VooEntity {
         this.origem = origem;
     }
 
+    //Get e Set destino
     public String getDestino() {
         return destino;
     }
@@ -62,6 +66,7 @@ public class VooEntity {
         this.destino = destino;
     }
 
+    //Get e Set duracao
     public String getDuracao() {
         return duracao;
     }
@@ -70,7 +75,37 @@ public class VooEntity {
         this.duracao = duracao;
     }
 
+    //Get e Set numero do VOo
+    public String getNumeroVoo() {
+        return numeroVoo;
+    }
 
+    public void setNumeroVoo(String numeroVoo) {
+        this.numeroVoo = numeroVoo;
+    }
+
+    //Get e Set aeronave
+    public AeronaveEntity getAeronave() {
+        return aeronave;
+    }
+
+    public void setAeronave(AeronaveEntity aeronave) {
+        this.aeronave = aeronave;
+    }
+
+    //Hash e equal
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VooEntity that = (VooEntity) o;
+        return id == that.id;
+    }
 }
 
  

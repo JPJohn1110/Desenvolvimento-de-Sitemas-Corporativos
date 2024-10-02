@@ -4,6 +4,9 @@ import com.projeto_dsc.Companhia_Area.dto.AeronaveDTO;
 import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -36,6 +39,9 @@ public class AeronaveEntity {
 
     @Column(nullable = false)
     private Double consumoHora;
+
+    @OneToMany (mappedBy = "aeronave", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VooEntity> voos = new ArrayList<>();
 
     //Construtores
     public AeronaveEntity() {
@@ -121,6 +127,15 @@ public class AeronaveEntity {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    //Get e Set Voo
+    public List<VooEntity> getVoos() {
+        return voos;
+    }
+
+    public void setVoos(List<VooEntity> voos) {
+        this.voos = voos;
     }
 
     //Hassh e equal
