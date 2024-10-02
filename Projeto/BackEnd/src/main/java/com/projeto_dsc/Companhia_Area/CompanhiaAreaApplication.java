@@ -11,3 +11,13 @@ public class CompanhiaAreaApplication {
 	}
 	
 }
+
+
+/*{
+    "nome": "bbk",
+    "email": "123",
+    "senha": "j78p",
+    "telefone": "321",
+    "codigoAcesso": "789",
+    "cpf": "000"
+  } */

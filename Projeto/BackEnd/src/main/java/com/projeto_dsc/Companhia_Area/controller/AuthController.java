@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 
 public class AuthController {
-    @GetMapping("/")
+    @GetMapping("/auth")
     public String paginaInicial() {
         return "index";  // Retorna a página principal
     }
@@ -24,8 +24,9 @@ public class AuthController {
         return "login";
     }
 
-    /*@GetMapping("/aeronave")
+
+     @GetMapping("/aeronave")
     public String aeronaves() {
         return "aeronave";
-    }*/
+    }
 }

@@ -3,9 +3,10 @@ package com.projeto_dsc.Companhia_Area.dto;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
 import org.springframework.beans.BeanUtils;
 
+
 public class UsuarioDTO {
 
-    private Long id;
+    private Long id_;
     private String nome;
     private String email;
     private String senha;
@@ -28,7 +29,7 @@ public class UsuarioDTO {
     }
 
     public Long getId() {
-        return id;
+        return id_;
     }
 
     public String getNome() {
