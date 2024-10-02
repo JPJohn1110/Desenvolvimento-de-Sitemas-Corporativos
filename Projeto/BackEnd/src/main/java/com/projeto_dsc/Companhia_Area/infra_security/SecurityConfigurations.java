@@ -29,6 +29,7 @@ public class SecurityConfigurations {
 				.anyRequest().authenticated()
 
 				)
+			.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
 			.build();
 
 	}
