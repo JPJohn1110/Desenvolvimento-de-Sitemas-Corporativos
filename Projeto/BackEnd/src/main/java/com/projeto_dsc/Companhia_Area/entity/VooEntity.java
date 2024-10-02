@@ -19,7 +19,7 @@ public class VooEntity {
     private String origem;
 
     @Column (nullable = false)
-    private String numeroVoo;
+    private int numeroVoo;
 
     @Column (nullable = false)
     private String destino;
@@ -76,11 +76,11 @@ public class VooEntity {
     }
 
     //Get e Set numero do VOo
-    public String getNumeroVoo() {
+    public int getNumeroVoo() {
         return numeroVoo;
     }
 
-    public void setNumeroVoo(String numeroVoo) {
+    public void setNumeroVoo(int numeroVoo) {
         this.numeroVoo = numeroVoo;
     }
 

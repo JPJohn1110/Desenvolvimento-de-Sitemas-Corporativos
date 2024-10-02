@@ -1,8 +1,12 @@
 package com.projeto_dsc.Companhia_Area.dto;
 
 import com.projeto_dsc.Companhia_Area.entity.AeronaveEntity;
+import com.projeto_dsc.Companhia_Area.entity.VooEntity;
 import jakarta.persistence.Column;
 import org.springframework.beans.BeanUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AeronaveDTO {
 
@@ -15,6 +19,7 @@ public class AeronaveDTO {
     private Double velocidadeMedia;
     private Double combustivelMax;
     private Double consumoHora;
+    private List<VooEntity> voos = new ArrayList<>();
 
     //Construtores
     public AeronaveDTO(AeronaveEntity aeronave) {BeanUtils.copyProperties(aeronave, this);}
@@ -101,4 +106,12 @@ public class AeronaveDTO {
         this.tipo = tipo;
     }
 
+    //Get e Set voos
+    public List<VooEntity> getVoos() {
+        return voos;
+    }
+
+    public void setVoos(List<VooEntity> voos) {
+        this.voos = voos;
+    }
 }

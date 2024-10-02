@@ -1,5 +1,6 @@
 package com.projeto_dsc.Companhia_Area.dto;
 
+import com.projeto_dsc.Companhia_Area.entity.AeronaveEntity;
 import org.springframework.beans.BeanUtils;
 import com.projeto_dsc.Companhia_Area.entity.VooEntity;
 
@@ -9,6 +10,8 @@ public class VooDTO {
     private String origem;
     private String destino;
     private String duracao;
+	private int numeroVoo;
+	private AeronaveEntity aeronave;
 
 	public VooDTO(VooEntity voo) {
 		BeanUtils.copyProperties(voo, this);
@@ -48,6 +51,22 @@ public class VooDTO {
 
 	public void setDuracao(String duracao) {
 		this.duracao = duracao;
+	}
+
+	public int getNumeroVoo() {
+		return numeroVoo;
+	}
+
+	public void setNumeroVoo(int numeroVoo) {
+		this.numeroVoo = numeroVoo;
+	}
+
+	public AeronaveEntity getAeronave() {
+		return aeronave;
+	}
+
+	public void setAeronave(AeronaveEntity aeronave) {
+		this.aeronave = aeronave;
 	}
 
 	//Getters e Setters
