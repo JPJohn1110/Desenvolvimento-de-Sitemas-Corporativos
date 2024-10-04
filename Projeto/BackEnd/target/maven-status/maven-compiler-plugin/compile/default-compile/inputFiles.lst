@@ -14,6 +14,7 @@
 /home/jpsr/Documentos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/BackEnd/src/main/java/com/projeto_dsc/Companhia_Area/entity/UsuarioRole.java
 /home/jpsr/Documentos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/BackEnd/src/main/java/com/projeto_dsc/Companhia_Area/entity/VooEntity.java
 /home/jpsr/Documentos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/BackEnd/src/main/java/com/projeto_dsc/Companhia_Area/infra_security/SecurityConfigurations.java
+/home/jpsr/Documentos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/BackEnd/src/main/java/com/projeto_dsc/Companhia_Area/infra_security/SecurityFilter.java
 /home/jpsr/Documentos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/BackEnd/src/main/java/com/projeto_dsc/Companhia_Area/infra_security/TokenService.java
 /home/jpsr/Documentos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/BackEnd/src/main/java/com/projeto_dsc/Companhia_Area/repository/AeronaveRepository.java
 /home/jpsr/Documentos/Desenvolvimento-de-Sitemas-Corporativos/Projeto/BackEnd/src/main/java/com/projeto_dsc/Companhia_Area/repository/UsuarioRepository.java

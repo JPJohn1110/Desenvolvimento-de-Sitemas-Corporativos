@@ -7,6 +7,7 @@ import com.projeto_dsc.Companhia_Area.dto.AuthenticationDTO;
 import com.projeto_dsc.Companhia_Area.dto.cadastroDTO;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioRole;
+import com.projeto_dsc.Companhia_Area.infra_security.TokenService;
 import com.projeto_dsc.Companhia_Area.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
+
+
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {
@@ -28,13 +31,18 @@ public class AuthenticationController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
+	@Autowired
+	private TokenService tokenService;
+	
 
 	@PostMapping("/login")	
 	public ResponseEntity login(@RequestBody @Validated AuthenticationDTO data) {
 		var usuarioSenha = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
 		var auth = this.authenticationManager.authenticate(usuarioSenha);
 
-		return ResponseEntity.ok().build();	
+		var token = tokenService.generateToken((UsuarioEntity)auth.getPrincipal());
+
+		return ResponseEntity.ok(token);	
 	}
 	
 	@PostMapping("/cadastro")

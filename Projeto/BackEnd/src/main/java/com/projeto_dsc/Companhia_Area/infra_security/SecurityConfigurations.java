@@ -1,5 +1,6 @@
 package com.projeto_dsc.Companhia_Area.infra_security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.aspectj.apache.bcel.classfile.ExceptionTable;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 import org.springframework.context.annotation.Bean;
@@ -13,10 +14,17 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.projeto_dsc.Companhia_Area.infra_security.SecurityFilter;
 
 @Configuration
 @EnableWebSecurity	
 public class SecurityConfigurations {
+	
+	@Autowired
+    SecurityFilter securityFilter;
+	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
 		return httpSecurity

@@ -1,19 +1,21 @@
 package com.projeto_dsc.Companhia_Area.infra_security;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-import javax.management.RuntimeErrorException;
-
-import org.springframework.stereotype.Service;
-
-import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
-
 @Service
 public class TokenService {
 	
-	@Value("${api.security.token.secret	}")
+	@Value("${api.security.token.secret}")
 	private String secret;
 
 	public String generateToken(UsuarioEntity usuarioEntity){
@@ -23,7 +25,7 @@ public class TokenService {
 
 			String token = JWT.create()
 					.withIssuer("companhia-aerea")
-					.withSubject(usuarioEntity.getCodigoAcesso)
+					.withSubject(usuarioEntity.getCodigoAcesso())
 					.withExpiresAt(genExpirationDate())
 					.sign(algorithm);
 			

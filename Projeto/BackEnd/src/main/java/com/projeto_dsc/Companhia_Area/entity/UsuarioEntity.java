@@ -43,6 +43,9 @@ public class UsuarioEntity implements UserDetails {
     @Column (nullable = true, unique = true)
     private String codigoAcesso;
     
+    public String getCodigoAcesso() {
+        return codigoAcesso;
+    }
     @Column (nullable = true, unique = true)
     private String cpf;
 
