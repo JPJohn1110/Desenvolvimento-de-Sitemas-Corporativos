@@ -6,9 +6,9 @@
     import lombok.NoArgsConstructor;
     import org.apache.catalina.Role;
     import org.springframework.beans.BeanUtils;
-    import org.springframework.security.core.GrantedAuthority;
-    import org.springframework.security.core.authority.SimpleGrantedAuthority;
-    import org.springframework.security.core.userdetails.UserDetails;
+    //import org.springframework.security.core.GrantedAuthority;
+    //import org.springframework.security.core.authority.SimpleGrantedAuthority;
+    //import org.springframework.security.core.userdetails.UserDetails;
     import org.thymeleaf.expression.Objects;
     import com.projeto_dsc.Companhia_Area.dto.UsuarioDTO;
     import java.util.Collection;
@@ -19,7 +19,7 @@
     @Getter
     @AllArgsConstructor
     @EqualsAndHashCode(of = "id")
-public class UsuarioEntity implements UserDetails {
+public class UsuarioEntity /*implements UserDetails*/ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,7 +76,7 @@ public class UsuarioEntity implements UserDetails {
         UsuarioEntity that = (UsuarioEntity) o;
         return id_ == that.id_;
     }
-    @Override
+    /*@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UsuarioRole.ADMIN) return List.of(new SimpleGrantedAuthority("UsuarioRole.ADMIN"), new SimpleGrantedAuthority("UsuarioRole.USUARIO"));
        
@@ -93,6 +93,6 @@ public class UsuarioEntity implements UserDetails {
     @Override
     public String getUsername() {
         return nome;
-    }
+    }*/
    
 }

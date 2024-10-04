@@ -1,5 +1,6 @@
 package com.projeto_dsc.Companhia_Area.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projeto_dsc.Companhia_Area.dto.AeronaveDTO;
 import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
@@ -41,6 +42,7 @@ public class AeronaveEntity {
     private Double consumoHora;
 
     @OneToMany (mappedBy = "aeronave", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<VooEntity> voos = new ArrayList<>();
 
     //Construtores

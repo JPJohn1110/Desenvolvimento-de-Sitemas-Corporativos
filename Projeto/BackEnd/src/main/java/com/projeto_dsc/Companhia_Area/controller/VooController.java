@@ -9,6 +9,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping(value = "/voo")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class VooController {
 
     @Autowired

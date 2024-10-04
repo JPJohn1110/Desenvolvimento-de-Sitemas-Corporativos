@@ -1,4 +1,4 @@
-package com.projeto_dsc.Companhia_Area.infra_security;
+/*package com.projeto_dsc.Companhia_Area.infra_security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.aspectj.apache.bcel.classfile.ExceptionTable;
@@ -51,3 +51,4 @@ public class SecurityConfigurations {
 		return new BCryptPasswordEncoder();	
 	}
 }
+*/

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeronaves</title>
+    <link rel="stylesheet" href="css/aeronave.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <img src="images/cavalo2.png" alt="">
+                <h2>Cavalo Airlines</h2>
+            </div>
+            <div class="user">
+                <img src="images/perfil-de-usuario.png" alt="">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-th-large"></i>
+                        <div>Inicio</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="aeronave.html">
+                        <i class="fas fa-plane-departure"></i>
+                        <div>Aeronaves</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="voo.html">
+                        <i><img src="images/voo.png" alt=""></i>
+                        <div>Voos</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="crud">
+                <div class="cabecalho">
+                    <span>Cadastrar Aeronave</span>
+                    <button onclick="openModal()" id="new">Incluir</i></button>
+                </div>
+                <div class="divtable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Tipo</th>
+                                <th>Peso max. Decol.</th>
+                                <th>Peso vazio</th>
+                                <th>N° max. de ocupantes</th>
+                                <th>Velocidade Média</th>
+                                <th>Combustivel Máximo</th>
+                                <th>Combustivel por Hora</th>
+                                <th class="acao">Editar</th>
+                                <th class="acao">Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody id="aeronaveTbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-container">
+                    <div class="modal">
+                        <form>
+                            <label for="m-modelo">Modelo</label>
+                            <input id="m-modelo" type="text" required>
+
+                            <label for="m-tipo">Tipo</label>
+                            <input id="m-tipo" type="text" required>
+
+                            <label for="m-pesoDecol">Peso Máximo de Decolagem</label>
+                            <input id="m-pesoDecol" type="text" required>
+
+                            <label for="m-pesoVazio">Peso Vazio</label>
+                            <input id="m-pesoVazio" type="text" required>
+                            
+                            <label for="m-maxocup">N° maximo de ocupantes</label>
+                            <input id="m-maxocup" type="text" required>
+
+                            <label for="m-velomed">Velocidade Média</label>
+                            <input id="m-velomed" type="text" required>
+
+                            <label for="m-combmax">Combustivel Máximo</label>
+                            <input id="m-combmax" type="text" required>
+
+                            <label for="m-combhora">Consumo por hora de Combustivel</label>
+                            <input id="m-combhora" type="text" required>
+
+                            <button id="btnSalvar">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/aeronave.js"></script>
+</body>
+</html>

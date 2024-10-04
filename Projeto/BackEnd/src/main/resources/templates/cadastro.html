@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/cadastro.css">
+</head>
+<body>
+    <main>
+        <div class="login">
+            <h2>Cadastro</h2>   
+            <div class="containerLogin">
+                <form>
+                    <div class="form-group">
+                        <div>
+                            <input class="user" type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                            <span id="erroNome" class="erro"></span> 
+                        </div>
+                        <div>
+                            <input class="cpf" type="text" id="cpf" name="cpf" placeholder="CPF" required>
+                            <span id="erroCpf" class="erro"></span> 
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div>
+                            <input class="email" type="text" id="email" name="email" placeholder="E-mail" required>
+                            <span id="erroEmail" class="erro"></span> 
+                        </div>
+                        <div>
+                            <input class="telefone" type="text" id="telefone" name="telefone" placeholder="Telefone" required>
+                            <span id="erroTelefone" class="erro"></span> 
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div>
+                            <input class="senha" type="password" id="senha" name="senha" placeholder="Senha" required>
+                            <span id="erroSenha" class="erro"></span> 
+                        </div>
+                        <div>
+                            <input class="confsenha" type="password" id="confsenha" name="confsenha" placeholder="Confirma a Senha" required>
+                            <span id="erroConfirmaSenha" class="erro"></span> 
+                        </div>
+                    </div>
+            
+                    <input class="acesso" type="text" id="chave" name="chave" placeholder="Chave de aceso" required>
+                    <span id="erroChave" class="erro"></span> 
+            
+                    <button class="botao" id="btnsignup">Sign Up</button>
+                </form>
+            </div>
+            <div class="Sign">
+                <a class="recumperar" href="#">Esqueceu a sua senha?</a>
+                <p>Você não tem uma conta?</p>
+                <a href="login.html"><button class="botao">Sign</button></a>
+            </div>
+        </div>
+    </main>
+    <script src="../static/js/cadastro.js"></script>
+</body>
+</html>
