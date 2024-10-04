@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voos</title>
+    <link rel="stylesheet" href="css/voo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <img src="images/cavalo2.png" alt="">
+                <h2>Cavalo Airlines</h2>
+            </div>
+            <div class="user">
+                <img src="images/perfil-de-usuario.png" alt="">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-th-large"></i>
+                        <div>Inicio</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="aeronave.html">
+                        <i class="fas fa-plane-departure"></i>
+                        <div>Aeronaves</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="voo.html">
+                        <i><img src="images/voo.png" alt=""></i>
+                        <div>Voos</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="crud">
+                <div class="cabecalho">
+                    <span>Cadastrar Voos</span>
+                    <button onclick="openModal()" id="new">Incluir</i></button>
+                </div>
+                <div class="divtable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>N° Voo</th>
+                                <th>Aeronave</th>
+                                <th>Duração</th>
+                                <th>Origem</th>
+                                <th>Destino</th>
+                                <th class="acao">Editar</th>
+                                <th class="acao">Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody id="aeronaveTbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-container">
+                    <div class="modal">
+                        <form>
+                            <label for="m-numvoo">Numero do Voo</label>
+                            <input id="m-numvoo" type="text" required>
+
+                            <label for="m-aeronave">Aeronave</label>
+                            <select id="m-aeronave" name="aeronave">
+                            </select>
+
+                            <label for="m-duracao">Duração</label>
+                            <input id="m-duracao" type="text" required>
+
+                            <label for="m-origem">Origem</label>
+                            <input id="m-origem" type="text" required>
+
+                            <label for="m-destino">Destino</label>
+                            <input id="m-destino" type="text" required>
+
+                            <button id="btnSalvar">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/voo.js"></script>
+</body>
+</html>

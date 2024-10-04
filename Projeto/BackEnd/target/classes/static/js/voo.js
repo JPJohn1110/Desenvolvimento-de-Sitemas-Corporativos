@@ -1,0 +1,201 @@
+const modal = document.querySelector('.modal-container')
+const tbody = document.querySelector('#aeronaveTbody')
+const url ='http://localhost:8080/voo'
+const btnSalvar = document.querySelector('#btnSalvar')
+
+const snumVoo = document.querySelector('#m-numvoo')
+const sAeronave = document.querySelector('#m-aeronave')
+const sDuracao = document.querySelector('#m-duracao')
+const sOrigem = document.querySelector('#m-origem')
+const sDestino = document.querySelector('#m-destino')
+let voos = []
+let aeronavesT = []
+let id
+
+//Requisição GET
+function loadVoo(){
+  fetch(url)
+    .then(response => response.json())
+    .then(voosT => {
+      tbody.innerHTML = ''
+
+      voosT.forEach((voo) => {
+        voos.push(voo)
+        inserirVoo(voo);
+      });
+    })
+}
+
+//Requisição POST
+btnSalvar.onclick = e => {
+  if(snumVoo.value == '' || sAeronave.value == '' || sDuracao.value == '' || sOrigem.value == '' || sDestino.value == '') {
+    return
+  }
+
+  e.preventDefault();
+
+  const novoVoo = {
+    numeroVoo: snumVoo.value,
+    aeronave: {id: parseInt(sAeronave.value) },
+    duracao: sDuracao.value,
+    origem: sOrigem.value,
+    destino: sDestino.value,
+  }
+
+  if(id !== undefined){
+    novoVoo.id = id
+    atualizarVoo(novoVoo)
+    return
+  }
+
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(novoVoo)
+  })
+  .then(response => {
+    if(!response.ok) {
+      throw new Error('Erro ao cadastrar o Voo')
+    }
+    return response.text();
+  })
+  .then(data => {
+      console.log(data);
+      loadVoo();
+      id = undefined
+  })
+  .catch(error => console.error('Erro:', error));
+
+  snumVoo.value = ''
+  sAeronave.value = ''
+  sDuracao.value = ''
+  sOrigem.value = ''
+  sDestino.value = ''
+}
+
+//Requisição PUT
+function atualizarVoo(voo) {
+  fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(voo)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro ao atualizar o Voo');
+    }
+    return response.text();
+  })
+  .then(data => {
+    console.log(data);
+    loadVoo();
+  })
+  .catch(error => console.error('Erro:', error));
+}
+
+//Requisição DELETE
+function deleteVoo(id){
+  fetch(`${url}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro ao excluir o Voo');
+    }
+    return response.text();
+  })
+  .then(data => {
+    console.log(data);
+    loadVoo();
+  })
+  .catch(error => console.error('Erro:', error));
+}
+
+//Renderizaar os voos na tela
+function inserirVoo(voo) {
+  let tr =document.createElement('tr');
+
+  tr.innerHTML = `
+      <td>${voo.numeroVoo}</td>
+      <td>${voo.aeronave.modelo}</td>
+      <td>${voo.duracao}</td>
+      <td>${voo.origem}</td>
+      <td>${voo.destino}</td>
+      <td class="acao">
+          <button onclick="editVoo(${voo.id})"><i class='bx bx-edit'></i>Editar</button>
+      </td>
+      <td class="acao">
+          <button onclick="deleteVoo(${voo.id})"><i class='bx bx-trash'></i>Excluir</button>
+      </td>
+  `;
+  tbody.appendChild(tr);
+}
+
+//Redenrizar aeronaves
+function loadAeronaves(){
+  fetch('http://localhost:8080/aeronave')
+    .then(response => response.json())
+    .then(aeronaves => {
+      const select = document.getElementById('m-aeronave');
+      aeronaves.forEach(aeronave => {
+        aeronavesT.push(aeronave)
+        const opcao = document.createElement('option');
+        opcao.value = aeronave.id;
+        opcao.textContent = aeronave.modelo;
+        select.appendChild(opcao)
+      })
+    })
+}
+
+//responde o botão editar
+function editVoo(id) {
+  const voo = encontrarVoo(id);
+  if (voo) {
+    openModal(true, voo);
+  } else {
+    console.error('Voo não encontrado');
+  }
+}
+
+//procurar voo no array
+function encontrarVoo(id) {
+  return voos.find(voo => voo.id === id);
+}
+
+//modal para a inserção e atualização
+function openModal(edit = false, voo) {
+  modal.classList.add('active')
+
+  modal.onclick = e => {
+    if (e.target.className.indexOf('modal-container') !== -1) {
+      modal.classList.remove('active')
+    }
+  }
+
+  if (edit) {
+    snumVoo.value = voo.numeroVoo
+    sAeronave.value = voo.aeronave.id
+    sDuracao.value = voo.duracao
+    sOrigem.value = voo.origem
+    sDestino.value = voo.destino
+    id = voo.id
+  } else {
+    snumVoo.value = ''
+    sAeronave.value = ''
+    sDuracao.value = ''
+    sOrigem.value = ''
+    sDestino.value = ''
+    id = undefined
+  }
+}
+
+//chama a renderização
+loadVoo()
+loadAeronaves()
