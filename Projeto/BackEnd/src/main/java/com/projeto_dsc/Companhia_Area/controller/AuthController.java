@@ -14,9 +14,9 @@ public class AuthController {
         return "index";  // Retorna a página principal
     }
 
-    @GetMapping("/cadastrar")
+    @GetMapping("/cadastro")
     public String paginaCadastrar() {
-        return "cadastrar";
+        return "cadastro";
     }
 
     @GetMapping("/login")

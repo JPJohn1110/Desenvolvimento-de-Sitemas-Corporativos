@@ -1,4 +1,4 @@
-/*package com.projeto_dsc.Companhia_Area.infra_security;
+package com.projeto_dsc.Companhia_Area.infra_security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.aspectj.apache.bcel.classfile.ExceptionTable;
@@ -37,6 +37,10 @@ public class SecurityConfigurations {
 				.anyRequest().authenticated()
 
 				)
+			.formLogin(form -> form
+				.loginPage("/login") // URL da sua página de login
+				.permitAll()
+				)
 			.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
 			.build();
 
@@ -46,9 +50,10 @@ public class SecurityConfigurations {
 		return authenticationConfiguration.getAuthenticationManager();
 	}
 
+	@Bean
 	public PasswordEncoder passwordEncoder(){
 
 		return new BCryptPasswordEncoder();	
+
 	}
 }
-*/
