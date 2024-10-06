@@ -20,9 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-
-
-
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {

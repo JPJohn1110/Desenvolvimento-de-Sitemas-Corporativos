@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url('../images/backgrouLogin.png');
+    background-image: url('/images/backgrouLogin.png');
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -61,14 +61,14 @@ main{
 }
 
 .login .user {
-    background-image: url(../images/user.png);
+    background-image: url(/images/user.png);
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 25px 25px;
 }
 
 .login .senha {
-    background-image: url(../images/senha.png);
+    background-image: url(/images/senha.png);
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 25px 25px;

@@ -31,9 +31,13 @@ public class SecurityConfigurations {
 			.csrf(csrf -> csrf.disable())
 			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 			.authorizeHttpRequests(authorize -> authorize
+				.requestMatchers(HttpMethod.GET, "/login").permitAll()
+				.requestMatchers(HttpMethod.POST, "/usuario").permitAll()
 				.requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+				.requestMatchers(HttpMethod.GET, "/cadastro").permitAll()
 				.requestMatchers(HttpMethod.POST, "/auth/cadastro").permitAll()
 				.requestMatchers(HttpMethod.POST, "/aeronave").hasRole("ADMIN")
+				.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
 				.anyRequest().authenticated()
 
 				)
