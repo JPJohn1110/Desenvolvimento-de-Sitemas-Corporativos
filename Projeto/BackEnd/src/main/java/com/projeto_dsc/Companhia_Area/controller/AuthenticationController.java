@@ -42,10 +42,12 @@ public class AuthenticationController {
 		return ResponseEntity.ok(token);	
 	}
 	
-	@PostMapping("/cadastro")
+	@PostMapping("auth/cadastro")
 	public ResponseEntity cadastro(@RequestBody @Validated cadastroDTO data) {
-		if(this.usuarioRepository.findByEmail(data.email())!= null) return ResponseEntity.badRequest().build();
-		
+		if(this.usuarioRepository.findByEmail(data.email()).isPresent()) {
+			return ResponseEntity.badRequest().build();
+		}
+				
 		String encrypedPassword = new BCryptPasswordEncoder().encode(data.senha());
 		UsuarioEntity novoUsusario = new UsuarioEntity(data.email(), encrypedPassword, data.role(),  data.cpf(), data.codigoAcesso(), data.nome(), data.telefone()); 	 
 

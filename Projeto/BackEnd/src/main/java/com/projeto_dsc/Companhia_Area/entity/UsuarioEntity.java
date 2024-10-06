@@ -25,42 +25,45 @@ public class UsuarioEntity implements UserDetails {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id_;
 
-@Column (nullable = true)
+@Column (nullable = false)
 private String nome;
 
-@Column (nullable = true)
+@Column (nullable = false)
 private String senha;
 
-@Column (nullable = true)
+@Column (nullable = false)
 private String email;
 
-@Column (nullable = true)
+@Enumerated(EnumType.STRING)
+@Column (nullable = false)
 private UsuarioRole role;
 
-@Column (nullable = true)
+@Column (nullable = false)
 private String telefone;
 
-@Column (nullable = true, unique = true)
+@Column (nullable = false, unique = true)
 private String codigoAcesso;
 
 public String getCodigoAcesso() {
     return codigoAcesso;
 }
-@Column (nullable = true, unique = true)
+@Column (nullable = false, unique = true)
 private String cpf;
 
 public UsuarioEntity(UsuarioDTO usuario) {
-    BeanUtils.copyProperties(usuario, this);
+     if (this.role == null) {
+        this.role = UsuarioRole.USUARIO; 
+    }
 }
 public UsuarioEntity() {
 
 }
 
 
-public UsuarioEntity(String email, String senha, UsuarioRole role, String cpf, String codigoAcesso, String nome, String telefone ){
+public UsuarioEntity(String email, String senha, UsuarioRole role, String cpf, String codigoAcesso,  String nome, String telefone ){
     this.email = email;
     this.senha = senha;
-    this.role =role;
+    this.role = role;
     this.cpf = cpf;
     this.nome = nome;
     this.telefone = telefone;
