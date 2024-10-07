@@ -6,7 +6,7 @@ const sConfirmaSenha = document.querySelector('#confsenha');
 const sTelefone = document.querySelector('#telefone');
 const sChavedeAcesso = document.querySelector('#chave');
 const btnSignup = document.querySelector('#btnsignup');
-const url = 'http://localhost:8080/usuario';
+const url = 'http://localhost:8080/cadastro';
 
 // Elementos de erro
 const erroNome = document.querySelector('#erroNome');
