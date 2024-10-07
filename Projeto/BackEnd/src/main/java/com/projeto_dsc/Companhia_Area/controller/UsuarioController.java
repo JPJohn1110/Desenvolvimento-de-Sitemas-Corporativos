@@ -28,13 +28,19 @@ public class UsuarioController {
 		@PostMapping
 		@ResponseStatus(HttpStatus.OK)
 		public ResponseEntity<String> inserir(@RequestBody UsuarioDTO usuario){
+			System.out.println(usuario.getCpf());
+			System.out.println(usuario.getNome());
+			System.out.println(usuario.getEmail());
+			System.out.println(usuario.getSenha());
+			System.out.println(usuario.getTelefone());
+			System.out.println(usuario.getCodigoAcesso());
 			try {
             usuarioService.inserir(usuario);
-			
-			return ((HeadersBuilder<BodyBuilder>) ResponseEntity.ok()).build();
+			return ResponseEntity.status(HttpStatus.CREATED).body("Usuario cadastrado com suceso.");
+
 
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao cadastrar.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao cadastrar.");
         }
 
 		}

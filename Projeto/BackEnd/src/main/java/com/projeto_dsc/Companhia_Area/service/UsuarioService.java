@@ -24,6 +24,12 @@ public class UsuarioService implements UserDetailsService {
 
     public void inserir(UsuarioDTO usuario) {
         UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
+        System.out.println(usuarioEntity.getEmail());
+        System.out.println(usuarioEntity.getNome());
+        System.out.println(usuarioEntity.getSenha());
+        System.out.println(usuarioEntity.getRole());
+        System.out.println(usuarioEntity.getId());
+        System.out.println(usuarioEntity.getCodigoAcesso());
         usuarioRepository.save(usuarioEntity);
     }
 
