@@ -28,6 +28,7 @@ public class AuthenticationController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+
     @Autowired
     private TokenService tokenService;
 
@@ -36,13 +37,18 @@ public class AuthenticationController {
         try {
             var usuarioSenha = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
             var auth = this.authenticationManager.authenticate(usuarioSenha);
-            var token = tokenService.generateToken((UsuarioEntity) auth.getPrincipal());
-            return ResponseEntity.ok(token);
+            String email = data.email();
+            UsuarioEntity usuario = usuarioRepository.findByEmail(email)
+                    .orElseThrow(() -> new RuntimeException("Usuário não encontrado")); // Certifique-se de tratar esse caso
+
+            var token = tokenService.generateToken(usuario);
+            return ResponseEntity.status(HttpStatus.OK).body(token);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login falhou: " + e.getMessage());
         }
     }
 
+    /* primeira tentativa de criptografia
     @PostMapping("/cadastro")
     public ResponseEntity<Void> cadastro(@RequestBody @Validated cadastroDTO data) {
         if (this.usuarioRepository.findByEmail(data.email()).isPresent()) {
@@ -54,5 +60,5 @@ public class AuthenticationController {
 
         this.usuarioRepository.save(novoUsuario);
         return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
+    }*/
 }

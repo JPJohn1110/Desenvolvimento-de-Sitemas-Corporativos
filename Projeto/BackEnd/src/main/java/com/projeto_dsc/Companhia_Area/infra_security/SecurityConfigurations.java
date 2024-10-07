@@ -34,17 +34,20 @@ public class SecurityConfigurations {
 				.requestMatchers(HttpMethod.GET, "/login").permitAll()
 				.requestMatchers(HttpMethod.GET, "/cadastro").permitAll()
 				.requestMatchers(HttpMethod.POST, "/cadastro").permitAll()
-				.requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+				.requestMatchers(HttpMethod.POST, "/login").permitAll()
 				.requestMatchers(HttpMethod.POST, "/usuario").permitAll()
-				.requestMatchers(HttpMethod.POST, "/aeronave").hasRole("ADMIN")
+				.requestMatchers(HttpMethod.POST, "/index").hasRole("USUARIO")
+				.requestMatchers(HttpMethod.GET, "/index").hasRole("USUARIO")
+				.requestMatchers(HttpMethod.POST, "/aeronave").hasRole("USUARIO")
+				.requestMatchers(HttpMethod.POST, "/voo").hasRole("USUARIO")
+
 				.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
 				.anyRequest().authenticated()
-
 				)
-			.formLogin(form -> form
-				.loginPage("/login") // URL da sua página de login
+			/*.formLogin(form -> form
+				.loginPage("/login")
 				.permitAll()
-				)
+				)*/
 			.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
 			.build();
 

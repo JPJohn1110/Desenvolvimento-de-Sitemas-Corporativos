@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AuthController {
-    @GetMapping("/auth")
+    @GetMapping("/index")
     public String paginaInicial() {
         return "index";  // Retorna a página principal
     }
