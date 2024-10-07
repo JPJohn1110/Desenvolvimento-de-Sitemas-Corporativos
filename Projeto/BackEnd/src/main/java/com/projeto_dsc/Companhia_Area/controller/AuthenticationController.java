@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projeto_dsc.Companhia_Area.dto.AuthenticationDTO;
 import com.projeto_dsc.Companhia_Area.dto.cadastroDTO;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
-import com.projeto_dsc.Companhia_Area.entity.UsuarioRole;
 import com.projeto_dsc.Companhia_Area.infra_security.TokenService;
 import com.projeto_dsc.Companhia_Area.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,40 +19,40 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/")
 public class AuthenticationController {
-	@Autowired
-	private AuthenticationManager authenticationManager;
-	@Autowired
-	private UsuarioRepository usuarioRepository;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
-	@Autowired
-	private TokenService tokenService;
-	
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
-	@PostMapping("/login")	
-	public ResponseEntity login(@RequestBody @Validated AuthenticationDTO data) {
-		var usuarioSenha = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
-		var auth = this.authenticationManager.authenticate(usuarioSenha);
+    @Autowired
+    private TokenService tokenService;
 
-		var token = tokenService.generateToken((UsuarioEntity)auth.getPrincipal());
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody @Validated AuthenticationDTO data) {
+        try {
+            var usuarioSenha = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
+            var auth = this.authenticationManager.authenticate(usuarioSenha);
+            var token = tokenService.generateToken((UsuarioEntity) auth.getPrincipal());
+            return ResponseEntity.ok(token);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login falhou: " + e.getMessage());
+        }
+    }
 
-		return ResponseEntity.ok(token);	
-	}
-	
-	@PostMapping("/cadastro")
-	public ResponseEntity cadastro(@RequestBody @Validated cadastroDTO data) {
-		if(this.usuarioRepository.findByEmail(data.email())!= null) return ResponseEntity.badRequest().build();
-		
-		String encrypedPassword = new BCryptPasswordEncoder().encode(data.senha());
-		UsuarioEntity novoUsusario = new UsuarioEntity(data.email(), encrypedPassword, data.role(),  data.cpf(), data.codigoAcesso(), data.nome(), data.telefone()); 	 
+    @PostMapping("/cadastro")
+    public ResponseEntity<Void> cadastro(@RequestBody @Validated cadastroDTO data) {
+        if (this.usuarioRepository.findByEmail(data.email()).isPresent()) {
+            return ResponseEntity.badRequest().build();
+        }
 
+        String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
+        UsuarioEntity novoUsuario = new UsuarioEntity(data.email(), encryptedPassword, data.role(), data.cpf(), data.codigoAcesso(), data.nome(), data.telefone());
 
-		this.usuarioRepository.save(novoUsusario); 
-		return ResponseEntity.ok().build();
-	}
-	
-
+        this.usuarioRepository.save(novoUsuario);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
 }
