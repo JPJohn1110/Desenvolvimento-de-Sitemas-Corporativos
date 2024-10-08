@@ -151,8 +151,8 @@ public class UsuarioEntity implements UserDetails {
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == UsuarioRole.ADMIN) return List.of(new SimpleGrantedAuthority("UsuarioRole.ADMIN"), new SimpleGrantedAuthority("UsuarioRole.USUARIO"));
-        else return List.of(new SimpleGrantedAuthority("UsuarioRole.USUARIO"));
+        if(this.role == UsuarioRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USUARIO"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USUARIO"));
     }
 
 }

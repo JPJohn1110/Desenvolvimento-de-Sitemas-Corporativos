@@ -2,6 +2,7 @@ const sEmail = document.querySelector('#email');
 const sSenha = document.querySelector('#senha');
 const btnSignup = document.querySelector('#btnlogin');
 const url = 'http://localhost:8080/login';
+sessionStorage.clear()
 
 btnSignup.onclick = e => {
     e.preventDefault();
@@ -22,36 +23,32 @@ btnSignup.onclick = e => {
         if (!response.ok) {
             throw new Error('Erro ao realizar o login');
         }
-        return response.text();
+        return response.json();
     })
     .then(data => {
-        sessionStorage.setItem('token', data);
-        acessar();
+        const token = data.token;
+        console.log(token)
+        sessionStorage.setItem('token', token);
+        fetch('/index', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}` // Adiciona o token no cabeçalho
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao acessar a página inicial');
+            }
+            return response.text(); // ou response.json() se a resposta for em JSON
+        })
+        .then(html => {
+            document.open();
+            document.write(html); // Escreve o conteúdo HTML da página inicial
+            document.close();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
     })
 
-}
-
-function acessar(){
-    const token = sessionStorage.getItem('token');
-    console.log(token)
-    fetch('/index', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}` // Envia o token no cabeçalho
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.text(); // ou response.json(), dependendo do que você precisa
-        } else {
-            throw new Error('Você não tem autorização para acessar esta página.');
-        }
-    })
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        //window.location.href = '/login';
-    });
 }

@@ -1,10 +1,10 @@
 package com.projeto_dsc.Companhia_Area.controller;
 
+import com.projeto_dsc.Companhia_Area.dto.LoginResponseDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto_dsc.Companhia_Area.dto.AuthenticationDTO;
-import com.projeto_dsc.Companhia_Area.dto.cadastroDTO;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
 import com.projeto_dsc.Companhia_Area.infra_security.TokenService;
 import com.projeto_dsc.Companhia_Area.repository.UsuarioRepository;
@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,16 +32,13 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody @Validated AuthenticationDTO data) {
+    public ResponseEntity login(@RequestBody @Validated AuthenticationDTO data) {
         try {
             var usuarioSenha = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
             var auth = this.authenticationManager.authenticate(usuarioSenha);
-            String email = data.email();
-            UsuarioEntity usuario = usuarioRepository.findByEmail(email)
-                    .orElseThrow(() -> new RuntimeException("Usuário não encontrado")); // Certifique-se de tratar esse caso
 
-            var token = tokenService.generateToken(usuario);
-            return ResponseEntity.status(HttpStatus.OK).body(token);
+            var token = tokenService.generateToken((UsuarioEntity) auth.getPrincipal());
+            return ResponseEntity.ok(new LoginResponseDTO(token));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login falhou: " + e.getMessage());
         }

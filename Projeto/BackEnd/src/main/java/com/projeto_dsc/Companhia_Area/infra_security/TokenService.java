@@ -14,7 +14,7 @@ import java.time.ZoneOffset;
 
 @Service
 public class TokenService {
-	
+
 	@Value("${api.security.token.secret}")
 	private String secret;
 
@@ -22,23 +22,18 @@ public class TokenService {
 
 		try {
 			Algorithm algorithm = Algorithm.HMAC256(secret);
-
 			String token = JWT.create()
 					.withIssuer("companhia-aerea")
-					.withSubject(usuarioEntity.getCodigoAcesso())
+					.withSubject(usuarioEntity.getEmail())
 					.withExpiresAt(genExpirationDate())
 					.sign(algorithm);
-			
+
 			return token;
 
 		}catch(JWTCreationException exception){
 			throw new RuntimeException("ERROR WHILE GENERATION TOKEN", exception);
-
-
 		}
 	}
-
- 
 
 	public String validateToken(String token){
 		try {
@@ -48,9 +43,9 @@ public class TokenService {
 					.build()
 					.verify(token)
 					.getSubject();
-			
+
 		} catch (JWTVerificationException exception){
-			return "";
+			throw new RuntimeException("Token inválido ou expirado", exception);
 		}
 
 	}

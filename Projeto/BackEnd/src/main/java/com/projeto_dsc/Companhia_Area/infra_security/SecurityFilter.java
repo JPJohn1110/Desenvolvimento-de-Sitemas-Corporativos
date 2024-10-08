@@ -2,7 +2,6 @@ package com.projeto_dsc.Companhia_Area.infra_security;
 
 import com.projeto_dsc.Companhia_Area.repository.UsuarioRepository;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
-import com.projeto_dsc.Companhia_Area.infra_security.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,25 +28,17 @@ public class SecurityFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         var token = this.recoverToken(request);
-        System.out.println(token);
         if (token != null) {
-            System.out.println("entrou");
             var email = tokenService.validateToken(token);
-            var usuarioOptional = usuarioRepository.findByEmail(email);
+            UserDetails usuario = usuarioRepository.findByEmail(email);
 
-            if (usuarioOptional.isPresent()) {
-                UsuarioEntity usuario = usuarioOptional.get(); // Obtenha o usuário do Optional
-                UserDetails user = usuario; // Atribua diretamente, se UsuarioEntity implementar UserDetails
-
-                var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+            if (usuario != null) {
+                var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-                System.out.println(authentication);
-                System.out.println(token);
             }
         }
-
-            filterChain.doFilter(request, response);
-        }
+        filterChain.doFilter(request, response);
+    }
 
     private String recoverToken(HttpServletRequest request) {
         var authHeader = request.getHeader("Authorization");

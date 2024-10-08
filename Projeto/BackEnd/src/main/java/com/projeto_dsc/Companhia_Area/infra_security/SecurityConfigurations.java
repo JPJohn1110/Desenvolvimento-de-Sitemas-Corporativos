@@ -19,38 +19,33 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.projeto_dsc.Companhia_Area.infra_security.SecurityFilter;
 
 @Configuration
-@EnableWebSecurity	
+@EnableWebSecurity
 public class SecurityConfigurations {
-	
+
 	@Autowired
     SecurityFilter securityFilter;
-	
+
+	@Autowired
+	CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
 		return httpSecurity
 			.csrf(csrf -> csrf.disable())
 			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 			.authorizeHttpRequests(authorize -> authorize
-				.requestMatchers(HttpMethod.GET, "/login").permitAll()
-				.requestMatchers(HttpMethod.GET, "/cadastro").permitAll()
-				.requestMatchers(HttpMethod.POST, "/cadastro").permitAll()
-				.requestMatchers(HttpMethod.POST, "/login").permitAll()
-				.requestMatchers(HttpMethod.POST, "/usuario").permitAll()
-				.requestMatchers(HttpMethod.POST, "/index").hasRole("USUARIO")
-				.requestMatchers(HttpMethod.GET, "/index").hasRole("USUARIO")
-				.requestMatchers(HttpMethod.POST, "/aeronave").hasRole("USUARIO")
-				.requestMatchers(HttpMethod.POST, "/voo").hasRole("USUARIO")
-
-				.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
-				.anyRequest().authenticated()
-				)
-			/*.formLogin(form -> form
-				.loginPage("/login")
-				.permitAll()
-				)*/
+					.requestMatchers(HttpMethod.GET, "/login").permitAll()
+					.requestMatchers(HttpMethod.POST, "/login").permitAll()
+					.requestMatchers(HttpMethod.GET, "/cadastro").permitAll()
+					.requestMatchers(HttpMethod.POST, "/usuario").permitAll()
+					.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+					.anyRequest().authenticated()
+			)
+			.exceptionHandling(exception -> exception
+					.authenticationEntryPoint(customAuthenticationEntryPoint)
+			)
 			.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
 			.build();
-
 	}
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
@@ -59,8 +54,6 @@ public class SecurityConfigurations {
 
 	@Bean
 	public PasswordEncoder passwordEncoder(){
-
-		return new BCryptPasswordEncoder();	
-
+		return new BCryptPasswordEncoder();
 	}
 }
