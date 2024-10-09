@@ -11,10 +11,16 @@ const sDestino = document.querySelector('#m-destino')
 let voos = []
 let aeronavesT = []
 let id
+let token = sessionStorage.getItem('token');
 
 //Requisição GET
 function loadVoo(){
-  fetch(url)
+  fetch(url,{
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
     .then(response => response.json())
     .then(voosT => {
       tbody.innerHTML = ''
@@ -51,6 +57,7 @@ btnSalvar.onclick = e => {
   fetch(url, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(novoVoo)
@@ -80,6 +87,7 @@ function atualizarVoo(voo) {
   fetch(url, {
     method: 'PUT',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(voo)
@@ -102,6 +110,7 @@ function deleteVoo(id){
   fetch(`${url}/${id}`, {
     method: 'DELETE',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     }
   })
@@ -140,7 +149,12 @@ function inserirVoo(voo) {
 
 //Redenrizar aeronaves
 function loadAeronaves(){
-  fetch('http://localhost:8080/aeronave')
+  fetch('http://localhost:8080/crud/aeronave', {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
     .then(response => response.json())
     .then(aeronaves => {
       const select = document.getElementById('m-aeronave');

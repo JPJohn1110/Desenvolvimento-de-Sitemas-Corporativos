@@ -15,7 +15,13 @@ let id
 
 //Requisição GET
 function loadAeronave(){
-  fetch(url)
+  const token = sessionStorage.getItem('token');
+  fetch(url,{
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
     .then(response => response.json())
     .then(aeronaves => {
       tbody.innerHTML = ''
@@ -52,9 +58,12 @@ btnSalvar.onclick = e => {
     return
   }
 
+  const token = sessionStorage.getItem('token');
+
   fetch(url, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(novaAeronave)
@@ -84,9 +93,11 @@ btnSalvar.onclick = e => {
 
 //Requisição PUT
 function atualizarAeronave(aeronave) {
+  const token = sessionStorage.getItem('token');
   fetch(url, {
     method: 'PUT',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(aeronave)
@@ -106,9 +117,11 @@ function atualizarAeronave(aeronave) {
 
 //Requisição DELETE
 function deleteAeronave(id){
+  const token = sessionStorage.getItem('token');
   fetch(`${url}/${id}`, {
     method: 'DELETE',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     }
   })
