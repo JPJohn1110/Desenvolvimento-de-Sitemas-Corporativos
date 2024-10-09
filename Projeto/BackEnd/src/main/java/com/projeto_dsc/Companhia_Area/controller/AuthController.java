@@ -23,9 +23,13 @@ public class AuthController {
         return "login";
     }
 
-
-    /*@GetMapping("/aeronave")
-    public String aeronaves() {
+    @GetMapping("/aeronave")
+    public String paginaAeronave() {
         return "aeronave";
-    }*/
+    }
+
+    @GetMapping("/voo")
+    public String paginaVoo() {
+        return "voo";
+    }
 }

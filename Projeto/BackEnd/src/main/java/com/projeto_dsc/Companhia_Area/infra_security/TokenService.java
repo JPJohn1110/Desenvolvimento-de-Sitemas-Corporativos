@@ -6,6 +6,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -26,6 +27,9 @@ public class TokenService {
 					.withIssuer("companhia-aerea")
 					.withSubject(usuarioEntity.getEmail())
 					.withExpiresAt(genExpirationDate())
+					.withClaim("roles", usuarioEntity.getAuthorities().stream()
+							.map(GrantedAuthority::getAuthority)
+							.toList())
 					.sign(algorithm);
 
 			return token;

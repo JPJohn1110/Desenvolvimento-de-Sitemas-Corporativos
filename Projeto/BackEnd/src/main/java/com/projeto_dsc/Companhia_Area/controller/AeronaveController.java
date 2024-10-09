@@ -12,7 +12,7 @@ import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:5500")
-@RequestMapping(value = "/aeronave")
+@RequestMapping(value = "/crud/aeronave")
 public class AeronaveController {
 
     @Autowired

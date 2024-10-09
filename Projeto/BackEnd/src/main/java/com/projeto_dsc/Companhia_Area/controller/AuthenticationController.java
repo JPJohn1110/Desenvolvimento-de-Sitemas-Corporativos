@@ -1,8 +1,7 @@
 package com.projeto_dsc.Companhia_Area.controller;
 
 import com.projeto_dsc.Companhia_Area.dto.LoginResponseDTO;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.projeto_dsc.Companhia_Area.dto.AuthenticationDTO;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
@@ -15,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/")
@@ -44,17 +41,14 @@ public class AuthenticationController {
         }
     }
 
-    /* primeira tentativa de criptografia
-    @PostMapping("/cadastro")
-    public ResponseEntity<Void> cadastro(@RequestBody @Validated cadastroDTO data) {
-        if (this.usuarioRepository.findByEmail(data.email()).isPresent()) {
-            return ResponseEntity.badRequest().build();
+    @GetMapping("/validate-token")
+    public ResponseEntity validarToken(@RequestHeader("Authorization") String authorizationHeader) {
+        String token = authorizationHeader.replace("Bearer ", "");
+        try {
+            String email = tokenService.validateToken(token);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
-        UsuarioEntity novoUsuario = new UsuarioEntity(data.email(), encryptedPassword, data.role(), data.cpf(), data.codigoAcesso(), data.nome(), data.telefone());
-
-        this.usuarioRepository.save(novoUsuario);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    }*/
+    }
 }

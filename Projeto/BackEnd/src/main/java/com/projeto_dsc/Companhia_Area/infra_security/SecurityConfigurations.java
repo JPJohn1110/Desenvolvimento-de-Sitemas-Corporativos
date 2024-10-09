@@ -37,8 +37,10 @@ public class SecurityConfigurations {
 					.requestMatchers(HttpMethod.GET, "/login").permitAll()
 					.requestMatchers(HttpMethod.POST, "/login").permitAll()
 					.requestMatchers(HttpMethod.GET, "/cadastro").permitAll()
+					.requestMatchers(HttpMethod.GET, "/validate-token").permitAll()
 					.requestMatchers(HttpMethod.POST, "/usuario").permitAll()
 					.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+					.requestMatchers("/index", "/cadastro", "/login", "/aeronave", "/voo").permitAll()
 					.anyRequest().authenticated()
 			)
 			.exceptionHandling(exception -> exception
