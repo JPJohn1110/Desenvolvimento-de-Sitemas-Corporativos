@@ -48,3 +48,5 @@ function validateAndRedirect() {
 document.addEventListener('DOMContentLoaded', (event) => {
     validateAndRedirect();
 });
+
+   

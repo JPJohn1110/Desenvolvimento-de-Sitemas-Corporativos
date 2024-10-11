@@ -32,4 +32,9 @@ public class AuthController {
     public String paginaVoo() {
         return "voo";
     }
+
+    @GetMapping("/teste")
+    public String paginateste() {
+        return "teste";
+    }
 }

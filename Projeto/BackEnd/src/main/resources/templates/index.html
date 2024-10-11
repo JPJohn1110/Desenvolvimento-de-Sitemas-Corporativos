@@ -6,6 +6,9 @@
     <title>Painel</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/teste.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
 </head>
 <body>
     <div class="container">
@@ -26,14 +29,12 @@
                         <div>Inicio</div>
                     </a>
                 </li>
-
                 <li>
                     <a href="aeronave">
                         <i class="fas fa-plane-departure"></i>
                         <div>Aeronaves</div>
                     </a>
                 </li>
-
                 <li>
                     <a href="voo">
                         <i><img src="images/voo.png" alt=""></i>
@@ -48,6 +49,26 @@
                     <span>Ultimos Cadastros</span>
                     <button>Incluir</button>
                 </div>
+
+                <div class="container2">
+                    <h1>Rastreamento de Voos</h1>
+                    <input type="text" id="flightInput" placeholder="Insira o código IATA do voo">
+                    <select id="statusFilter">
+                        <option value="">Todos os Status</option>
+                        <option value="scheduled">Programado</option>
+                        <option value="active">Ativo</option>
+                        <option value="landed">Pousado</option>
+                        <option value="cancelled">Cancelado</option>
+                        <option value="incident">Incidente</option>
+                    </select>
+                    <button id="trackButton">Rastrear Voo</button>
+                    <div id="results"></div>
+                    <div id="map"></div>
+                    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                </div>
+
+                <script src="js/teste.js"></script>
+
                 <div class="divtable">
                     <thead>
                         <tr>
@@ -62,6 +83,5 @@
             </div>
         </div>
     </div>
+    
     <script src="js/script.js"></script>
-</body>
-</html>
