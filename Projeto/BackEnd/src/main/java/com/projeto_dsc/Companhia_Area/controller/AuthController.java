@@ -37,4 +37,9 @@ public class AuthController {
     public String paginateste() {
         return "teste";
     }
+
+    @GetMapping("/funcionarios")
+    public String paginaFuncionarios() {
+        return "funcionarios";
+    }
 }

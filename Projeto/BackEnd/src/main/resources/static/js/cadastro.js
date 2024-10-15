@@ -106,7 +106,7 @@ btnSignup.onclick = e => {
 
     // Envia os dados para o servidor
     fetch(url, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },

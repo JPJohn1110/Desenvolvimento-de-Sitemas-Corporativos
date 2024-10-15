@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.security.core.userdetails.User;
 
 import java.util.*;
 
@@ -28,9 +27,9 @@ public class UsuarioService implements UserDetailsService {
         usuarioRepository.save(usuarioEntity);
     }
 
-    public UsuarioDTO alterar(UsuarioDTO usuario) {
+    public void alterar(UsuarioDTO usuario) {
         UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
-        return  new UsuarioDTO(usuarioRepository.save(usuarioEntity));
+        usuarioRepository.save(usuarioEntity);
     }
 
     public void excluir(Long id) {

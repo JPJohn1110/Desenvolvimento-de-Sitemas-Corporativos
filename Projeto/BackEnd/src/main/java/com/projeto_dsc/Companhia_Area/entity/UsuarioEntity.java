@@ -22,20 +22,20 @@ public class UsuarioEntity implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (nullable = false)
+    @Column (nullable = true)
     private String nome;
 
-    @Column (nullable = false)
+    @Column (nullable = true)
     private String senha;
 
-    @Column (nullable = false)
+    @Column (nullable = true)
     private String email;
 
     @Enumerated(EnumType.STRING)
     @Column (nullable = false)
     private UsuarioRole role;
 
-    @Column (nullable = false)
+    @Column (nullable = true)
     private String telefone;
 
     @Column (nullable = false, unique = true)
@@ -46,7 +46,6 @@ public class UsuarioEntity implements UserDetails {
 
     public UsuarioEntity(UsuarioDTO usuario) {
         BeanUtils.copyProperties(usuario, this);
-        this.role = UsuarioRole.USUARIO;
     }
     public UsuarioEntity() {
 

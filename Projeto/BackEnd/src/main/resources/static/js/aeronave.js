@@ -262,4 +262,31 @@ function validateAndRedirect() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
   validateAndRedirect();
+  verificarUsuario();
 });
+
+function verificarUsuario() {
+  const token = sessionStorage.getItem('token');
+
+  if (token) {
+    const decodedToken = parseJwt(token);
+    const roles = decodedToken.roles; // Acesso correto ao array de roles
+
+    // Verifica se a role "ROLE_ADMIN" está presente no array de roles
+    if (roles.includes('ROLE_ADMIN')) {
+      adicionarFuncionariosNaSidebar();
+    }
+  }
+}
+
+function adicionarFuncionariosNaSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const funcionariosItem = document.createElement('li');
+  funcionariosItem.innerHTML = `
+        <a href="funcionarios">
+            <i class="fas fa-users"></i> 
+            <div>Funcionários</div>
+        </a>
+    `;
+  sidebar.appendChild(funcionariosItem);
+}

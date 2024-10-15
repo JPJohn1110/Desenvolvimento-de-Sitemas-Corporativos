@@ -35,10 +35,10 @@ public class SecurityConfigurations {
 			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 			.authorizeHttpRequests(authorize -> authorize
 					.requestMatchers(HttpMethod.GET, "/validate-token").permitAll()
-					.requestMatchers(HttpMethod.POST, "/usuario").permitAll()
+					.requestMatchers(HttpMethod.PUT, "/usuario").permitAll()
 					.requestMatchers(HttpMethod.POST, "/crud/aeronave").hasAnyRole("USUARIO")
 					.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
-					.requestMatchers("/index", "/cadastro", "/login", "/aeronave", "/voo", "/teste").permitAll()
+					.requestMatchers("/index", "/cadastro", "/login", "/aeronave", "/voo", "/teste", "/funcionarios").permitAll()
 					.anyRequest().authenticated()
 			)
 			.exceptionHandling(exception -> exception
