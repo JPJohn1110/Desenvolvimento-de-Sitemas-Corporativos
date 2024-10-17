@@ -297,7 +297,7 @@ function adicionarFuncionariosNaSidebar() {
     const funcionariosItem = document.createElement('li');
     funcionariosItem.innerHTML = `
         <a href="funcionarios">
-            <i class="fas fa-users"></i> 
+            <i><img src="images/equipe.png" alt=""></i> 
             <div>Funcionários</div>
         </a>
     `;

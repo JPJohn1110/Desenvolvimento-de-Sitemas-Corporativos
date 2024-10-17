@@ -57,42 +57,33 @@
         <div class="main">
             <div class="crud">
                 <div class="cabecalho">
-                    <span>Ultimos Cadastros</span>
-                    <button>Incluir</button>
+                    <span>Rastreamento de Voos</span>
+                    <div class="item">
+                        <form action="">
+                            <input type="text" id="flightInput" placeholder="Insira o código IATA do voo">
+                            <select id="statusFilter">
+                                <option value="">Todos os Status</option>
+                                <option value="scheduled">Programado</option>
+                                <option value="active">Ativo</option>
+                                <option value="landed">Pousado</option>
+                                <option value="cancelled">Cancelado</option>
+                                <option value="incident">Incidente</option>
+                            </select>
+                            <button id="trackButton">Rastrear Voo</button>
+                        </form>
+                    </div>
                 </div>
-
                 <div class="container2">
-                    <h1>Rastreamento de Voos</h1>
-                    <input type="text" id="flightInput" placeholder="Insira o código IATA do voo">
-                    <select id="statusFilter">
-                        <option value="">Todos os Status</option>
-                        <option value="scheduled">Programado</option>
-                        <option value="active">Ativo</option>
-                        <option value="landed">Pousado</option>
-                        <option value="cancelled">Cancelado</option>
-                        <option value="incident">Incidente</option>
-                    </select>
-                    <button id="trackButton">Rastrear Voo</button>
-                    <div id="results"></div>
-                    <div id="map"></div>
-                    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-                </div>
-
-                <script src="js/teste.js"></script>
-
-                <div class="divtable">
-                    <thead>
-                        <tr>
-                            <th>Aeronave</th>
-                            <th>Origem</th>
-                            <th>Destino</th>
-                            <th>Tempo</th>
-                            <th>Capacidade</th>
-                        </tr>
-                    </thead>
+                    <div class="item" id="results">
+                    </div>
+                    <div class="item" id="map">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script src="js/teste.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="js/script.js"></script>
 </body>
