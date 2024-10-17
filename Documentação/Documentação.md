@@ -158,7 +158,13 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 |**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com origem com NOME, CPF, DATA DE NASCIMENTO, TELEFONE e E-MAIL. |
 
+![CasoDeUso](/Documentação/Diagramas/CasoDeUso.png)
+<br>
+
+
 ---
+
+
 
 | **UC02 CRUD DE AERONAVE** |
 |:---|
@@ -176,6 +182,8 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | [E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
 | **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. |
 
+![CasoDeUso2](/Documentação/Diagramas/CasoDeUso2.png)
+<br>
 ---
 
 | **UC03. CRUD DE VOO** |
@@ -214,7 +222,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **OBJETIVO:**<br> Emissão do relatório de voos.|
 | **PRÉ-CONDIÇÕES:**<br> 1. Cadastro de voos.|
 | **PÓS-CONDIÇOES:**<br> Não há|
-| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>5
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
 
