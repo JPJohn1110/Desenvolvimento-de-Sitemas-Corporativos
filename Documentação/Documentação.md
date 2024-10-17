@@ -17,7 +17,7 @@
 
 ## 1. VISÃO GERAL DO SISTEMA
 
-O sistema deve gerenciar o controle de passagens e assentos da empresa aérea de forma online de acordo com a origem e destino do voo de clientes registrados e a viabilidade de reservar passagens para viagens futuras junto a capacidade de promover check-in online. Há também a funcionalidade de promover viagens mais acessíveis. O sistema providenciará descontos de acordo com milhas viajadas dentro da própria companhia aérea. O sistema será desenvolvido para plataforma Web, no qual clientes farão login por meio de email e senha. O sistema deverá reenviar e-mails para compradores após a compra para confirmação e como forma de lembrete da viagem.
+O sistema deve gerenciar o controle de aeronaves e voos da empresa aérea e voos internacionais mundiais de forma online de acordo com a origem e destino. Há também a funcionalidade de promover uma verificação geográfica dos voos online. O sistema providenciará relatórios de voos e aeronaves e viagens dentro da própria companhia aérea. O sistema será desenvolvido para plataforma Web, no qual clientes farão login por meio de e-mail e senha. O sistema deverá funcionar com um código de acesso para verificação.
 
 ---
 
@@ -32,35 +32,34 @@ _O diagrama acima representa o processo de check-in_
 ---
 
 ## 3. LEVANTAMENTO DE REQUISITOS
-Aa
+
 ---
 ### 3.1. REQUISITOS FUNCIONAIS
 
-1. Gerenciar usuarios
+1. Gerenciar usuário
 2. Gerenciar controle de voos
-3. Gerenciar controle de passagem
-4. Realizar venda de passagens
-5. Realizar check-in
-6. Gerenciar viagens do usuario
+3. Gerenciar controle de aeronaves
+4. Gerenciar cadastros do usuário
+5. Observar voos de aeronaves mundiais
 
 ---
 
 ### 3.2. REQUISITOS NÃO FUNCIONAIS
 
-1. A criação de usuários administradores deve ser feita por uma conta root.
-2. O cadastro dos usuários deve conter algum documento de identificação.
-3. Assento econômico 25% de lucro, Assento comum 35%, Primeira classe 65% 
-4. O cálculo das passagens deve ser realizado da seguinte forma: 
-5. O check-in deve ser permitido ao usuário 48 horas antes da viagem
-6. Controle de Acesso
+1. A criação de usuários administradores deve ser feita por um códigos.
+2. O cadastro dos usuários deve conter email, cpf, nome e telefone.
+3. Controle de Acesso.
+4. Pesquisa de aeronaves de terceiro por meio de ICAO
+5. Fazer Requisição de dados aéreos por meio da API "Aviation Stack"
 
 ---
 
 ### 3.3. REQUISITOS SUPLEMENTARES
 
 1. O sistema deve operar via interface Web
-2. O sistema deve ser desenvolvido na linguagem Java
+2. O sistema deve ser desenvolvido na linguagem Java e JavaScript
 3. O sistema deve utilizar o banco de dados PostgreSQL
+4. O sistema utilizará a API AviationStack.
 
 ---
 
@@ -68,16 +67,16 @@ Aa
 
 | **RF1. CRUD de usuários administradores** |
 |:---|
-| **Descrição:**<br>O administrador chefe do sistema poderá criar cadastros para novos funcionários que irão administrar o sistema. Esse processo inclui a inserção de informações pessoais, um endereço de e-mail e uma senha para cada novo administrador. |
+| **Descrição:**<br>O administrador chefe do sistema poderá criar editar permissões para novos funcionários que irão administrar o sistema. Esse processo inclui a troca de código de acesso. Ou por meio de cadastro com código especial|
 | **Fontes:** |
-| **Usuários:**<br>Administrador chefe |
-| **Informações de entrada:**<br>O administrador chefe deverá preencher os dados do novo funcionário, incluindo nome completo, endereço de e-mail, senha, cargo/posição, telefone de contato (opcional), data de nascimento (opcional) e endereço (opcional). |
+| **Usuários:**<br>Administrador|
+| **Informações de entrada:**<br>O administrador chefe poderá alterar os dados do novo funcionário, incluindo nome completo, endereço de e-mail, senha, cargo/posição, telefone de contato, CPF e número de acesso.
 | **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
 ---
 | **RF2. Realizar login de usuários administradores** |
 |:---|
-| **Descrição:**<br>O usuário administrador irá acessar o sistema fornecendo suas credenciais para autenticação e autorização de acesso. |
+| **Descrição:**<br>O usuário poderá acessar o sistema fornecendo suas credenciais para autenticação e autorização de acesso. |
 | **Fontes:**<br>Documentação de segurança do sistema.<br>Políticas de autenticação e credenciais da empresa. |
 | **Usuários:**<br>Usuário administrador |
 | **Informações de entrada:**<br>O usuário administrador deverá fornecer seu e-mail e senha. |
@@ -89,7 +88,7 @@ Aa
 | **Descrição:**<br>O usuário irá acessar o sistema e fornecer os dados necessários para criar uma nova conta de usuário. Este cadastro permitirá que o usuário utilize as funcionalidades do sistema. |
 | **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares |
 | **Usuários:**<br>Usuário normal |
-| **Informações de entrada:**<br>O usuário deverá preencher os dados, incluindo nome completo, endereço de e-mail, senha, telefone de contato (opcional), data de nascimento (opcional) e endereço (opcional). |
+| **Informações de entrada:**<br>O usuário deverá preencher os dados, incluindo nome completo, endereço de e-mail, senha, telefone de contato, CPF e número de acesso |
 | **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição de acesso geradas.  |
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia.  |
 ---
@@ -115,49 +114,28 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **Requisitos não funcionais:**<br>O sistema deve restringir o acesso ao CRUD de voos apenas a usuários administradores, o sistema deverá ser capaz de gerenciar um grande número de voos sem perda de desempenho, especialmente em períodos de alta demanda.  |
 
 ---
-
-| **RF6. CRUD controle de passagem** |
+| **RF7. Realizar busca de voos** |
 |:---|
-| **Descrição:**<br>Este recurso permite que o usuário administrador cadastre, mantenha e exclua passagens na companhia aérea. Para que uma passagem possa ser criada, é necessário que já exista um voo cadastrado vinculado a ela. |
-| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil do Manual do Sistema de Registro de Operações (SIROS) |
-| **Usuários:**<br>Usuário administrador |
-| **Informações de entrada:**<br>Para cadastrar ou manter uma passagem, o administrador deve fornecer o código da passagem, que é um identificador único para a passagem. Também deve ser informada a data e horário de partida, correspondente ao voo associado à passagem. É essencial vincular a passagem a um código de voo já cadastrado, garantindo que a quantidade de passagens corresponda à quantidade de passageiros permitidos no voo. |
-| **Informações de saída:**<br>Confirmação de Operação no qual mostra mensagens de sucesso ou erro ao criar, atualizar ou excluir uma passagem e apresentam os dados da passagem, incluindo código, voo associado, data e horário de partida.  |
-| **Requisitos não funcionais:**<br>Somente administradores autenticados podem realizar operações de CRUD sobre passagens e garantir que o número de passagens emitidas não ultrapasse a capacidade do voo.  |
-
----
-
-| **RF7. Realizar venda de passagens** |
-|:---|
-| **Descrição:**<br>Este recurso permite que o usuário acesse o sistema, procure por passagens disponíveis e realize a compra das mesmas. O sistema deve facilitar a busca, seleção e aquisição das passagens de maneira eficiente e segura. |
-| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil Manual do Sistema de Registro de Operações (SIROS). |
-| **Usuários:**<br>Usuário normal |
-| **Informações de entrada:**<br>Para realizar a compra, o usuário deverá fornecer as informações de origem e destino, selecionar os assentos de acordo com o trajeto, fornecer dados pessoais caso não esteja cadastrado, escolher o meio de pagamento e fornecer os dados necessários para o pagamento. |
-| **Informações de saída:**<br>Resumo da compra para confirmação, incluindo detalhes da passagem, voo, e assento selecionado, com comprovante da transação realizada, incluindo número da compra, valor pago, e forma de pagamento e contato da empresa responsável pelo voo para demais situações.  |
-| **Requisitos não funcionais:**<br>O sistema deve garantir a proteção dos dados pessoais e financeiros do usuário, utilizando criptografia e protocolos de segurança adequados e ser intuitivo e fácil de usar, garantindo uma experiência positiva para o usuário final.  |
-
----
-
-| **RF8. Realizar check-in** |
-|:---|
-| **Descrição:**<br>Este recurso permite que o usuário acesse o sistema, procure por suas passagens disponíveis e realize o check-in. O sistema deve facilitar a busca e o check-in das passagens de maneira eficiente e segura. |
-| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil juntamente aos dados fornecidos pelas companhias aéreas. |
-| **Usuários:**<br>Usuário normal |
-| **Informações de entrada:**<br>Para realizar o check-in, o usuário deve fornecer o código do vôo (código localizador) e o aeroporto de partida, selecionar os passageiros que irão realizar o voo, fornecer os dados necessários para o check-in caso não estejam cadastrados, e selecionar os assentos caso ainda não tenham sido escolhidos. |
-| **Informações de saída:**<br>Comprovante de check-in juntamente com o cartão de embarque.  |
-| **Requisitos não funcionais:**<br>O sistema deve garantir a proteção dos dados pessoais e financeiros do usuário utilizando protocolos de segurança adequados.  |
----
-
-| **RF9. Realizar busca de voos** |
-|:---|
-| **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores e altere informações de viagens futuras, quando possível. |
+| **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores e altere informações de viagens futuras do sistema, quando necessário. |
 | **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares. |
-| **Usuários:**<br>Usuário normal |
+| **Usuários:**<br>Usuário normal Usuário admin|
 | **Informações de entrada:**<br>O usuário pode informar a origem, destino, código da viagem e data para localizar a viagem. Para viagens futuras, o usuário pode alterar dados da viagem conforme permitido. |
 | **Informações de saída:**<br>Tela com as informações de voos compatíveis com a busca, priorizando uma ordem.  |
 | **Requisitos não funcionais:**<br>a  |
 
+--
+
+
+| **RF7. Realizar busca de registros de aeronaves internacionais** |
+|:---|
+| **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores de aeronaves internacionais  |
+| **Fontes:**<br>Documentação do sistema e Documentação da API |
+| **Informações de entrada:**<br>O usuário deve informar o código IATA/ICAO do vôo desejado. |
+| **Informações de saída:**<br>Tela com as informações de voos compatíveis com a busca, priorizando uma ordem e um mapa com sua localização atual caso esteja ativo.  |
+| **Requisitos não funcionais:**<br> Funciona a partir de requisição ao Banco de Dados DA API |
+
 ---
+
 
 ## 5. DIAGRMAS DE ESTADO DE MÁQUINA
 ![estadoDeMaquinaVoo](/Documentação/Diagramas/State-machine-voo.png)
@@ -172,23 +150,66 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 |:---|
 | **NOME DO CASO DE USO:**<br> Cadastro de usuário |
 | **ATOR:**<br>Cliente | 
-| **OBJETIVO:**<br> Oforrecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
+| **OBJETIVO:**<br> Oferecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
 | **PRÉ-CONDIÇÕES:**<br> 1. O usuário não deve possuir uma conta registrada no sistema.|
 | **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
 | **CENÁRIO PRINCIPAL:** <br> 1. [INT]O usuário acessa a página de cadastro. <br> 2. [INT] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.|
 | **CENÁRIO ALTERNATIVO:**<br> |
-|**EXECEÇÃO**|<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
+|**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com origem com NOME, CPF, DATA DE NASCIMENTO, TELEFONE e E-MAIL. |
 
+---
 
-| **UC0X. COMPRA DE PASSAGEM** |
+| **UC02 CADASTRO DE AERONAVE** |
 |:---|
-| **NOME DO CASO DE USO:**<br> Comprar passagens |
-| **ATOR:**<br>Cliente |
-| **OBJETIVO:**<br> Oforrecer a possibilidade de aquisição de passagens e pagamento|
+| **NOME DO CASO DE USO:**  <br>Cadastro de aeronave |
+| **ATOR:** <br> Funcionário |
+| **OBJETIVO:** <br> Permitir o cadastro de novas aeronaves no sistema. |
+| **PRÉ-CONDIÇÕES:**<br> O funcionário deve estar autenticado no sistema. |
+| **PÓS-CONDIÇOES:** <br> A o vôo é registrada no sistema e está disponível para operações. |
+| **CENÁRIO PRINCIPAL:** |
+| 1. [INT] O administrador acessa a página de cadastro de voos. <br> 2. [INT] O administrador preenche o formulário de cadastro com as informações necessárias [RN1]. <br> 3. [OUT] O sistema valida as informações fornecidas. [E1] <br> 4. [OUT] O sistema registra o novo voo no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação do cadastro.
+| **CENÁRIO ALTERNATIVO:** |
+| **EXCEÇÃO** |
+| [E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
+| **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. |
+
+---
+
+| **UC03. CADASTRO DE VOO** |
+|:---|
+| **NOME DO CASO DE USO:**<br> Cadastro de voo |
+| **ATOR:**<br>Funcionário | 
+| **OBJETIVO:**<br> Permitir o cadastro de novos voos no sistema.|
 | **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema.|
-| **PÓS-CONDIÇOES:**<br> E-mail de confimação|
-| **CENÁRIO PRINCIPAL:** <br> 1. [INT]O usuário acessa a página de busca de voos. <br> 2. [OUT] O sistema mostra a página de busca <br>3. [INT] O usuário insere os detalhes do voo desejado [RN1] <br> 4.[OUT] O sistema apresenta uma lista de voos disponíveis. <br> 5.[INT] O usuário seleciona um voo e escolhe o assento desejado. <br> 6. [INT] O usuário revisa os detalhes da compra (voo, assento, preço). <br> 6. [OUT] O sistema mostra as opções de pagamento. <br> 7. [INT] O usuário seleciona o método de pagamento e insere os dados necessários. <br> 8. [OUT] O sistema processa o pagamento através do sistema de Pagamento. Após a confirmação do pagamento, o sistema gera e exibe a passagem para o usuário. <br> 9. [OUT] O sistema envia um e-mail de confirmação da compra ao usuário. |
-| **CENÁRIO ALTERNATIVO:**<br> 1. [OUT] Se o voo desejado não estiver disponível, o sistema informa ao usuário e sugere voos alternativos (Passo 3A). <br> 2. [OUT] Se o pagamento for recusado, o sistema notifica o usuário e solicita que ele tente outro método de pagamento (Passo 7A). <br> 3. [OUT] Se o usuário não estiver logado, o sistema redireciona para a página de login (Pré-condição 1A).|
-|**EXECEÇÃO**|<br>| 
-|**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com origem como origem, destino e datas. |
+| **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
+| **CENÁRIO PRINCIPAL:** <br> 1. [INT]O usuário acessa a página de cadastro. <br> 2. [INT] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br>|
+| **CENÁRIO ALTERNATIVO:**<br> |
+|**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
+|**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.|
+
+
+----
+
+
+| **UC04. PESQUISA DE VOOS API** |
+|:---|
+| **NOME DO CASO DE USO:**<br> PESQUISA DE VOOS INTERNACIONAIS |
+| **ATOR:**<br>Cliente | 
+| **OBJETIVO:**<br> Oferecer a de voos existentes no sistema aéreo mundial através do Código IATA/ICAO.|
+| **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema <br> A chave Key da API com o sistema deve possuir requisições mensal disponível.|
+| **PÓS-CONDIÇOES:**<br> O sistema registra a requisição e retorna dados sobre a aeronave, datas de voos, ativos, cancelados, concluídos e agendados além de um mapa com sua localização caso esteja com ativo|
+| **CENÁRIO PRINCIPAL:** <br>1. [INT] O cliente acessa a interface de pesquisa de voos.<br>2. [INT] O sistema solicita que o cliente insira o código IATA ou ICAO do voo. <br> 3. [INT] O cliente insere o código do voo e confirma a pesquisa. <br> 4. [OUT] O sistema valida o código inserido. [RN1] <br>5. [OUT] O sistema consulta a API da AviationStack. [RN2] <br>6. [OUT] A API retorna os dados do voo, como aeronave, status e localização.[E1][E2] <br> 7. [OUT] Caso o voo esteja ativo, o sistema exibe a localização em tempo real em um mapa. <br> 8. [OUT] O sistema apresenta os dados ao cliente. <br> 9. [OUT] O sistema registra a consulta no histórico. <br> 10. [OUT] O cliente finaliza a pesquisa. |
+
+| **CENÁRIO ALTERNATIVO:**<br> 
+| **EXCEÇÃO**| [E1] O cliente tenta pesquisar um voo, o sistema tenta acessar a API, mas está indisponível, em seguida o sistema exibe uma mensagem de erro: "Falha na pesquisa." [RN3], O sistema registra a tentativa de acesso e o erro. <br>  [E2] O cliente insere um código inválido ou de voo inexistente. O sistema detecta o código como inválido ou a API não encontra o voo. [RN1]. O sistema exibe uma mensagem de erro: "Voo não encontrado."
+
+| **REGRAS DE NEGÓCIO:** <br>[RN1] - O sistema deve validar o código IATA ou ICAO inserido pelo cliente. [RN2] - O sistema só deve acessar a API se a chave de API estiver válida e com requisições disponíveis. <br> [RN3] - O sistema deve registrar e notificar o cliente em caso de falha na pesquisa devido à indisponibilidade da API. |
+
+
+
+
+
+
+
+
