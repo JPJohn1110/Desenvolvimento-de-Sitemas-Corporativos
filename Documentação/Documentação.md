@@ -177,7 +177,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | 1. [IN] O administrador acessa a página de cadastro de voos. <br> 2. [IN] O administrador preenche o formulário de cadastro com as informações necessárias [RN1]. <br> 3. [OUT] O sistema valida as informações fornecidas. [E1] <br> 4. [OUT] O sistema registra o novo voo no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação do cadastro.
 | **CENÁRIO ALTERNATIVO:** |
 | **EDITAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar <br> 3. [IN]  Altera os dados desejados  <br> 4. [OUT] retorna a página com dados atualizados|
-| **DELETAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar 3. [OUT] retorna a página com sem o objeto deletado|
+| **DELETAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar. <br>3. [OUT] retorna a página com sem o objeto deletado|
 | **EXCEÇÃO** |
 | [E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
 | **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. |
@@ -198,6 +198,8 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 |**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.|
 
+![CasoDeUso3](/Documentação/Diagramas/CasoDeUso3.png)
+<br>
 
 ---
 
@@ -209,7 +211,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **OBJETIVO:**<br> Emissão do relatório de aeronaves.|
 | **PRÉ-CONDIÇÕES:**<br> 1. Cadastro da aeronaves.|
 | **PÓS-CONDIÇOES:**<br> Não há|
-| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna as aeronaves que batem com a pesquisa.<br>5
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna as aeronaves que batem com a pesquisa.<br>
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
 
