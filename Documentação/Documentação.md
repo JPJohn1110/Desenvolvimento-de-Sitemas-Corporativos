@@ -227,6 +227,8 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
+![CasoDeUso4](/Documentação/Diagramas/CasoDeUso4.png)
+<br>
 
 ---
 
@@ -243,6 +245,9 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 |[E1] O cliente tenta pesquisar um voo, o sistema tenta acessar a API, mas está indisponível, em seguida o sistema exibe uma mensagem de erro: "Falha na pesquisa." [RN3], O sistema registra a tentativa de acesso e o erro. <br>  [E2] O cliente insere um código inválido ou de voo inexistente. O sistema detecta o código como inválido ou a API não encontra o voo. [RN1]. O sistema exibe uma mensagem de erro: "Voo não encontrado."|
 | **REGRAS DE NEGÓCIO:** <br>[RN1] - O sistema deve validar o código IATA ou ICAO inserido pelo cliente. [RN2] - O sistema só deve acessar a API se a chave de API estiver válida e com requisições disponíveis. <br> [RN3] - O sistema deve registrar e notificar o cliente em caso de falha na pesquisa devido à indisponibilidade da API. |
 
+
+![CasoDeUso5](/Documentação/Diagramas/CasoDeUso5.png)
+<br>
 
 
 
