@@ -153,14 +153,14 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **OBJETIVO:**<br> Oferecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
 | **PRÉ-CONDIÇÕES:**<br> 1. O usuário não deve possuir uma conta registrada no sistema.|
 | **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
-| **CENÁRIO PRINCIPAL:** <br> 1. [INT]O usuário acessa a página de cadastro. <br> 2. [INT] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.|
+| **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.|
 | **CENÁRIO ALTERNATIVO:**<br> |
 |**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com origem com NOME, CPF, DATA DE NASCIMENTO, TELEFONE e E-MAIL. |
 
 ---
 
-| **UC02 CADASTRO DE AERONAVE** |
+| **UC02 CRUD DE AERONAVE** |
 |:---|
 | **NOME DO CASO DE USO:**  <br>Cadastro de aeronave |
 | **ATOR:** <br> Funcionário |
@@ -168,22 +168,24 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **PRÉ-CONDIÇÕES:**<br> O funcionário deve estar autenticado no sistema. |
 | **PÓS-CONDIÇOES:** <br> A o vôo é registrada no sistema e está disponível para operações. |
 | **CENÁRIO PRINCIPAL:** |
-| 1. [INT] O administrador acessa a página de cadastro de voos. <br> 2. [INT] O administrador preenche o formulário de cadastro com as informações necessárias [RN1]. <br> 3. [OUT] O sistema valida as informações fornecidas. [E1] <br> 4. [OUT] O sistema registra o novo voo no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação do cadastro.
+| 1. [IN] O administrador acessa a página de cadastro de voos. <br> 2. [IN] O administrador preenche o formulário de cadastro com as informações necessárias [RN1]. <br> 3. [OUT] O sistema valida as informações fornecidas. [E1] <br> 4. [OUT] O sistema registra o novo voo no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação do cadastro.
 | **CENÁRIO ALTERNATIVO:** |
+| **EDITAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar <br> 3. [IN]  Altera os dados desejados  <br> 4. [OUT] retorna a página com dados atualizados|
+| **DELETAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar 3. [OUT] retorna a página com sem o objeto deletado|
 | **EXCEÇÃO** |
 | [E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
 | **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. |
 
 ---
 
-| **UC03. CADASTRO DE VOO** |
+| **UC03. CRUD DE VOO** |
 |:---|
 | **NOME DO CASO DE USO:**<br> Cadastro de voo |
 | **ATOR:**<br>Funcionário | 
 | **OBJETIVO:**<br> Permitir o cadastro de novos voos no sistema.|
 | **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema.|
 | **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
-| **CENÁRIO PRINCIPAL:** <br> 1. [INT]O usuário acessa a página de cadastro. <br> 2. [INT] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br>|
+| **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br>|
 | **CENÁRIO ALTERNATIVO:**<br> |
 |**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.|
@@ -192,15 +194,41 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 
-| **UC04. PESQUISA DE VOOS API** |
+| **UC04. RELATÓRIO  DE AERONAVES DA EMPRESA** |
+|:---|
+| **NOME DO CASO DE USO:**<br> Relatório de aeronaves |
+| **ATOR:**<br> Usuario | 
+| **OBJETIVO:**<br> Emissão do relatório de aeronaves.|
+| **PRÉ-CONDIÇÕES:**<br> 1. Cadastro da aeronaves.|
+| **PÓS-CONDIÇOES:**<br> Não há|
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna as aeronaves que batem com a pesquisa.<br>5
+| **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
+
+
+---
+
+| **UC04. RELATÓRIO DE VOOS DA EMPRESA** |
+|:---|
+| **NOME DO CASO DE USO:**<br> Relatório de vos |
+| **ATOR:**<br> Usuario | 
+| **OBJETIVO:**<br> Emissão do relatório de voos.|
+| **PRÉ-CONDIÇÕES:**<br> 1. Cadastro de voos.|
+| **PÓS-CONDIÇOES:**<br> Não há|
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>5
+| **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
+
+
+---
+
+| **UC05. PESQUISA DE VOOS API** |
 |:---|
 | **NOME DO CASO DE USO:**<br> PESQUISA DE VOOS INTERNACIONAIS |
 | **ATOR:**<br>Cliente | 
 | **OBJETIVO:**<br> Oferecer a de voos existentes no sistema aéreo mundial através do Código IATA/ICAO.|
 | **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema <br> A chave Key da API com o sistema deve possuir requisições mensal disponível.|
 | **PÓS-CONDIÇOES:**<br> O sistema registra a requisição e retorna dados sobre a aeronave, datas de voos, ativos, cancelados, concluídos e agendados além de um mapa com sua localização caso esteja com ativo|
-| **CENÁRIO PRINCIPAL:** <br>1. [INT] O cliente acessa a interface de pesquisa de voos.<br>2. [INT] O sistema solicita que o cliente insira o código IATA ou ICAO do voo. <br> 3. [INT] O cliente insere o código do voo e confirma a pesquisa. <br> 4. [OUT] O sistema valida o código inserido. [RN1] <br>5. [OUT] O sistema consulta a API da AviationStack. [RN2] <br>6. [OUT] A API retorna os dados do voo, como aeronave, status e localização.[E1][E2] <br> 7. [OUT] Caso o voo esteja ativo, o sistema exibe a localização em tempo real em um mapa. <br> 8. [OUT] O sistema apresenta os dados ao cliente. <br> 9. [OUT] O sistema registra a consulta no histórico. <br> 10. [OUT] O cliente finaliza a pesquisa. |
-| **CENÁRIO ALTERNATIVO:** |
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O cliente acessa a interface de pesquisa de voos.<br>2. [IN] O sistema solicita que o cliente insira o código IATA ou ICAO do voo. <br> 3. [IN] O cliente insere o código do voo e confirma a pesquisa. <br> 4. [OUT] O sistema valida o código inserido. [RN1] <br>5. [OUT] O sistema consulta a API da AviationStack. [RN2] <br>6. [OUT] A API retorna os dados do voo, como aeronave, status e localização. [E1] [E2] <br> 7. [OUT] Caso o voo esteja ativo, o sistema exibe a localização em tempo real em um mapa. <br> 8. [OUT] O sistema apresenta os dados ao cliente. <br> 9. [OUT] O sistema registra a consulta no histórico. <br> 10. [OUT] O cliente finaliza a pesquisa. |
+| **CENÁRIO ALTERNATIVO:**|
 | **EXCEÇÃO**|
 |[E1] O cliente tenta pesquisar um voo, o sistema tenta acessar a API, mas está indisponível, em seguida o sistema exibe uma mensagem de erro: "Falha na pesquisa." [RN3], O sistema registra a tentativa de acesso e o erro. <br>  [E2] O cliente insere um código inválido ou de voo inexistente. O sistema detecta o código como inválido ou a API não encontra o voo. [RN1]. O sistema exibe uma mensagem de erro: "Voo não encontrado."|
 | **REGRAS DE NEGÓCIO:** <br>[RN1] - O sistema deve validar o código IATA ou ICAO inserido pelo cliente. [RN2] - O sistema só deve acessar a API se a chave de API estiver válida e com requisições disponíveis. <br> [RN3] - O sistema deve registrar e notificar o cliente em caso de falha na pesquisa devido à indisponibilidade da API. |
