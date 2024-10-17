@@ -2,6 +2,7 @@ const sEmail = document.querySelector('#email');
 const sSenha = document.querySelector('#senha');
 const btnSignup = document.querySelector('#btnlogin');
 const url = 'http://localhost:8080/login';
+let token = localStorage.getItem('token');
 
 btnSignup.onclick = e => {
     e.preventDefault();
@@ -26,8 +27,7 @@ btnSignup.onclick = e => {
         })
         .then(data => {
             const token = data.token;
-            console.log(token);
-            sessionStorage.setItem('token', token); //
+            localStorage.setItem('token', token);
             validateAndRedirect();
         })
         .catch(error => {
@@ -52,11 +52,13 @@ function isTokenExpired(token) {
 }
 
 function validateAndRedirect() {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    const url2 = 'http://localhost:8080/validate-token'
 
     if (token) {
+        console.log("entrou")
         if (!isTokenExpired(token)) {
-            fetch('/validate-token', {
+            fetch(url2, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -66,27 +68,26 @@ function validateAndRedirect() {
                     if (response.ok) {
                         window.location.href = '/index';
                     } else {
-                        sessionStorage.removeItem('token');
+                        localStorage.removeItem('token');
                         window.location.href = '/login';
                     }
                 })
                 .catch(error => {
                     console.error('Erro ao validar token no backend:', error);
-                    sessionStorage.removeItem('token');
+                    localStorage.removeItem('token');
                     window.location.href = '/login';
                 });
         } else {
-            sessionStorage.removeItem('token');
+            localStorage.removeItem('token');
             window.location.href = '/login';
         }
     } else {
-        // Token não existe, redireciona para login
         window.location.href = '/login';
     }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    if (sessionStorage.getItem('token')) {
+    if (token) {
         validateAndRedirect();
     }
 });

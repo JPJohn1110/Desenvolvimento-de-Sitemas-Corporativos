@@ -36,7 +36,7 @@ public class SecurityConfigurations {
 			.authorizeHttpRequests(authorize -> authorize
 					.requestMatchers(HttpMethod.GET, "/validate-token").permitAll()
 					.requestMatchers(HttpMethod.PUT, "/usuario").permitAll()
-					.requestMatchers(HttpMethod.POST, "/crud/aeronave").hasAnyRole("USUARIO")
+					.requestMatchers(HttpMethod.POST, "/crud/aeronave").hasAnyRole("ADMIN")
 					.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
 					.requestMatchers("/index", "/cadastro", "/login", "/aeronave", "/voo", "/teste", "/funcionarios", "/planejamento").permitAll()
 					.anyRequest().authenticated()

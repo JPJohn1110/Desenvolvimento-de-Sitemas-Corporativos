@@ -50,4 +50,8 @@ public class VooService {
         voos = voo.findAll();
         return voos.stream().map(VooDTO::new).toList();
     }
+
+    public int quantidadeVoos(String modelo) {
+        return voo.countVoosByAeronaveModelo(modelo);
+    }
 }

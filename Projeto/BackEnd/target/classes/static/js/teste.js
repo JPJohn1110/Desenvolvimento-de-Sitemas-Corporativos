@@ -1,6 +1,7 @@
 const resultsDiv = document.getElementById('results');
 const mapDiv = document.getElementById('map');
 const API_KEY = "a9a3ca38755cd21ad75e651671fcd0f9"; // Substitua pelo valor correto
+const btnRastrear = document.getElementById('trackButton')
 let map;
 
 async function fetchFlightData(flight) {
@@ -83,7 +84,9 @@ function showMap(latitude, longitude) {
     L.marker([latitude, longitude]).addTo(map);
 }
 
-document.getElementById('trackButton').onclick = async () => {
+btnRastrear.onclick = async (e) => {
+    e.preventDefault();
+
     const flightInput = document.getElementById('flightInput').value.trim();
     if (flightInput) {
         try {

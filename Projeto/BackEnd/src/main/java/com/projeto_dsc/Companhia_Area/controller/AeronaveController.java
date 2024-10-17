@@ -29,6 +29,12 @@ public class AeronaveController {
         return aeronaveService.listarPlanejamentos();
     }
 
+    @GetMapping("/plano/buscar")
+    public List<PlanejamentoDTO> listarPlanejamentos(@RequestParam(required = false) String modelo){
+        System.out.println(modelo);
+        return aeronaveService.listarPlanejamentosPorModelo(modelo);
+    }
+
     @PostMapping
     public ResponseEntity<String> inserir(@RequestBody AeronaveDTO aeronaveDTO){
         try {

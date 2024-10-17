@@ -16,14 +16,26 @@ public class AeronaveService {
     @Autowired
     AeronaveRepository aeronaveRepository;
 
+    @Autowired
+    private VooService vooService;
+
     public List<AeronaveDTO> listarTodos() {
         List<AeronaveEntity> aeronave = aeronaveRepository.findAll();
         return  aeronave.stream().map(AeronaveDTO::new).toList();
     }
 
     public List<PlanejamentoDTO> listarPlanejamentos() {
-        List<AeronaveEntity> aeronave = aeronaveRepository.findAll();
-        return  aeronave.stream().map(PlanejamentoDTO::new).toList();
+        List<AeronaveEntity> aeronaves = aeronaveRepository.findAll();
+        return  aeronaves.stream()
+                .map(aeronave -> new PlanejamentoDTO(aeronave, vooService.quantidadeVoos(aeronave.getModelo())))
+                .toList();
+    }
+
+    public List<PlanejamentoDTO> listarPlanejamentosPorModelo(String modelo) {
+        List<AeronaveEntity> aeronaves = aeronaveRepository.findByModelo(modelo);
+        return  aeronaves.stream()
+                .map(aeronave -> new PlanejamentoDTO(aeronave, vooService.quantidadeVoos(aeronave.getModelo())))
+                .toList();
     }
 
     public void  inserir(AeronaveDTO aeronave) {

@@ -11,7 +11,7 @@ let id
 
 //Requisição GET
 function loadUsuario(){
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     fetch(url,{
         method: 'GET',
         headers: {
@@ -37,10 +37,7 @@ btnSearch.onclick = e => {
     }
 
     const urlBusca = `http://localhost:8080/usuario/buscar?role=${encodeURIComponent(sTipoBusca.value)}`
-    const token = sessionStorage.getItem('token');
-
-
-    console.log(token)
+    const token = localStorage.getItem('token');
 
     fetch(urlBusca,{
         method: 'GET',
@@ -78,7 +75,7 @@ btnSalvar.onclick = e => {
         return
     }
 
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     fetch(url, {
         method: 'POST',
@@ -107,7 +104,7 @@ btnSalvar.onclick = e => {
 
 //Requisição PUT
 function atualizarUsuario(usuario) {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     fetch(url, {
         method: 'PUT',
         headers: {
@@ -134,7 +131,7 @@ function deleteUsuario(id){
     if (id === 1){
         return
     }
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     fetch(`${url}/${id}`, {
         method: 'DELETE',
         headers: {
@@ -232,7 +229,7 @@ function isTokenExpired(token) {
 }
 
 function validateAndRedirect() {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     if (token) {
         if (!isTokenExpired(token)) {
@@ -244,17 +241,17 @@ function validateAndRedirect() {
             })
                 .then(response => {
                     if (!response.ok) {
-                        sessionStorage.removeItem('token');
+                        localStorage.removeItem('token');
                         window.location.href = '/login';
                     }
                 })
                 .catch(error => {
                     console.error('Erro ao validar token no backend:', error);
-                    sessionStorage.removeItem('token');
+                    localStorage.removeItem('token');
                     window.location.href = '/login';
                 });
         } else {
-            sessionStorage.removeItem('token');
+            localStorage.removeItem('token');
             window.location.href = '/login';
         }
     } else {
@@ -279,7 +276,7 @@ function gerarCodigoAcesso(tamanho = 12) {
 }
 
 function verificarUsuario() {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     if (token) {
         const decodedToken = parseJwt(token);
@@ -297,7 +294,7 @@ function adicionarFuncionariosNaSidebar() {
     const funcionariosItem = document.createElement('li');
     funcionariosItem.innerHTML = `
         <a href="funcionarios">
-            <i><img src="images/equipe.png" alt=""></i> 
+            <i><img src="images/func.png" alt=""></i> 
             <div>Funcionários</div>
         </a>
     `;
