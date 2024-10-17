@@ -189,7 +189,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 |**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.|
 
 
-----
+---
 
 
 | **UC04. PESQUISA DE VOOS API** |
@@ -200,10 +200,9 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema <br> A chave Key da API com o sistema deve possuir requisições mensal disponível.|
 | **PÓS-CONDIÇOES:**<br> O sistema registra a requisição e retorna dados sobre a aeronave, datas de voos, ativos, cancelados, concluídos e agendados além de um mapa com sua localização caso esteja com ativo|
 | **CENÁRIO PRINCIPAL:** <br>1. [INT] O cliente acessa a interface de pesquisa de voos.<br>2. [INT] O sistema solicita que o cliente insira o código IATA ou ICAO do voo. <br> 3. [INT] O cliente insere o código do voo e confirma a pesquisa. <br> 4. [OUT] O sistema valida o código inserido. [RN1] <br>5. [OUT] O sistema consulta a API da AviationStack. [RN2] <br>6. [OUT] A API retorna os dados do voo, como aeronave, status e localização.[E1][E2] <br> 7. [OUT] Caso o voo esteja ativo, o sistema exibe a localização em tempo real em um mapa. <br> 8. [OUT] O sistema apresenta os dados ao cliente. <br> 9. [OUT] O sistema registra a consulta no histórico. <br> 10. [OUT] O cliente finaliza a pesquisa. |
-
-| **CENÁRIO ALTERNATIVO:**<br> |
-| **EXCEÇÃO**| [E1] O cliente tenta pesquisar um voo, o sistema tenta acessar a API, mas está indisponível, em seguida o sistema exibe uma mensagem de erro: "Falha na pesquisa." [RN3], O sistema registra a tentativa de acesso e o erro. <br>  [E2] O cliente insere um código inválido ou de voo inexistente. O sistema detecta o código como inválido ou a API não encontra o voo. [RN1]. O sistema exibe uma mensagem de erro: "Voo não encontrado."|
-
+| **CENÁRIO ALTERNATIVO:** |
+| **EXCEÇÃO**|
+|[E1] O cliente tenta pesquisar um voo, o sistema tenta acessar a API, mas está indisponível, em seguida o sistema exibe uma mensagem de erro: "Falha na pesquisa." [RN3], O sistema registra a tentativa de acesso e o erro. <br>  [E2] O cliente insere um código inválido ou de voo inexistente. O sistema detecta o código como inválido ou a API não encontra o voo. [RN1]. O sistema exibe uma mensagem de erro: "Voo não encontrado."|
 | **REGRAS DE NEGÓCIO:** <br>[RN1] - O sistema deve validar o código IATA ou ICAO inserido pelo cliente. [RN2] - O sistema só deve acessar a API se a chave de API estiver válida e com requisições disponíveis. <br> [RN3] - O sistema deve registrar e notificar o cliente em caso de falha na pesquisa devido à indisponibilidade da API. |
 
 
