@@ -2,7 +2,10 @@ const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('#aeronaveTbody')
 const url ='http://localhost:8080/crud/voo'
 const btnSalvar = document.querySelector('#btnSalvar')
+const btnSearch = document.querySelector('#search')
 
+const sTextoBusca = document.querySelector('#searchInput')
+const sTipoBusca = document.querySelector('#searchCriteria')
 const snumVoo = document.querySelector('#m-numvoo')
 const sAeronave = document.querySelector('#m-aeronave')
 const sDuracao = document.querySelector('#m-duracao')
@@ -16,6 +19,31 @@ let token = sessionStorage.getItem('token');
 //Requisição GET
 function loadVoo(){
   fetch(url,{
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+    .then(response => response.json())
+    .then(voosT => {
+      tbody.innerHTML = ''
+
+      voosT.forEach((voo) => {
+        voos.push(voo)
+        inserirVoo(voo);
+      });
+    })
+}
+
+btnSearch.onclick = e => {
+  if (sTextoBusca.value === ''){
+    loadVoo()
+    return
+  }
+
+  const urlBusca = `http://localhost:8080/crud/voo/buscar?${sTipoBusca.value}=${encodeURIComponent(sTextoBusca.value)}`
+
+  fetch(urlBusca,{
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`

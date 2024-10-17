@@ -122,6 +122,21 @@
     word-break: break-all;
 }
 
+.searchForm {
+    display: flex;
+    align-items: center;
+}
+
+#busca .searchForm .item {
+    margin: 10px;
+}
+
+.item select {
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+}
+
 #new {
     font-size: 16px;
     padding: 8px;

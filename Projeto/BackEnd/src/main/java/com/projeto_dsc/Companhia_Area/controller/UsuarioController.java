@@ -2,6 +2,7 @@ package com.projeto_dsc.Companhia_Area.controller;
 
 import com.projeto_dsc.Companhia_Area.dto.UsuarioDTO;
 import com.projeto_dsc.Companhia_Area.entity.UsuarioEntity;
+import com.projeto_dsc.Companhia_Area.entity.UsuarioRole;
 import com.projeto_dsc.Companhia_Area.repository.UsuarioRepository;
 import com.projeto_dsc.Companhia_Area.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,59 +25,64 @@ public class UsuarioController {
 	private UsuarioRepository usuarioRepository;
 
 	@GetMapping
-		public List<UsuarioDTO> listarTodos(){
+	public List<UsuarioDTO> listarTodos(){
 			return usuarioService.listarTodos();
 		}
 
-		@PostMapping
-		@ResponseStatus(HttpStatus.OK)
-		public ResponseEntity<String> inserir(@RequestBody UsuarioDTO usuario){
-			try {
-				usuarioService.inserir(usuario);
-				return ResponseEntity.status(HttpStatus.CREATED).body("Usuario cadastrado com suceso.");
-			} catch (Exception e) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao cadastrar.");
-			}
+	@PostMapping
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<String> inserir(@RequestBody UsuarioDTO usuario){
+		try {
+			usuarioService.inserir(usuario);
+			return ResponseEntity.status(HttpStatus.CREATED).body("Usuario cadastrado com suceso.");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao cadastrar.");
+		}
+	}
+
+	@PutMapping
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<String> alterar(@RequestBody UsuarioDTO usuario){
+		UsuarioEntity user = usuarioRepository.findByCodigoAcesso(usuario.getCodigoAcesso());
+
+		Long id = user.getId();
+		if (id == null) {
+			return ResponseEntity.badRequest().build();
 		}
 
-		@PutMapping
-		@ResponseStatus(HttpStatus.OK)
-		public ResponseEntity<String> alterar(@RequestBody UsuarioDTO usuario){
-			UsuarioEntity user = usuarioRepository.findByCodigoAcesso(usuario.getCodigoAcesso());
-
-			Long id = user.getId();
-			if (id == null) {
-				return ResponseEntity.badRequest().build();
-			}
-
-			if (this.usuarioRepository.findByEmail(usuario.getEmail()) != null) {
-				System.out.println("entrou");
-				return ResponseEntity.badRequest().build();
-			}
-
-			String email = user.getEmail();
-			if (email != null) {
-				return ResponseEntity.badRequest().build();
-			}
-
-
-			try {
-				String encryptedPassword = new BCryptPasswordEncoder().encode(usuario.getSenha());
-				usuario.setSenha(encryptedPassword);
-				usuario.setId(id);
-				usuario.setRole(user.getRole());
-				usuarioService.alterar(usuario);
-				return ResponseEntity.ok("Usuario alterado com sucesso.");
-			} catch (Exception e) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao alterar.");
-			}
+		if (this.usuarioRepository.findByEmail(usuario.getEmail()) != null) {
+			System.out.println("entrou");
+			return ResponseEntity.badRequest().build();
 		}
 
-		@DeleteMapping("/{id}")
-		public ResponseEntity<Void> excluir(@PathVariable("id") Long id_){
-			usuarioService.excluir(id_);
-			return ResponseEntity.ok().build();
+		String email = user.getEmail();
+		if (email != null) {
+			return ResponseEntity.badRequest().build();
 		}
+
+
+		try {
+			String encryptedPassword = new BCryptPasswordEncoder().encode(usuario.getSenha());
+			usuario.setSenha(encryptedPassword);
+			usuario.setId(id);
+			usuario.setRole(user.getRole());
+			usuarioService.alterar(usuario);
+			return ResponseEntity.ok("Usuario alterado com sucesso.");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao alterar.");
+		}
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> excluir(@PathVariable("id") Long id_){
+		usuarioService.excluir(id_);
+		return ResponseEntity.ok().build();
+	}
+
+	@GetMapping("/buscar")
+	public List<UsuarioDTO> buscarPorRole(@RequestParam(required = false) UsuarioRole role){
+		return usuarioService.buscarPorRole(role);
+	}
 
 }
 

@@ -38,7 +38,7 @@ public class SecurityConfigurations {
 					.requestMatchers(HttpMethod.PUT, "/usuario").permitAll()
 					.requestMatchers(HttpMethod.POST, "/crud/aeronave").hasAnyRole("USUARIO")
 					.requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
-					.requestMatchers("/index", "/cadastro", "/login", "/aeronave", "/voo", "/teste", "/funcionarios").permitAll()
+					.requestMatchers("/index", "/cadastro", "/login", "/aeronave", "/voo", "/teste", "/funcionarios", "/planejamento").permitAll()
 					.anyRequest().authenticated()
 			)
 			.exceptionHandling(exception -> exception

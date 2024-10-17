@@ -2,7 +2,9 @@ const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('#aeronaveTbody')
 const sCargo = document.querySelector('#m-cargo')
 let sAcesso = document.querySelector('#m-cacesso')
+const sTipoBusca = document.querySelector('#searchTipo')
 const btnSalvar = document.querySelector('#btnSalvar')
+const btnSearch = document.querySelector('#search')
 const url ='http://localhost:8080/usuario'
 let usuariosT = []
 let id
@@ -23,6 +25,35 @@ function loadUsuario(){
 
             usuarios.forEach((usuario) => {
                 usuariosT.push(usuario)
+                inserirUsuario(usuario);
+            });
+        })
+}
+
+btnSearch.onclick = e => {
+    if (sTipoBusca.value === 'Todos'){
+        loadUsuario()
+        return
+    }
+
+    const urlBusca = `http://localhost:8080/usuario/buscar?role=${encodeURIComponent(sTipoBusca.value)}`
+    const token = sessionStorage.getItem('token');
+
+
+    console.log(token)
+
+    fetch(urlBusca,{
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json())
+        .then(usuarios => {
+            tbody.innerHTML = ''
+
+            usuarios.forEach((usuario) => {
+                usuariosT.push(usuario);
                 inserirUsuario(usuario);
             });
         })
@@ -71,7 +102,7 @@ btnSalvar.onclick = e => {
         .catch(error => console.error('Erro:', error));
 
     sCargo.value = ''
-    sAcesso.value = ''
+    sAcesso.value = gerarCodigoAcesso()
 }
 
 //Requisição PUT
@@ -100,6 +131,9 @@ function atualizarUsuario(usuario) {
 
 //Requisição DELETE
 function deleteUsuario(id){
+    if (id === 1){
+        return
+    }
     const token = sessionStorage.getItem('token');
     fetch(`${url}/${id}`, {
         method: 'DELETE',

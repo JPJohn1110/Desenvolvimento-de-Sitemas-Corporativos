@@ -33,8 +33,21 @@ public class VooService {
         this.voo.delete(vooEntity);
     }
 
-    public VooDTO buscarPorId(Long id) {
-        VooEntity vooEntity = this.voo.findById(id).get();
-        return new VooDTO(vooEntity);
+    public List<VooDTO> buscarVoos(String origem, String destino, String aeronave) {
+        List<VooEntity> voos;
+
+        if (origem != null) {
+            voos = voo.findByOrigemContainingIgnoreCase(origem);
+            return voos.stream().map(VooDTO::new).toList();
+        } else if (destino != null) {
+            voos = voo.findByDestinoContainingIgnoreCase(destino);
+            return voos.stream().map(VooDTO::new).toList();
+        } else if (aeronave != null) {
+            voos = voo.findByAeronaveModeloContainingIgnoreCase(aeronave);
+            return voos.stream().map(VooDTO::new).toList();
+        }
+
+        voos = voo.findAll();
+        return voos.stream().map(VooDTO::new).toList();
     }
 }

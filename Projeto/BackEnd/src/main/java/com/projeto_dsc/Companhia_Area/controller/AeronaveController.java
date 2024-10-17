@@ -1,6 +1,7 @@
 package com.projeto_dsc.Companhia_Area.controller;
 
 import com.projeto_dsc.Companhia_Area.dto.AeronaveDTO;
+import com.projeto_dsc.Companhia_Area.dto.PlanejamentoDTO;
 import com.projeto_dsc.Companhia_Area.service.AeronaveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,11 @@ public class AeronaveController {
     @GetMapping
     public List<AeronaveDTO> listarTodos(){
         return aeronaveService.listarTodos();
+    }
+
+    @GetMapping("/plano")
+    public List<PlanejamentoDTO> listarPlanejamentos(){
+        return aeronaveService.listarPlanejamentos();
     }
 
     @PostMapping

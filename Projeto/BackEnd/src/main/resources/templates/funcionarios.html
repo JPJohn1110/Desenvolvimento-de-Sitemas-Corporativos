@@ -37,8 +37,15 @@
 
             <li>
                 <a href="voo">
-                    <i><img src="images/voo.png" alt=""></i>
+                    <i><img src="images/rota.png" alt=""></i>
                     <div>Voos</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="planejamento">
+                    <i><img src="images/planejamento.png" alt=""></i>
+                    <div>Planejamento</div>
                 </a>
             </li>
         </ul>
@@ -47,6 +54,20 @@
         <div class="crud">
             <div class="cabecalho">
                 <span>Cadastrar Funcionarios</span>
+                <div id="busca">
+                    <form class="searchForm">
+                        <div class="item">
+                            <label for="searchTipo">Buscar por:</label>
+                            <select id="searchTipo" name="searchTipo">
+                                <option value="ADMIN">Admin</option>
+                                <option value="USUARIO">Usuario</option>
+                                <option value="Todos">Todos</option>
+                            </select>
+                        </div>
+
+                        <div class="item"><i class="fas fa-search" id="search" style="cursor: pointer;"></i></div>
+                    </form>
+                </div>
                 <button onclick="openModal()" id="new">Incluir</i></button>
             </div>
             <div class="divtable">
@@ -58,6 +79,8 @@
                         <th>CPF</th>
                         <th>Cargo</th>
                         <th>Codigo de Acesso</th>
+                        <th class="acao">Editar</th>
+                        <th class="acao">Excluir</th>
                     </tr>
                     </thead>
                     <tbody id="aeronaveTbody">

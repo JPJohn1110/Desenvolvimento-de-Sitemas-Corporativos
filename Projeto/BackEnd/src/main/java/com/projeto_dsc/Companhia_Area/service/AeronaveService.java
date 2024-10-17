@@ -1,6 +1,7 @@
 package com.projeto_dsc.Companhia_Area.service;
 
 import com.projeto_dsc.Companhia_Area.dto.AeronaveDTO;
+import com.projeto_dsc.Companhia_Area.dto.PlanejamentoDTO;
 import com.projeto_dsc.Companhia_Area.dto.UsuarioDTO;
 import com.projeto_dsc.Companhia_Area.entity.AeronaveEntity;
 import com.projeto_dsc.Companhia_Area.repository.AeronaveRepository;
@@ -18,6 +19,11 @@ public class AeronaveService {
     public List<AeronaveDTO> listarTodos() {
         List<AeronaveEntity> aeronave = aeronaveRepository.findAll();
         return  aeronave.stream().map(AeronaveDTO::new).toList();
+    }
+
+    public List<PlanejamentoDTO> listarPlanejamentos() {
+        List<AeronaveEntity> aeronave = aeronaveRepository.findAll();
+        return  aeronave.stream().map(PlanejamentoDTO::new).toList();
     }
 
     public void  inserir(AeronaveDTO aeronave) {

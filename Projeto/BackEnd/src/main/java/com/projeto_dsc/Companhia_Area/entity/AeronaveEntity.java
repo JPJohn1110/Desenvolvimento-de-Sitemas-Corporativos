@@ -140,6 +140,29 @@ public class AeronaveEntity {
         this.voos = voos;
     }
 
+    public Double autonomia(){
+        Double tempoVoo = this.combustivelMax / this.consumoHora;
+        return tempoVoo * this.velocidadeMedia;
+    }
+
+    public Double pesoDisponivel(){
+        return this.pesoMaxDecol - this.pesoVazio;
+    }
+    
+    public int primeiraClasse(){
+        if (this.capacidadeOcupantes < 20) {
+            return this.capacidadeOcupantes;
+        }
+        return (int) (this.capacidadeOcupantes * 0.4);
+    }
+
+    public int economicaClasse(){
+        if (this.capacidadeOcupantes < 20) {
+            return 0;
+        }
+        return this.capacidadeOcupantes - primeiraClasse();
+    }
+
     //Hassh e equal
     @Override
     public int hashCode() {

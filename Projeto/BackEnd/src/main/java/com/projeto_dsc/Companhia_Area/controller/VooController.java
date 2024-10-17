@@ -20,6 +20,11 @@ public class VooController {
         return  vooService.listarTodos();
     }
 
+    @GetMapping("/buscar")
+    public List<VooDTO> buscarVoos(@RequestParam(required = false) String origem, @RequestParam(required = false) String destino, @RequestParam(required = false) String aeronave){
+        return vooService.buscarVoos(origem, destino, aeronave);
+    }
+
     @PostMapping
     public void inserir(@RequestBody VooDTO vooDTO){
         vooService.inserir(vooDTO);
