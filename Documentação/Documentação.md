@@ -23,7 +23,7 @@ O sistema deve gerenciar o controle de aeronaves e voos da empresa aérea e voos
 
 ## 2. DIAGRAMA DE ATIVIDADES
 
-![Diagrama de Atividades](Diagramas/Diagrama%20de%20atividade%20-%20Compra.svg)
+![Diagrama de Atividades](Diagramas/Entity.svg)
 _O diagrama acima representa o processo de compra da passagem_
 
 ![Diagrama de Atividades Check-in](Diagramas/Diagrama%20de%20atividade%20-%20Check-in.svg)
