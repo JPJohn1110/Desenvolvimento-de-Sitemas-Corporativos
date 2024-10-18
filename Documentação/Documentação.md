@@ -12,12 +12,16 @@
 4. [DETALHAMENTO DE REQUISITOS](#4-detalhamento-de-requisitos)
 5. [DIAGRAMA DE ESTADO DE MÁQUINA](#5-diagrama-de-estado-de-maquina)
 6. [CASOS DE USO](#6-casos-de-uso)
+7. [Modelo Conceitual](#7-modelo-conceitual)
+8. [Modelo Relacional](#8-modelo-relacional)
+9. [Diagramas de Classes](#9-diagramas-de-classes)
+
 
 ---
 
 ## 1. VISÃO GERAL DO SISTEMA
 
-O sistema deve gerenciar o controle de aeronaves e voos da empresa aérea e voos internacionais mundiais de forma online de acordo com a origem e destino. Há também a funcionalidade de promover uma verificação geográfica dos voos online. O sistema providenciará relatórios de voos e aeronaves e viagens dentro da própria companhia aérea. O sistema será desenvolvido para plataforma Web, no qual clientes farão login por meio de e-mail e senha. O sistema deverá funcionar com um código de acesso para verificação.
+O sistema gerenciará o controle de aeronaves e voos da companhia aérea Cavalo Airlines, além de voos internacionais, considerando a origem e o destino das viagens e realizando verificações geográficas em tempo real. Desenvolvido para plataforma web, permitirá que funcionários façam login com e-mail e senha. O sistema gerará relatórios detalhados sobre aeronaves da companhia. Além disso, administrará os funcionários, com os administradores realizando o pré-cadastro dos colaboradores. Com uma camada de autenticação segura, o sistema garantirá que apenas funcionários autorizados possam acessar suas funcionalidades e informações, otimizando o controle operacional da frota e a gestão dos voos.
 
 ---
 
@@ -45,21 +49,33 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 ---
 ### 3.1. REQUISITOS FUNCIONAIS
 
-1. Gerenciar usuário
-2. Gerenciar controle de voos
-3. Gerenciar controle de aeronaves
-4. Gerenciar cadastros do usuário
-5. Observar voos de aeronaves mundiais
+1. Gerenciar funcionarios
+2. Gerenciar voos
+3. Gerenciar aeronaves
+5. Realizar o rastreamento de voos
+6. Gerar Planejamento
 
 ---
 
 ### 3.2. REQUISITOS NÃO FUNCIONAIS
 
-1. A criação de usuários administradores deve ser feita por um códigos.
-2. O cadastro dos usuários deve conter email, cpf, nome e telefone.
-3. Controle de Acesso.
+1. A criação de usuários deverá ser realizada por meio de um processo de pré-cadastro, onde será definido o código de acesso e o cargo do usuário no sistema.
+
+2. O cadastro dos usuários deve conter email, senha, cpf, nome e telefone.
+
+3. O sistema deverá calcular a autonomia de cada aeronave por meio do seguinte cálculo: $Autonomia = \frac{Combustível Máximo}{Consumo Por Hora} \times Velocidade Média$.
+
 4. Pesquisa de aeronaves de terceiro por meio de ICAO
+
 5. Fazer Requisição de dados aéreos por meio da API "Aviation Stack"
+
+6. O sistema deverá calcular o peso disponível para ser preenchido em cada voo através do seguinte cálculo: $Peso livre = Peso Máximo de  decolagem - Peso da Aeronave Vazia$.
+
+7. O sistema deverá calcular o número de cadeiras para a primeira classe e para a classe econômica de acordo com a seguinte regra: a primeira classe deve ocupar 40% das cadeiras totais, e a classe econômica será composta pelas cadeiras restantes. No entanto, se a quantidade total de cadeiras for inferior ou igual a 20, todas as cadeiras serão destinadas exclusivamente à primeira classe.
+
+8. O sistema deverá fornecer a quantidade de voos cadastrados para cada aeronave.
+
+9. O sistema deverá gerar um código de acesso para os funcionários, o qual deverá conter 12 dígitos, sendo uma combinação de números e letras.
 
 ---
 
@@ -69,6 +85,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 2. O sistema deve ser desenvolvido na linguagem Java e JavaScript
 3. O sistema deve utilizar o banco de dados PostgreSQL
 4. O sistema utilizará a API AviationStack.
+5. O sistem deve utilizar autenticação por JWT.
 
 ---
 

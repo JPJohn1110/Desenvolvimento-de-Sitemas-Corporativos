@@ -150,7 +150,7 @@ public class AeronaveEntity {
     }
     
     public int primeiraClasse(){
-        if (this.capacidadeOcupantes < 20) {
+        if (this.capacidadeOcupantes <= 20) {
             return this.capacidadeOcupantes;
         }
         return (int) (this.capacidadeOcupantes * 0.4);

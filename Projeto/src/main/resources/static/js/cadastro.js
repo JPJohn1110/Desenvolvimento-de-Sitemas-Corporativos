@@ -8,7 +8,6 @@ const sChavedeAcesso = document.querySelector('#chave');
 const btnSignup = document.querySelector('#btnsignup');
 const url = 'http://localhost:8080/usuario';
 
-// Elementos de erro
 const erroNome = document.querySelector('#erroNome');
 const erroCpf = document.querySelector('#erroCpf');
 const erroEmail = document.querySelector('#erroEmail');
@@ -49,7 +48,6 @@ btnSignup.onclick = e => {
 
     let formValido = true;
 
-    // Limpa mensagens de erro
     erroNome.textContent = "";
     erroCpf.textContent = "";
     erroEmail.textContent = "";
@@ -58,7 +56,6 @@ btnSignup.onclick = e => {
     erroTelefone.textContent = "";
     erroChave.textContent = "";
 
-    // Verifica se todos os campos estão preenchidos
     if (sNome.value === '') {
         erroNome.textContent = "Nome é obrigatório!";
         formValido = false;
@@ -84,17 +81,14 @@ btnSignup.onclick = e => {
         formValido = false;
     }
 
-    // Validação da senha
     if (!validaSenha()) {
         formValido = false;
     }
 
-    // Se o formulário não for válido, interrompe o processo
     if (!formValido) {
         return;
     }
 
-    // Cria o objeto de cadastro
     const novoCadastro = {
         nome: sNome.value,
         email: sEmail.value,
@@ -104,7 +98,6 @@ btnSignup.onclick = e => {
         cpf: sCpf.value
     };
 
-    // Envia os dados para o servidor
     fetch(url, {
         method: 'PUT',
         headers: {
@@ -122,7 +115,6 @@ btnSignup.onclick = e => {
         console.log(data);
         alert("Cadastro realizado com sucesso!");
 
-        // Limpa os campos após o sucesso
         sNome.value = '';
         sCpf.value = '';
         sEmail.value = '';
