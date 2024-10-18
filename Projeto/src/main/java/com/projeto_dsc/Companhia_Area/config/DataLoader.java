@@ -21,7 +21,7 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) {
         UsuarioEntity admink = new UsuarioEntity();
         admink.setRole(UsuarioRole.ADMIN);
-        admink.setCodigoAcesso("123456");
+        admink.setCodigoAcesso("5BohEkEKUnJc");
         admink.setEmail("keltonm6@gmail.com");
         admink.setNome("Kelton Martins Dias");
         admink.setCpf("123456789-98");
@@ -31,7 +31,7 @@ public class DataLoader implements CommandLineRunner {
 
         UsuarioEntity adminj = new UsuarioEntity();
         adminj.setRole(UsuarioRole.ADMIN);
-        adminj.setCodigoAcesso("654321");
+        adminj.setCodigoAcesso("h67OBpYuGxp4");
         adminj.setEmail("jpsr.jpsantos@gmail.com");
         adminj.setNome("João Pedro Santos Rodrigues");
         adminj.setCpf("12858434603");

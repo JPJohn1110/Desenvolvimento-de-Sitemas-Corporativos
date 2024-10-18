@@ -1,6 +1,0 @@
-Responsavel por preparar os dados para mandar para o front
-
-AuthController serve para retornar as páginas HTML como HTTP
-
-AuthenticationController serve para dados JSON de Login
-
