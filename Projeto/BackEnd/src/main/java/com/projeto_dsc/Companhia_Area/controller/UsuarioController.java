@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -82,6 +83,16 @@ public class UsuarioController {
 	@GetMapping("/buscar")
 	public List<UsuarioDTO> buscarPorRole(@RequestParam(required = false) UsuarioRole role){
 		return usuarioService.buscarPorRole(role);
+	}
+
+	@GetMapping("/buscar/email")
+	public ResponseEntity<?> buscarPorEmail(@RequestParam(required = false) String email){
+		String nome = usuarioService.buscarPorEmail(email);
+
+		if (nome == null) {
+			return ResponseEntity.notFound().build(); // Retorna 404 se não encontrar
+		}
+		return ResponseEntity.ok(Collections.singletonMap("nome", nome));
 	}
 
 }

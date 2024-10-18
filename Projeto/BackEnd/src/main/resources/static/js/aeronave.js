@@ -209,8 +209,32 @@ function openModal(edit = false, aeronave) {
   }
 }
 
+function buscarNome(){
+  const token = localStorage.getItem('token');
+  const decodedToken = parseJwt(token);
+  const email = decodedToken.sub;
+
+  const urlBusca = `http://localhost:8080/usuario/buscar/email?email=${encodeURIComponent(email)}`
+
+  console.log(email)
+
+  fetch(urlBusca,{
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.nome)
+        const span = document.getElementById('nomeUsuario');
+        span.innerHTML = `${data.nome}`
+      })
+}
+
 //chama a renderização
-loadAeronave()
+loadAeronave();
+buscarNome();
 
 //Validação
 function parseJwt(token) {

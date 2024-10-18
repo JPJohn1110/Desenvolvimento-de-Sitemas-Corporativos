@@ -174,6 +174,9 @@ function inserirUsuario(usuario) {
 
 //responde o botão editar
 function editUsuario(id) {
+    if (id === 1){
+        return
+    }
     const usuario = encontrarUsuario(id);
     if (usuario) {
         openModal(true, usuario);
@@ -208,8 +211,32 @@ function openModal(edit = false, usuario) {
     }
 }
 
+function buscarNome(){
+    const token = localStorage.getItem('token');
+    const decodedToken = parseJwt(token);
+    const email = decodedToken.sub;
+
+    const urlBusca = `http://localhost:8080/usuario/buscar/email?email=${encodeURIComponent(email)}`
+
+    console.log(email)
+
+    fetch(urlBusca,{
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.nome)
+            const span = document.getElementById('nomeUsuario');
+            span.innerHTML = `${data.nome}`
+        })
+}
+
 //chama a renderização
 loadUsuario()
+buscarNome()
 
 //Validação
 function parseJwt(token) {

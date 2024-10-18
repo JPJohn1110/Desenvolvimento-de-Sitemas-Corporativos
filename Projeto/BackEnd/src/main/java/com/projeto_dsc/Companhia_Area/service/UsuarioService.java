@@ -43,6 +43,10 @@ public class UsuarioService implements UserDetailsService {
         return usuarios.stream().map(UsuarioDTO::new).toList();
     }
 
+    public String buscarPorEmail(String email) {
+        return usuarioRepository.findNomeByEmail(email);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return usuarioRepository.findByEmail(email);

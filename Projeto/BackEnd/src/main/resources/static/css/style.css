@@ -31,18 +31,28 @@
 }
 
 .user {
-    position: relative;
-    width: 50px;
+    width: auto;
     height: 50px;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
 }
 
 .user img {
-    position: absolute;
+    position: relative;
+    margin-left: 15px;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
+}
+
+.user span {
+    display: inline;
+    white-space: nowrap;
+    font-weight: 900;
+    font-size: 20px;
 }
 
 /*sidebar*/
@@ -166,9 +176,5 @@
     word-break: break-all;
     border-collapse: collapse;
     margin-bottom: 50px;
-}
-
-.hidden {
-    display: none;
 }
 

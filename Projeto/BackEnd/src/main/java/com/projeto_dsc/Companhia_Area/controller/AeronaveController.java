@@ -31,7 +31,6 @@ public class AeronaveController {
 
     @GetMapping("/plano/buscar")
     public List<PlanejamentoDTO> listarPlanejamentos(@RequestParam(required = false) String modelo){
-        System.out.println(modelo);
         return aeronaveService.listarPlanejamentosPorModelo(modelo);
     }
 
