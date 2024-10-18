@@ -14,18 +14,32 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-    String encryptedPassword = new BCryptPasswordEncoder().encode("KeLToNmd20");
+    String encryptedPassword0 = new BCryptPasswordEncoder().encode("123456jP@");
+    String encryptedPassword1 = new BCryptPasswordEncoder().encode("KeLToNmd20");
 
     @Override
     public void run(String... args) {
-        UsuarioEntity admin = new UsuarioEntity();
-        admin.setRole(UsuarioRole.ADMIN);
-        admin.setCodigoAcesso("123456");
-        admin.setEmail("keltonm6@gmail.com");
-        admin.setNome("Kelton Martins Dias");
-        admin.setCpf("123456789-98");
-        admin.setTelefone("38991317144");
-        admin.setSenha(encryptedPassword);
-        usuarioRepository.save(admin);
+        UsuarioEntity admink = new UsuarioEntity();
+        admink.setRole(UsuarioRole.ADMIN);
+        admink.setCodigoAcesso("123456");
+        admink.setEmail("keltonm6@gmail.com");
+        admink.setNome("Kelton Martins Dias");
+        admink.setCpf("123456789-98");
+        admink.setTelefone("38991317144");
+        admink.setSenha(encryptedPassword1);
+        usuarioRepository.save(admink);
+
+        UsuarioEntity adminj = new UsuarioEntity();
+        adminj.setRole(UsuarioRole.ADMIN);
+        adminj.setCodigoAcesso("654321");
+        adminj.setEmail("jpsr.jpsantos@gmail.com");
+        adminj.setNome("João Pedro Santos Rodrigues");
+        adminj.setCpf("12858434603");
+        adminj.setTelefone("38988299517");
+        adminj.setSenha(encryptedPassword0);
+        usuarioRepository.save(adminj);
+    
     }
+
+    
 }
