@@ -1,11 +1,32 @@
 const resultsDiv = document.getElementById('results');
 const mapDiv = document.getElementById('map');
-const API_KEY = "a9a3ca38755cd21ad75e651671fcd0f9"; // Substitua pelo valor correto
-const btnRastrear = document.getElementById('trackButton')
+const API_KEY = "a9a3ca38755cd21ad75e651671fcd0f9";
+const btnRastrear = document.getElementById('trackButton');
+const btnMostrarTodos = document.getElementById('showAllFlightsButton'); // Novo botão
 let map;
 
 async function fetchFlightData(flight) {
     const url = `https://api.aviationstack.com/v1/flights?access_key=${API_KEY}&flight_iata=${flight}`;
+    const options = {
+        method: "GET",
+    };
+
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(error);
+        throw new Error("Erro ao buscar os dados da API");
+    }
+}
+
+// Função para obter todos os voos
+async function fetchAllFlights() {
+    const url = `https://api.aviationstack.com/v1/flights?access_key=${API_KEY}`; // Sem filtro
     const options = {
         method: "GET",
     };
@@ -97,5 +118,16 @@ btnRastrear.onclick = async (e) => {
         }
     } else {
         resultsDiv.innerHTML = '<p>Por favor, insira um código de voo.</p>';
+    }
+};
+
+// Função para mostrar todos os voos
+btnMostrarTodos.onclick = async (e) => {
+    e.preventDefault();
+    try {
+        const data = await fetchAllFlights();
+        displayResults(data);
+    } catch (error) {
+        resultsDiv.innerHTML = `<p>Erro: ${error.message}</p>`;
     }
 };
