@@ -10,7 +10,7 @@
    3.3. [REQUISITOS SUPLEMENTARES](#33-requisitos-suplementares)
 
 4. [DETALHAMENTO DE REQUISITOS](#4-detalhamento-de-requisitos)
-5. [DIAGRAMA DE ESTADO DE MÁQUINA](#5-diagrama-de-estado-de-maquina)
+5. [DIAGRAMA DE SEQUÊNCUA ](#5-diagrama-de-sequencia)
 6. [CASOS DE USO](#6-casos-de-uso)
 7. [Modelo Conceitual](#7-modelo-conceitual)
 8. [Modelo Relacional](#8-modelo-relacional)
@@ -100,6 +100,8 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
 ---
+
+
 | **RF2. Realizar login de usuários administradores** |
 |:---|
 | **Descrição:**<br>O usuário poderá acessar o sistema fornecendo suas credenciais para autenticação e autorização de acesso. |
@@ -108,17 +110,30 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **Informações de entrada:**<br>O usuário administrador deverá fornecer seu e-mail e senha. |
 | **Informações de saída:**<br>Confirmação de Login, redirecionamento para a página inicial do painel de administração ou mensagem de falha caso haja falha de autenticação. |
 | **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores. |
+
+| **RF3. Pré-Cadastro Usuário** |
+|:---|
+| **Descrição:**<br>O administrador chefe do sistema criará novos códigos que irão ser usados pelos funcionários no ato de seu cadastro. Esse processo inclui a autenticação do código de acesso.|
+| **Fontes:** <br> Sistema |
+| **Usuários:**<br>Administrador|
+| **Informações de entrada:**<br>O administrador incluirá novo funcionário e adicionará um código de acesso e um nível ao novo funcionário.
+| **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
+| **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
 ---
-| **RF3. CRUD de usuarios** |
+
+| **RF4. CRUD de usuarios** |
 |:---|
 | **Descrição:**<br>O usuário irá acessar o sistema e fornecer os dados necessários para criar uma nova conta de usuário. Este cadastro permitirá que o usuário utilize as funcionalidades do sistema. |
 | **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares |
 | **Usuários:**<br>Usuário normal |
-| **Informações de entrada:**<br>O usuário deverá preencher os dados, incluindo nome completo, endereço de e-mail, senha, telefone de contato, CPF e número de acesso |
+| **Informações de entrada:**<br>O usuário deverá preencher os dados, incluindo nome completo, endereço de e-mail, senha, telefone de contato, CPF e código de acesso  liberado para o funcionário|
 | **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição de acesso geradas.  |
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia.  |
 ---
-| **RF4. Realizar login de usuários** |
+
+
+
+| **RF5. Realizar login de usuários** |
 |:---|
 | **Descrição:**<br>Este recurso permite que um usuário normal acesse o sistema através da autenticação com suas credenciais pessoais. Após o fornecimento de e-mail e senha, o sistema valida as informações e concede acesso com base na autorização apropriada. |
 | **Fontes:**<br>Documentação do sistema |
@@ -129,7 +144,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ---
 
-| **RF5. CRUD controle de voos** |
+| **RF6. CRUD controle de voos** |
 |:---|
 | **Descrição:**<br>Este recurso permite que o usuário administrador cadastre, mantenha e exclua voos na companhia aérea. A funcionalidade abrange todas as operações necessárias para o gerenciamento de voos, garantindo que todas as informações relevantes estejam atualizadas e precisas. |
 | **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil Manual do Sistema de Registro de Operações (SIROS). |
@@ -152,7 +167,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 --
 
 
-| **RF7. Realizar busca de registros de aeronaves internacionais** |
+| **RF8. Realizar busca de registros de aeronaves internacionais** |
 |:---|
 | **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores de aeronaves internacionais  |
 | **Fontes:**<br>Documentação do sistema e Documentação da API |
@@ -163,11 +178,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 
-## 5. DIAGRMAS DE ESTADO DE MÁQUINA
-![estadoDeMaquinaVoo](/Documentação/Diagramas/State-machine-voo.png)
-<br>_Diagrama acima mostra o estado de máquina para as passagens de voo_ <br>
-![estadoDeMaquinaAssento](/Documentação/Diagramas/state-machine-assento.png)
-<br>_Diagrama acima mostra o estado de máquina para os assentos de cada voo_<br>
+## 5. DIAGRMAS DE SEQUÊNCIA
 
 
 ## 6. CASOS DE USO
