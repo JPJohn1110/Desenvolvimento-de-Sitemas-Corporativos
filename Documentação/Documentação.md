@@ -12,9 +12,9 @@
 4. [DETALHAMENTO DE REQUISITOS](#4-detalhamento-de-requisitos)
 5. [DIAGRAMA DE SEQUÊNCUA ](#5-diagrama-de-sequencia)
 6. [CASOS DE USO](#6-casos-de-uso)
-7. [Modelo Conceitual](#7-modelo-conceitual)
-8. [Modelo Relacional](#8-modelo-relacional)
-9. [Diagramas de Classes](#9-diagramas-de-classes)
+7. [MODELO CONCEITUAL](#7-modelo-conceitual)
+8. [MODELO RELACIOAL ](#8-modelo-relacional)
+9. [DIAGRAMA DE CLASSES](#9-diagramas-de-classes)
 
 
 ---
