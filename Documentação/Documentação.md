@@ -161,7 +161,10 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ---
 
 
-## 5. DIAGRMAS DE SEQUÊNCIA
+## 5. DIAGRAMAS DE SEQUÊNCIA
+
+![DiagramaSeq1](/Documentação/Diagramas/DiagramaSeq1.png)
+<br>
 
 
 ## 6. CASOS DE USO
