@@ -23,11 +23,20 @@ O sistema deve gerenciar o controle de aeronaves e voos da empresa aérea e voos
 
 ## 2. DIAGRAMA DE ATIVIDADES
 
-![Diagrama de Atividades](Diagramas/Entity.png)
-_O diagrama acima representa o processo de compra da passagem_
+![Diagrama de Atividades Rastreamento](Diagramas/Diagrama%20de%20atividade%20-%20Rastreamento.svg)
+_O diagrama acima representa o processo de Rastreamento de um Voos_
 
-![Diagrama de Atividades Check-in](Diagramas/Diagrama%20de%20atividade%20-%20Check-in.svg)
-_O diagrama acima representa o processo de check-in_
+![Diagrama de Atividades Aeronaves](Diagramas/Diagrama%20de%20atividade%20-%20Aeronave.svg)
+_O diagrama acima representa o processo de gerenciamento de Aeronaves_
+
+![Diagrama de Atividades Voos](Diagramas/Diagrama%20de%20atividade%20-%20Voo.svg)
+_O diagrama acima representa o processo de gerenciamento de Voos_
+
+![Diagrama de Atividades Funcionarios](Diagramas/Diagrama%20de%20atividade%20-%20Funcionarios.svg)
+_O diagrama acima representa o processo de gerenciamento de Funcionarios_
+
+![Diagrama de Atividades Planejamento](Diagramas/Diagrama%20de%20atividade%20-%20Planejamento.svg)
+_O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ---
 
@@ -249,8 +258,26 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 ![CasoDeUso5](/Documentação/Diagramas/CasoDeUso5.png)
 <br>
 
+---
 
+## 7. Modelo Conceitual
 
+![Modelo Conceitual](Diagramas/ModeloConceitual.svg)
+_O diagrama acima representa a Modelagem Conceitual_
+
+---
+
+## 8. Modelo Relacional
+
+![Modelo Relacional](Diagramas/Modelo_Relacional.png)
+_O diagrama acima representa a Modelagem Relacional_
+
+---
+
+## 9. Diagramas de Classes
+
+![Diagrama de Classes](Diagramas/Entity.png)
+_O diagrama acima representa o diagrama de classes da Pasta Entity_
 
 
 
