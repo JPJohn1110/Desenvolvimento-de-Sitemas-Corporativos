@@ -94,6 +94,5 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(Collections.singletonMap("nome", nome));
 	}
-
 }
 
