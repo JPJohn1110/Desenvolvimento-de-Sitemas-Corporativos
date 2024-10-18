@@ -277,8 +277,19 @@ _O diagrama acima representa a Modelagem Relacional_
 ## 9. Diagramas de Classes
 
 ![Diagrama de Classes](Diagramas/Entity.png)
-_O diagrama acima representa o diagrama de classes da Pasta Entity_
+_O diagrama acima representa o diagrama de classes da Estrutura de projeto Entity_
 
+![Diagrama de Classes](Diagramas/Repository.png)
+_O diagrama acima representa o diagrama de classes da Estrutura de projeto Repository_
 
+![Diagrama de Classes](Diagramas/Service.png)
+_O diagrama acima representa o diagrama de classes da Estrutura de projeto Service_
 
+![Diagrama de Classes](Diagramas/DTO.png.png)
+_O diagrama acima representa o diagrama de classes da Estrutura de projeto DTO_
 
+![Diagrama de Classes](Diagramas/Security.png)
+_O diagrama acima representa o diagrama de classes da Estrutura de projeto Security_
+
+![Diagrama de Classes](Diagramas/Controller.png)
+_O diagrama acima representa o diagrama de classes da Estrutura de projeto Controller_
