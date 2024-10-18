@@ -28,7 +28,7 @@ public class UsuarioEntity implements UserDetails {
     @Column (nullable = true)
     private String senha;
 
-    @Column (nullable = true)
+    @Column (nullable = true, unique = true)
     private String email;
 
     @Enumerated(EnumType.STRING)
