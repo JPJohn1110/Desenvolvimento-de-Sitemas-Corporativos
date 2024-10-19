@@ -2,10 +2,11 @@
 # Passo a Passo
 
 <p align="center">
-  <a href="http://cavaloarlines.ddns.net/" target= '_blank'> <img src="Projeto/src/main/resources/static/images/cavalo2.png" width=50% alt=" ProjectName"> </a>
+  <a href="http://cavaloarlines.ddns.net:8080" target= '_blank'> <img src="Projeto/src/main/resources/static/images/cavalo2.png" width=50% alt=" ProjectName"> </a>
 </p>
 
 # *Cavalo Airline* 
+Link para acesso: http://cavaloarlines.ddns.net:8080/
 ## Projeto Desenvolvimento De Softwares Corporativos 2024
 
 Projeto para disciplina de DSC. 
