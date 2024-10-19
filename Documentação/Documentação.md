@@ -81,7 +81,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 11. O sistema devera permitir que somente usuarios admins acesse a pagina de funcionarios.
 
-12. O cadastro do voo deve incluir o número do voo, a origem, o destino e a distância do percurso,  conforme as orientações estabelecidas pelo departamento responsável..
+12. O cadastro do voo deve incluir o número do voo, a origem, o destino e a distância do percurso,  conforme as orientações estabelecidas pelo departamento responsável.
 
 ---
 
@@ -117,14 +117,19 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **Informações de saída:**<br>Após o cadastro, a edição ou a exclusão de um voo, o sistema atualizará a tela de exibição, refletindo as alterações realizadas.|
 | **Requisitos não funcionais:**<br>RNF 12: O cadastro do voo deve incluir o número do voo, a origem, o destino e a distância do percurso, conforme as orientações estabelecidas pelo departamento responsável.|
 
+
+---
+
+
 | **RF3. Gerenciar aeronaves** |
 |:---|
 | **Descrição:**<br>O sistema deverá gerenciar as aeronaves da companhia aérea, permitindo que os usuários cadastrem, editem e excluam informações sobre as aeronaves. Isso inclui todas as operações necessárias para o gerenciamento eficaz, garantindo que as informações relevantes estejam sempre atualizadas e precisas.|
 | **Fontes:** <br>Departamento gestor de aeronaves|
 | **Usuários:**<br>Usuário Administrador e Usuário Padrão|
-| **Informações de entrada:**<br>O administrador incluirá novo funcionário e adicionará um código de acesso e um nível ao novo funcionário.
-| **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
-| **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
+| **Informações de entrada:**<br>O usuario poderá cadastrar, editar e excluir uma aeronave.<br> * Modelo<br> * Tipo<br> * Peso Máximo de Decolagem<br> * Peso Vazio<br> * N° maximo de ocupantes<br> * Velocidade Média<br> * Combustivel Máximo<br> * Consumo por hora de Combustivel|
+| **Informações de saída:**<br>Após o cadastro, a edição ou a exclusão de um voo, o sistema atualizará a tela de exibição, refletindo as alterações realizadas. |
+| **Requisitos não funcionais:**<br>RNF 3: O sistema deverá calcular a autonomia de cada aeronave por meio do seguinte cálculo: $Autonomia = \frac{Combustível Máximo}{Consumo Por Hora} \times Velocidade Média$.<br><br>RNF 6: O sistema deverá calcular o peso disponível para ser preenchido em cada voo através do seguinte cálculo: $Peso livre = Peso Máximo de  decolagem - Peso da Aeronave Vazia$.<br><br>RNF 7: O sistema deverá calcular o número de cadeiras para a primeira classe e para a classe econômica de acordo com a seguinte regra: a primeira classe deve ocupar 40% das cadeiras totais, e a classe econômica será composta pelas cadeiras restantes. No entanto, se a quantidade total de cadeiras for inferior ou igual a 20, todas as cadeiras serão destinadas exclusivamente à primeira classe. |
+
 ---
 
 | **RF4. CRUD de usuarios** |
