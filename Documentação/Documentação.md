@@ -262,7 +262,11 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 ![DiagramaSeq2](Diagramas/DiagramaSeq2.png)
 <br>
 
- **CRUD VOOS** 
+|**CRUD VOOS**|
+|:---|
+|<br> 1. [IN]O usuário acessa a página de cadastro de voos. <br> 2. [OUT] Sistema retorna página de cadstro de voos. <br>  3. [IN] O usuário preenche o formulário de cadastro com as informações necessárias<br> 4. [OUT] O sistema valida as informações fornecidas. [E2.1] [E2.2]<br> 5.[OUT] O sistema retorna o novo voo registrado. <br>|
+
+
 ![DiagramaSeq3](Diagramas/DiagramaSeq3.png) 
 <br>
 
