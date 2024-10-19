@@ -188,6 +188,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ![CasoDeUso2](Diagramas/CasoDeUso2.png)
 <br>
+
 ---
 
 | **UC03. CRUD DE VOO** |
@@ -254,9 +255,6 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ## 6. DIAGRAMAS DE SEQUÊNCIA
 
-
-
-
  **CRUD USUÁRIO** 
 ![DiagramaSeq2](Diagramas/DiagramaSeq2.png)
 <br>
@@ -279,8 +277,8 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 **REQUISIÇÃO DE VOOS INTERNACIONAIS** 
 ![DiagramaSeq1](Diagramas/DiagramaSeq1.png)
 
-
 <br>
+
 ---
 
 ## 7. Modelo Conceitual
@@ -299,20 +297,20 @@ _O diagrama acima representa a Modelagem Relacional_
 
 ## 9. Diagramas de Classes
 
+_O diagrama abaixo representa o diagrama de classes da Estrutura de projeto Entity_
 ![Diagrama de Classes](Diagramas/Entity.png)
-_O diagrama acima representa o diagrama de classes da Estrutura de projeto Entity_
 
+_O diagrama abaixo representa o diagrama de classes da Estrutura de projeto Repository_
 ![Diagrama de Classes](Diagramas/Repository.png)
-_O diagrama acima representa o diagrama de classes da Estrutura de projeto Repository_
 
+_O diagrama abaixo representa o diagrama de classes da Estrutura de projeto Service_
 ![Diagrama de Classes](Diagramas/Service.png)
-_O diagrama acima representa o diagrama de classes da Estrutura de projeto Service_
 
+_O diagrama abaixo representa o diagrama de classes da Estrutura de projeto DTO_
 ![Diagrama de Classes](Diagramas/DTO.png)
-_O diagrama acima representa o diagrama de classes da Estrutura de projeto DTO_
 
+_O diagrama abaixo representa o diagrama de classes da Estrutura de projeto Security_
 ![Diagrama de Classes](Diagramas/Security.png)
-_O diagrama acima representa o diagrama de classes da Estrutura de projeto Security_
 
+_O diagrama abaixo representa o diagrama de classes da Estrutura de projeto Controller_
 ![Diagrama de Classes](Diagramas/Controller.png)
-_O diagrama acima representa o diagrama de classes da Estrutura de projeto Controller_
