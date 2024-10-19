@@ -18,8 +18,14 @@ O Sistema possui acesso a API AviationStack para gerenciamento e conhecimento de
 
 ## Getting Started
 
-1. **Install Dependencies**: `npm install or yarn`
-2. **Create containers**: `docker-compose up -d`
+1. **Primeiro Acesso**: 
+  <br>1. Caso seja professor, utilize as credenciais email: `prof.paulo.veloso@gmail.com` senha: `Cavalo123@` para Login
+  <br>2. A partir desse momento terá acesso total como administrador.
+
+2. **Criar Novo Usuário**: 
+   <br> 1. Para criar o usuário você deve ir até a opção Funcionários na barra lateral
+   <br> 2. Ao entrar na página de funcionários, existirá no canto superior direito um botão escrito  ***Incluir***
+   <br> 3. Ao clicar nesse botão, aparecerá uma tela para escolher o cargo do novo Usuário e o código de acesso que ele utilizará no ato do Cadastro 
 3. **Environment variables**: Copy `.env.example` to a new `.env.local`
 4. **Database Setup**: `npx prisma migrate dev --name init`
 5. **Start Developing**: `npm run start:dev (api) & npm run dev (frontend)`
