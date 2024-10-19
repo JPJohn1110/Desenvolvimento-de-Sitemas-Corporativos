@@ -63,9 +63,9 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 2. O cadastro dos usuários deve conter email, senha, cpf, nome e telefone.
 
-3. O sistema deverá calcular a autonomia de cada aeronave por meio do seguinte cálculo: $Autonomia = \frac{Combustível Máximo}{Consumo Por Hora} \times Velocidade Média$.
-
-4. Pesquisa de aeronaves de terceiro por meio de ICAO
+3. O sistema deverá calcular a autonomia de cada aeronave por meio do seguinte cálculo: $Autonomia = \frac{Combustível Máximo}{Consumo Por Hora} \times Velocidade Média$
+   
+4. Pesquisa de aeronaves de terceiro por meio de IATA/ICAO.
 
 5. Fazer Requisição de dados aéreos por meio da API "Aviation Stack"
 
@@ -159,12 +159,12 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **NOME DO CASO DE USO:** <br> Cadastro de usuário |
 | **ATOR:** <br>Cliente | 
 | **OBJETIVO:** <br> Oferecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
-| **PRÉ-CONDIÇÕES:** <br> 1. O usuário não deve possuir uma conta registrada no sistema.|
+| **PRÉ-CONDIÇÕES:** <br> 1. O usuário não deve possuir uma conta registrada no sistema e um administrador deve ter criado um código de acesso para ele.|
 | **PÓS-CONDIÇOES:** <br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
-| **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.|
+| **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias e o código de acesso pré registrada por um administrador [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um alerta de boas-vindas ao usuário.|
 | **CENÁRIO ALTERNATIVO:**<br> |
 |**EXCEÇÃO**<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
-|**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com origem com NOME, CPF, DATA DE NASCIMENTO, TELEFONE e E-MAIL. |
+|**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com NOME, CPF, TELEFONE, E-MAIL, SENHA e CÓDIGO DE ACESSO . |
 
 ![CasoDeUso](Diagramas/CasoDeUso.png)
 <br>
@@ -179,12 +179,12 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **PRÉ-CONDIÇÕES:**<br> O funcionário deve estar autenticado no sistema. |
 | **PÓS-CONDIÇOES:** <br> A o vôo é registrada no sistema e está disponível para operações. |
 | **CENÁRIO PRINCIPAL:** |
-| 1. [IN] O administrador acessa a página de cadastro de voos. <br> 2. [IN] O administrador preenche o formulário de cadastro com as informações necessárias [RN1]. <br> 3. [OUT] O sistema valida as informações fornecidas. [E1] <br> 4. [OUT] O sistema registra a nova aeronave no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação do cadastro.
+| 1. [IN] O Funcionário acessa a página de cadastro de voos. <br> 2. [IN] O funcionário preenche o formulário de cadastro com as informações necessárias [RN1]. <br> 3. [OUT] O sistema valida as informações fornecidas. [E1] <br> 4. [OUT] O sistema registra a nova aeronave no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação do cadastro.
 | **CENÁRIO ALTERNATIVO:** |
 | **EDITAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar <br> 3. [IN]  Altera os dados desejados  <br> 4. [OUT] retorna a página com dados atualizados|
 | **DELETAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar. <br>3. [OUT] retorna a página com sem o objeto deletado|
 | **EXCEÇÃO**<br>[E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
-| **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. |
+| **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. <br>RN0. O sistema de cadastro é persistente, caso não queira mais adiconar aeronaves, basta clicar fora da tela de cadastro |
 
 ![CasoDeUso2](Diagramas/CasoDeUso2.png)
 <br>
@@ -201,7 +201,8 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo voo no banco de dados. <br>|
 | **CENÁRIO ALTERNATIVO:**<br> |
 |**EXCEÇÃO**<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
-|**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.|
+|**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.
+<br>RN0. O sistema de cadastro é persistente, caso não queira mais adiconar voos, basta clicar fora da tela de cadastro |
 
 ![CasoDeUso3](Diagramas/CasoDeUso3.png)
 <br>
