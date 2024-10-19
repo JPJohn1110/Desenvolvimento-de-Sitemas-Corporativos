@@ -8,7 +8,7 @@ const sTextoBusca = document.querySelector('#searchInput')
 const sTipoBusca = document.querySelector('#searchCriteria')
 const snumVoo = document.querySelector('#m-numvoo')
 const sAeronave = document.querySelector('#m-aeronave')
-const sDuracao = document.querySelector('#m-duracao')
+const sDistancia = document.querySelector('#m-distancia')
 const sOrigem = document.querySelector('#m-origem')
 const sDestino = document.querySelector('#m-destino')
 let voos = []
@@ -62,7 +62,7 @@ btnSearch.onclick = e => {
 
 //Requisição POST
 btnSalvar.onclick = e => {
-  if(snumVoo.value === '' || sAeronave.value === '' || sDuracao.value === '' || sOrigem.value === '' || sDestino.value === '') {
+  if(snumVoo.value === '' || sAeronave.value === '' || sDistancia.value === '' || sOrigem.value === '' || sDestino.value === '') {
     return
   }
 
@@ -71,7 +71,7 @@ btnSalvar.onclick = e => {
   const novoVoo = {
     numeroVoo: snumVoo.value,
     aeronave: {id: parseInt(sAeronave.value) },
-    duracao: sDuracao.value,
+    distancia: sDistancia.value,
     origem: sOrigem.value,
     destino: sDestino.value,
   }
@@ -105,7 +105,7 @@ btnSalvar.onclick = e => {
 
   snumVoo.value = ''
   sAeronave.value = ''
-  sDuracao.value = ''
+  sDistancia.value = ''
   sOrigem.value = ''
   sDestino.value = ''
 }
@@ -162,7 +162,7 @@ function inserirVoo(voo) {
   tr.innerHTML = `
       <td>${voo.numeroVoo}</td>
       <td>${voo.aeronave.modelo}</td>
-      <td>${voo.duracao}</td>
+      <td>${voo.distancia}</td>
       <td>${voo.origem}</td>
       <td>${voo.destino}</td>
       <td class="acao">
@@ -224,14 +224,14 @@ function openModal(edit = false, voo) {
   if (edit) {
     snumVoo.value = voo.numeroVoo
     sAeronave.value = voo.aeronave.id
-    sDuracao.value = voo.duracao
+    sDistancia.value = voo.distancia
     sOrigem.value = voo.origem
     sDestino.value = voo.destino
     id = voo.id
   } else {
     snumVoo.value = ''
     sAeronave.value = ''
-    sDuracao.value = ''
+    sDistancia.value = ''
     sOrigem.value = ''
     sDestino.value = ''
     id = undefined
