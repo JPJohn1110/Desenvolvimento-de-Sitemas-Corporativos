@@ -10,8 +10,8 @@
    3.3. [REQUISITOS SUPLEMENTARES](#33-requisitos-suplementares)
 
 4. [DETALHAMENTO DE REQUISITOS](#4-detalhamento-de-requisitos)
-5. [DIAGRAMA DE SEQUÊNCUA ](#5-diagrama-de-sequencia)
-6. [CASOS DE USO](#6-casos-de-uso)
+5. [CASOS DE USO](#5-casos-de-uso)
+6. [DIAGRAMA DE SEQUÊNCUA ](#6-diagramas-de-sequência)
 7. [MODELO CONCEITUAL](#7-modelo-conceitual)
 8. [MODELO RELACIONAL ](#8-modelo-relacional)
 9. [DIAGRAMA DE CLASSES](#9-diagramas-de-classes)
@@ -142,7 +142,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 | **RF5. Gerar Planejamento** |
 |:---|
-| **Descrição:**<br>Este recurso permite que um usuário normal acesse o sistema através da autenticação com suas credenciais pessoais. Após o fornecimento de e-mail e senha, o sistema valida as informações e concede acesso com base na autorização apropriada. |
+| **Descrição:**<br>O sistema deverá gerar relatorio, editem e excluam informações sobre as aeronaves. Isso inclui todas as operações necessárias para o gerenciamento eficaz, garantindo que as informações relevantes estejam sempre atualizadas e precisas. |
 | **Fontes:**<br>Documentação do sistema |
 | **Usuários:**<br>Usuário normal |
 | **Informações de entrada:**<br>O usuário deverá fornecer seu e-mail e senha. |
@@ -151,27 +151,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ---
 
-## 5. DIAGRAMAS DE SEQUÊNCIA
-
-
-| **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
-|![DiagramaSeq1](Diagramas/DiagramaSeq1.png) |
-<br>
-
-| **CRUD USUÁRIO** |
-|![DiagramaSeq2](Diagramas/DiagramaSeq2.png)|
-<br>
-
-| **CRUD VOOS** |
-|![DiagramaSeq3](Diagramas/DiagramaSeq3.png) |
-<br>
-
-| **CRUD AERONAVES** |
-|![DiagramaSeq4](Diagramas/DiagramaSeq4.png)|
-<br>
-
-
-## 6. CASOS DE USO
+## 5. CASOS DE USO
 
 | **UC01. CADASTRO DE USUÁRIO** |
 |:---|
@@ -267,6 +247,27 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 
 ![CasoDeUso5](Diagramas/CasoDeUso5.png)
+<br>
+
+---
+
+## 6. DIAGRAMAS DE SEQUÊNCIA
+
+
+| **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
+|![DiagramaSeq1](Diagramas/DiagramaSeq1.png) |
+<br>
+
+| **CRUD USUÁRIO** |
+|![DiagramaSeq2](Diagramas/DiagramaSeq2.png)|
+<br>
+
+| **CRUD VOOS** |
+|![DiagramaSeq3](Diagramas/DiagramaSeq3.png) |
+<br>
+
+| **CRUD AERONAVES** |
+|![DiagramaSeq4](Diagramas/DiagramaSeq4.png)|
 <br>
 
 ---
