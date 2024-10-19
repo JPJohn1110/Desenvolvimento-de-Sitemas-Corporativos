@@ -105,8 +105,8 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **Informações de entrada:**<br>O sistema gerará um código de acesso; o usuário administrador selecionará o cargo do novo funcionário. Após isso, o administrador compartilhará o código de acesso. O novo funcionário usará esse código para acessar o sistema e preencher seus dados. | 
 | **Informações de saída:**<br>O sistema exibirá uma confirmação visual com uma mensagem de sucesso, informando que o novo usuário foi criado corretamente, juntamente com a exibição das credenciais de acesso geradas na página de funcionários. |
 | **Requisitos não funcionais:**<br>RNF 1: A criação de usuários deverá ser realizada por meio de um processo de pré-cadastro, onde será definido o código de acesso e o cargo do usuário no sistema.<br><br>RNF 2: O cadastro dos usuários deve conter email, senha, cpf, nome e telefone.<br><br>RNF 9: O sistema deverá gerar um código de acesso para os funcionários, o qual deverá conter 12 dígitos, sendo uma combinação de números e letras.<br><br>RNF 10: O sistema deverá ter três usuários administradores cadastrados, que não poderão ser editados ou excluídos. As informações necessárias para o cadastro desses usuários serão fornecidas pelos responsáveis de cada conta.<br><br>RNF 11: O sistema devera permitir que somente usuarios admins acesse a pagina de funcionarios.|
----
 
+---
 
 | **RF2. Gerenciar voos** |
 |:---|
@@ -117,9 +117,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **Informações de saída:**<br>Após o cadastro, a edição ou a exclusão de um voo, o sistema atualizará a tela de exibição, refletindo as alterações realizadas.|
 | **Requisitos não funcionais:**<br>RNF 12: O cadastro do voo deve incluir o número do voo, a origem, o destino e a distância do percurso, conforme as orientações estabelecidas pelo departamento responsável.|
 
-
 ---
-
 
 | **RF3. Gerenciar aeronaves** |
 |:---|
@@ -132,19 +130,17 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ---
 
-| **RF4. CRUD de usuarios** |
+| **RF4. Realizar busca de registros de aeronaves internacionais** |
 |:---|
-| **Descrição:**<br>O usuário irá acessar o sistema e fornecer os dados necessários para criar uma nova conta de usuário. Este cadastro permitirá que o usuário utilize as funcionalidades do sistema. |
-| **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares |
-| **Usuários:**<br>Usuário normal |
-| **Informações de entrada:**<br>O usuário deverá preencher os dados, incluindo nome completo, endereço de e-mail, senha, telefone de contato, CPF e código de acesso  liberado para o funcionário|
-| **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição de acesso geradas.  |
-| **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia.  |
+| **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores de aeronaves internacionais  |
+| **Fontes:**<br>Documentação do sistema e Documentação da API |
+| **Informações de entrada:**<br>O usuário deve informar o código IATA/ICAO do vôo desejado. |
+| **Informações de saída:**<br>Tela com as informações de voos compatíveis com a busca, priorizando uma ordem e um mapa com sua localização atual caso esteja ativo.  |
+| **Requisitos não funcionais:**<br> Funciona a partir de requisição ao Banco de Dados DA API |
+
 ---
 
-
-
-| **RF5. Realizar login de usuários** |
+| **RF5. Gerar Planejamento** |
 |:---|
 | **Descrição:**<br>Este recurso permite que um usuário normal acesse o sistema através da autenticação com suas credenciais pessoais. Após o fornecimento de e-mail e senha, o sistema valida as informações e concede acesso com base na autorização apropriada. |
 | **Fontes:**<br>Documentação do sistema |
@@ -155,57 +151,23 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ---
 
-| **RF6. CRUD controle de voos** |
-|:---|
-| **Descrição:**<br>Este recurso permite que o usuário administrador cadastre, mantenha e exclua voos na companhia aérea. A funcionalidade abrange todas as operações necessárias para o gerenciamento de voos, garantindo que todas as informações relevantes estejam atualizadas e precisas. |
-| **Fontes:**<br>Documentação interna do sistema de gerenciamento de voos, seguindo as regras e regulamentos da aviação civil Manual do Sistema de Registro de Operações (SIROS). |
-| **Usuários:**<br>Usuário administrador |
-| **Informações de entrada:**<br>Para cadastrar ou manter um voo, o administrador deve fornecer o código do voo, que é um identificador único do voo (por exemplo, AB1234). É necessário também informar a origem, especificando o aeroporto de partida (como GRU - Aeroporto Internacional de São Paulo/Guarulhos), e o destino, que corresponde ao aeroporto de chegada (como JFK - Aeroporto Internacional John F. Kennedy).
-Além disso, é preciso indicar a duração do voo. A quantidade máxima de passageiros permitidos deve ser especificada no campo de quantidade de passageiros. A aeronave utilizada deve ser informada, incluindo o modelo e a marca (por exemplo, Boeing 737). Outros dados essenciais incluem o peso máximo permitido para bagagens e carga (em kg) e as datas programadas para manutenção da aeronave, referidas como período de manutenção. |
-| **Informações de saída:**<br>Confirmação da criação, atualização ou exclusão de um voo, exibição de uma lista atualizada de voos cadastrados, mostrando detalhes como código do voo, origem, destino, horário ou uma mensagem de erro em caso de falha na operação, como código de voo duplicado ou dados inválidos.  |
-| **Requisitos não funcionais:**<br>O sistema deve restringir o acesso ao CRUD de voos apenas a usuários administradores, o sistema deverá ser capaz de gerenciar um grande número de voos sem perda de desempenho, especialmente em períodos de alta demanda.  |
-
----
-| **RF7. Realizar busca de voos** |
-|:---|
-| **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores e altere informações de viagens futuras do sistema, quando necessário. |
-| **Fontes:**<br>Documentação do sistema, requisitos  e consultas em Sistemas similares. |
-| **Usuários:**<br>Usuário normal Usuário admin|
-| **Informações de entrada:**<br>O usuário pode informar a origem, destino, código da viagem e data para localizar a viagem. Para viagens futuras, o usuário pode alterar dados da viagem conforme permitido. |
-| **Informações de saída:**<br>Tela com as informações de voos compatíveis com a busca, priorizando uma ordem.  |
-| **Requisitos não funcionais:**<br>a  |
-
---
-
-
-| **RF8. Realizar busca de registros de aeronaves internacionais** |
-|:---|
-| **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores de aeronaves internacionais  |
-| **Fontes:**<br>Documentação do sistema e Documentação da API |
-| **Informações de entrada:**<br>O usuário deve informar o código IATA/ICAO do vôo desejado. |
-| **Informações de saída:**<br>Tela com as informações de voos compatíveis com a busca, priorizando uma ordem e um mapa com sua localização atual caso esteja ativo.  |
-| **Requisitos não funcionais:**<br> Funciona a partir de requisição ao Banco de Dados DA API |
-
----
-
-
 ## 5. DIAGRAMAS DE SEQUÊNCIA
 
 
 | **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
-|![DiagramaSeq1](/Documentação/Diagramas/DiagramaSeq1.png) |
+|![DiagramaSeq1](/Diagramas/DiagramaSeq1.png) |
 <br>
 
 | **CRUD USUÁRIO** |
-|![DiagramaSeq2](/Documentação/Diagramas/DiagramaSeq2.png)|
+|![DiagramaSeq2](Diagramas/DiagramaSeq2.png)|
 <br>
 
 | **CRUD VOOS** |
-|![DiagramaSeq3](/Documentação/Diagramas/DiagramaSeq3.png) |
+|![DiagramaSeq3](Diagramas/DiagramaSeq3.png) |
 <br>
 
 | **CRUD AERONAVES** |
-|![DiagramaSeq4](/Documentação/Diagramas/DiagramaSeq4.png)|
+|![DiagramaSeq4](Diagramas/DiagramaSeq4.png)|
 <br>
 
 
@@ -220,16 +182,13 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
 | **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.|
 | **CENÁRIO ALTERNATIVO:**<br> |
-|**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
+|**EXCEÇÃO**<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com origem com NOME, CPF, DATA DE NASCIMENTO, TELEFONE e E-MAIL. |
 
-![CasoDeUso](/Documentação/Diagramas/CasoDeUso.png)
+![CasoDeUso](/Diagramas/CasoDeUso.png)
 <br>
 
-
 ---
-
-
 
 | **UC02 CRUD DE AERONAVE** |
 |:---|
@@ -243,11 +202,10 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **CENÁRIO ALTERNATIVO:** |
 | **EDITAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar <br> 3. [IN]  Altera os dados desejados  <br> 4. [OUT] retorna a página com dados atualizados|
 | **DELETAR** <br> 1. [IN] Usuário realiza busca do objeto desejado, seleciona <br> 2. [IN]  clica em editar. <br>3. [OUT] retorna a página com sem o objeto deletado|
-| **EXCEÇÃO** |
-| [E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
+| **EXCEÇÃO**<br>[E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
 | **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. |
 
-![CasoDeUso2](/Documentação/Diagramas/CasoDeUso2.png)
+![CasoDeUso2](/Diagramas/CasoDeUso2.png)
 <br>
 ---
 
@@ -260,14 +218,13 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
 | **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br>|
 | **CENÁRIO ALTERNATIVO:**<br> |
-|**EXCEÇÃO**|<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
+|**EXCEÇÃO**<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.|
 
-![CasoDeUso3](/Documentação/Diagramas/CasoDeUso3.png)
+![CasoDeUso3](/Diagramas/CasoDeUso3.png)
 <br>
 
 ---
-
 
 | **UC04. RELATÓRIO  DE AERONAVES DA EMPRESA** |
 |:---|
@@ -278,7 +235,6 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **PÓS-CONDIÇOES:**<br> Não há|
 | **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna as aeronaves que batem com a pesquisa.<br>
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
-
 
 ---
 
@@ -292,7 +248,7 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
-![CasoDeUso4](/Documentação/Diagramas/CasoDeUso4.png)
+![CasoDeUso4](/Diagramas/CasoDeUso4.png)
 <br>
 
 ---
@@ -306,12 +262,11 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 | **PÓS-CONDIÇOES:**<br> O sistema registra a requisição e retorna dados sobre a aeronave, datas de voos, ativos, cancelados, concluídos e agendados além de um mapa com sua localização caso esteja com ativo|
 | **CENÁRIO PRINCIPAL:** <br>1. [IN] O cliente acessa a interface de pesquisa de voos.<br>2. [IN] O sistema solicita que o cliente insira o código IATA ou ICAO do voo. <br> 3. [IN] O cliente insere o código do voo e confirma a pesquisa. <br> 4. [OUT] O sistema valida o código inserido. [RN1] <br>5. [OUT] O sistema consulta a API da AviationStack. [RN2] <br>6. [OUT] A API retorna os dados do voo, como aeronave, status e localização. [E1] [E2] <br> 7. [OUT] Caso o voo esteja ativo, o sistema exibe a localização em tempo real em um mapa. <br> 8. [OUT] O sistema apresenta os dados ao cliente. <br> 9. [OUT] O sistema registra a consulta no histórico. <br> 10. [OUT] O cliente finaliza a pesquisa. |
 | **CENÁRIO ALTERNATIVO:**|
-| **EXCEÇÃO**|
-|[E1] O cliente tenta pesquisar um voo, o sistema tenta acessar a API, mas está indisponível, em seguida o sistema exibe uma mensagem de erro: "Falha na pesquisa." [RN3], O sistema registra a tentativa de acesso e o erro. <br>  [E2] O cliente insere um código inválido ou de voo inexistente. O sistema detecta o código como inválido ou a API não encontra o voo. [RN1]. O sistema exibe uma mensagem de erro: "Voo não encontrado."|
+| **EXCEÇÃO**<br>[E1] O cliente tenta pesquisar um voo, o sistema tenta acessar a API, mas está indisponível, em seguida o sistema exibe uma mensagem de erro: "Falha na pesquisa." [RN3], O sistema registra a tentativa de acesso e o erro. <br>  [E2] O cliente insere um código inválido ou de voo inexistente. O sistema detecta o código como inválido ou a API não encontra o voo. [RN1]. O sistema exibe uma mensagem de erro: "Voo não encontrado."|
 | **REGRAS DE NEGÓCIO:** <br>[RN1] - O sistema deve validar o código IATA ou ICAO inserido pelo cliente. [RN2] - O sistema só deve acessar a API se a chave de API estiver válida e com requisições disponíveis. <br> [RN3] - O sistema deve registrar e notificar o cliente em caso de falha na pesquisa devido à indisponibilidade da API. |
 
 
-![CasoDeUso5](/Documentação/Diagramas/CasoDeUso5.png)
+![CasoDeUso5](/Diagramas/CasoDeUso5.png)
 <br>
 
 ---
