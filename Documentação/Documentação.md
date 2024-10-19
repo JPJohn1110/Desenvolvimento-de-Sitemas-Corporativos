@@ -155,7 +155,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 
 | **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
-|![DiagramaSeq1](/Diagramas/DiagramaSeq1.png) |
+|![DiagramaSeq1](Diagramas/DiagramaSeq1.png) |
 <br>
 
 | **CRUD USUÁRIO** |
@@ -296,7 +296,7 @@ _O diagrama acima representa o diagrama de classes da Estrutura de projeto Repos
 ![Diagrama de Classes](Diagramas/Service.png)
 _O diagrama acima representa o diagrama de classes da Estrutura de projeto Service_
 
-![Diagrama de Classes](Diagramas/DTO.png.png)
+![Diagrama de Classes](Diagramas/DTO.png)
 _O diagrama acima representa o diagrama de classes da Estrutura de projeto DTO_
 
 ![Diagrama de Classes](Diagramas/Security.png)
