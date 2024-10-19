@@ -2,7 +2,7 @@
 # Passo a Passo
 
 <p align="center">
-  <a href="http://cavaloarlines.ddns.net/" target="_blank"> <img src="Projeto/src/main/resources/static/images/cavalo2.png" width=50% alt=" ProjectName"> a>
+  <a href="http://cavaloarlines.ddns.net/" target="_blank"> <img src="Projeto/src/main/resources/static/images/cavalo2.png" width=50% alt=" ProjectName"> </a>
 </p>
 
 # *Cavalo Airline* 
