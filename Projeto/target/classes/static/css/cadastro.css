@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../images/backgrouLogin.png');
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
+main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.login {
+    background: rgba(0, 0, 0, 0.48);
+    border-radius: 50px;
+    text-align: center;
+    width: 850px;
+    padding: 45px;
+}
+
+.login h2 {
+    font-size: 48px;
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+    font-family: "Bubblegum Sans", sans-serif;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 21px;
+}
+
+.form-group input {
+    width: 48%;
+}
+
+.login input {
+    width: 300px;
+    height: 45px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 16px;
+    padding-left: 45px;
+    padding-right: 45px;
+    color: black;
+    background-color: #D9D9D9;
+    font-family: "Roboto Serif", serif;
+}
+
+.login input::placeholder {
+    color: black;
+    font-weight: bold;
+}
+
+.erro {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.login .user {
+    background-image: url(../images/user.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+
+.login .cpf {
+    background-image: url(../images/cpf.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+
+.login .email {
+    background-image: url(../images/e-mail.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+
+.login .senha {
+    background-image: url(../images/senha.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+
+.login .confsenha {
+    background-image: url(../images/redefinir-senha.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+
+.login .telefone {
+    background-image: url(../images/telefone.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+
+.login .acesso {
+    background-image: url(../images/chaveDeAceso.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+
+.login .botao {
+    width: 150px;
+    height: 40px;
+    font-family: "Roboto Serif", serif;
+}
+
+.Sign .recumperar {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 35px;
+    font-family: "Roboto Serif", serif;
+}
+
+.Sign p {
+    color: white;
+    margin-bottom: 5px;
+    font-family: "Roboto Serif", serif;
+}
+
+.botao {
+    width: 150px;
+    height: 40px;
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    font-family: "Roboto Serif", serif;
+    text-align: center;
+    color: black;
+}
