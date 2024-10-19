@@ -157,7 +157,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **UC01. CADASTRO DE USUÁRIO** |
 |:---|
 | **NOME DO CASO DE USO:** <br> Cadastro de usuário |
-| **ATOR:** <br>Cliente | 
+| **ATOR:** <br>Funcionário | 
 | **OBJETIVO:** <br> Oferecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
 | **PRÉ-CONDIÇÕES:** <br> 1. O usuário não deve possuir uma conta registrada no sistema e um administrador deve ter criado um código de acesso para ele.|
 | **PÓS-CONDIÇOES:** <br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
@@ -196,11 +196,11 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **NOME DO CASO DE USO:**<br> Cadastro de voo |
 | **ATOR:**<br>Funcionário | 
 | **OBJETIVO:**<br> Permitir o cadastro de novos voos no sistema.|
-| **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema.|
+| **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema e a aeronave que será usada também deve estar cadastrada.|
 | **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
-| **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo voo no banco de dados. <br>|
+| **CENÁRIO PRINCIPAL:** <br> 1. [IN]O Funcionário acessa a página de cadastro. <br> 2. [IN] O funcionário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1]<br> 4.[OUT] O sistema registra o novo voo no banco de dados. <br>|
 | **CENÁRIO ALTERNATIVO:**<br> |
-|**EXCEÇÃO**<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
+|**EXCEÇÃO**<br>[E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações <br>| 
 |**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.
 <br>RN0. O sistema de cadastro é persistente, caso não queira mais adiconar voos, basta clicar fora da tela de cadastro |
 
@@ -212,11 +212,11 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **UC04. RELATÓRIO  DE AERONAVES DA EMPRESA** |
 |:---|
 | **NOME DO CASO DE USO:**<br> Relatório de aeronaves |
-| **ATOR:**<br> Usuario | 
+| **ATOR:**<br> Fucionário | 
 | **OBJETIVO:**<br> Emissão do relatório de aeronaves.|
 | **PRÉ-CONDIÇÕES:**<br> 1. Cadastro da aeronaves.|
 | **PÓS-CONDIÇOES:**<br> Não há|
-| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna as aeronaves que batem com a pesquisa.<br>
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [INT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema retorna as aeronaves que batem com a pesquisa.<br>
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
 ---
@@ -224,11 +224,11 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **UC04. RELATÓRIO DE VOOS DA EMPRESA** |
 |:---|
 | **NOME DO CASO DE USO:**<br> Relatório de vos |
-| **ATOR:**<br> Usuario | 
+| **ATOR:**<br> Funcionário | 
 | **OBJETIVO:**<br> Emissão do relatório de voos.|
 | **PRÉ-CONDIÇÕES:**<br> 1. Cadastro de voos.|
 | **PÓS-CONDIÇOES:**<br> Não há|
-| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>|
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [INT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema retorna os voos da empresa que batem com a pesquisa.<br>|
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
 ![CasoDeUso4](Diagramas/CasoDeUso4.png)
@@ -239,7 +239,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **UC05. PESQUISA DE VOOS API** |
 |:---|
 | **NOME DO CASO DE USO:**<br> PESQUISA DE VOOS INTERNACIONAIS |
-| **ATOR:**<br>Cliente | 
+| **ATOR:**<br>Funcionário | 
 | **OBJETIVO:**<br> Oferecer a de voos existentes no sistema aéreo mundial através do Código IATA/ICAO.|
 | **PRÉ-CONDIÇÕES:**<br> 1. O usuário deve possuir uma conta registrada no sistema <br> A chave Key da API com o sistema deve possuir requisições mensal disponível.|
 | **PÓS-CONDIÇOES:**<br> O sistema registra a requisição e retorna dados sobre a aeronave, datas de voos, ativos, cancelados, concluídos e agendados além de um mapa com sua localização caso esteja com ativo|
@@ -264,13 +264,13 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 |**CRUD VOOS**|
 |:---|
-|1. [IN]O usuário acessa a página de cadastro de voos. <br> 2. [OUT] Sistema retorna página de cadstro de voos. <br>  3. [IN] O usuário preenche o formulário de cadastro com as informações necessárias<br> 4. [OUT] O sistema valida as informações fornecidas. [E2.1] [E2.2]<br> 5.[OUT] O sistema retorna o novo voo registrado. <br>|
+|1. [IN]O usuário acessa a página de cadastro de voos. <br> 2. [OUT] Sistema retorna página de cadstro de voos. <br>  3. [IN] O usuário preenche o formulário de cadastro com as informações necessárias<br> 4. [OUT] O sistema valida as informações fornecidas. [E2.1]<br> 5.[OUT] O sistema retorna o novo voo registrado. <br>|
 ![DiagramaSeq3](Diagramas/DiagramaSeq3.png) 
 <br>
 
 | **CRUD AERONAVES**| 
 |:---|
-| 1. [IN]O usuário acessa a página de cadastro de aeronaves. <br> 2. [OUT] Sistema retorna página de cadstro de aeronaves. <br>  3. [IN] O usuário preenche o formulário de cadastro com as informações necessárias<br> 4. [OUT] O sistema valida as informações fornecidas. [E2.1] [E2.2]<br> 5.[OUT] O sistema retorna a nova aeronave registrada. <br>|
+| 1. [IN]O usuário acessa a página de cadastro de aeronaves. <br> 2. [OUT] Sistema retorna página de cadstro de aeronaves. <br>  3. [IN] O usuário preenche o formulário de cadastro com as informações necessárias<br> 4. [OUT] O sistema valida as informações fornecidas. [E2.1]<br> 5.[OUT] O sistema retorna a nova aeronave registrada. <br>|
 ![DiagramaSeq4](Diagramas/DiagramaSeq4.png)
 <br>
 
