@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento</title>
+    <link rel="stylesheet" href="css/voo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <img src="images/cavalo2.png" alt="">
+                <h2>Cavalo Airlines</h2>
+            </div>
+            <div class="user">
+                <div class="itemUser">
+                    <span id="nomeUsuario"></span>
+                </div>
+                <div class="itemUser">
+                    <img src="images/perfil-de-usuario.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul id="sidebar">
+                <li>
+                    <a href="index">
+                        <i class="fas fa-th-large"></i>
+                        <div>Inicio</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="aeronave">
+                        <i class="fas fa-plane-departure"></i>
+                        <div>Aeronaves</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="voo">
+                        <i><img src="images/roter.png"></i>
+                        <div>Voos</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="planejamento">
+                        <i> <img src="images/planeja.png"></i>
+                        <div>Planejamento</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="crud">
+                <div class="cabecalho">
+                    <span>Planejamento</span>
+                    <div id="busca">
+                        <form class="searchForm">
+
+                            <div class="item">
+                                <label for="searchAeronave">Buscar por:</label>
+                                <select id="searchAeronave" name="searchAeronave">
+                                    <option value="Todos">Todos</option>
+                                </select>
+                            </div>
+
+                            <div class="item"><i class="fas fa-search" id="search" style="cursor: pointer;"></i></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="divtable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                <th>Autonomia</th>
+                                <th>Primeira Classe</th>
+                                <th>Econômica</th>
+                                <th>Peso Disponivel</th>
+                                <th>Quantidade Voos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="planejamentoTbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/planejamento.js"></script>
+</body>
+</html>
