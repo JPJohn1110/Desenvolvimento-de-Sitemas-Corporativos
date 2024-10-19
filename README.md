@@ -8,6 +8,8 @@
 # *Cavalo Airline* 
 ### Link para acesso: http://cavaloarlines.ddns.net:8080
 obs: AWS só permite 4h de instância ligada, caso ela não esteja ligada, avise aos colaboradores para reiniciar
+### Para criação do executável é necessário executar o comando `mvn clean install` 
+
 ## Projeto Desenvolvimento De Softwares Corporativos 2024
 
 Projeto para disciplina de DSC. 
