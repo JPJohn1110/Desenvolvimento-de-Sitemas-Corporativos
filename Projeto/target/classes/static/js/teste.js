@@ -1,6 +1,6 @@
 const resultsDiv = document.getElementById('results');
 const mapDiv = document.getElementById('map');
-const API_KEY = "a9a3ca38755cd21ad75e651671fcd0f9";
+const API_KEY = "c5b2c1a6a6798d698d850d5ae25546be";
 const btnRastrear = document.getElementById('trackButton');
 const btnMostrarTodos = document.getElementById('showAllFlightsButton'); // Novo botão
 let map;

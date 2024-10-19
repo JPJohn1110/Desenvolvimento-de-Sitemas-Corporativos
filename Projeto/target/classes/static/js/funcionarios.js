@@ -185,7 +185,7 @@ function editUsuario(id) {
     }
 }
 
-//procurar a aeronave no array
+//procurar usuario no array
 function encontrarUsuario(id) {
     return usuariosT.find(usuario => usuario.id === id);
 }

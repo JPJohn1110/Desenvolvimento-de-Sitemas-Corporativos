@@ -36,7 +36,7 @@ public class DataLoader implements CommandLineRunner {
             adminJoao.setCodigoAcesso("h67OBpYuGxp4");
             adminJoao.setEmail("jpsr.jpsantos@gmail.com");
             adminJoao.setNome("João Pedro Santos Rodrigues");
-            adminJoao.setCpf("12858434603");
+            adminJoao.setCpf("128584346-03");
             adminJoao.setTelefone("38988299517");
             adminJoao.setSenha(encryptedPassword0);
             usuarioRepository.save(adminJoao);
