@@ -268,11 +268,11 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 ![DiagramaSeq4](Diagramas/DiagramaSeq4.png)
 <br>
 
-**RELATÓRIO DE AAERONAVES** 
-![DiagramaSeq1](Diagramas/DiagramaSeq1.png)
+**RELATÓRIO DE AERONAVES** 
+![DiagramaSeq5](Diagramas/DiagramaSeq5.png)
 
 **RELATÓRIO DE VOOS** 
-![DiagramaSeq1](Diagramas/DiagramaSeq1.png)
+![DiagramaSeq6](Diagramas/DiagramaSeq6.png)
 
 
 **REQUISIÇÃO DE VOOS INTERNACIONAIS** 
