@@ -11,6 +11,7 @@
 OBS: AWS só permite 4h de instância ligada, caso ela não esteja ligada, avise aos colaboradores para reiniciar
 ### Para criação do executável é necessário executar o comando `mvn clean install` 
 #### Para funcionamento do banco de Dados deve utilizar postgresSQL com username `postgres` e senha `postgres`
+#### Ter no SGBD um BD chamado `Companhia_Area`
 
 ## Projeto Desenvolvimento De Softwares Corporativos 2024
 
