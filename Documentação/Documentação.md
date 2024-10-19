@@ -227,7 +227,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **OBJETIVO:**<br> Emissão do relatório de voos.|
 | **PRÉ-CONDIÇÕES:**<br> 1. Cadastro de voos.|
 | **PÓS-CONDIÇOES:**<br> Não há|
-| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>
+| **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>|
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
 ![CasoDeUso4](Diagramas/CasoDeUso4.png)
@@ -258,7 +258,6 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 |**CRUD USUÁRIO**|
 |:---|
 | 1. [IN] Um administrador cria um código de Acesso pro novo usuário <br> 2.[OUT]. O sistema retorna o código de acesso pela lista <br>3. [IN] O usuário acessa a página de cadastro. <br> 4. [IN] O usuário preenche o formulário de cadastro com as informações necessárias <br>5. [OUT] O sistema valida as informações fornecidas. [E1.1] [E1.2]<br>6.[OUT] O sistema registra o novo usuário no banco de dados. <br> 7. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.||
-
 ![DiagramaSeq2](Diagramas/DiagramaSeq2.png)
 <br>
 
@@ -270,19 +269,25 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 | **CRUD AERONAVES**| 
 |:---|
-| IN]O usuário acessa a página de cadastro de aeronaves. <br> 2. [OUT] Sistema retorna página de cadstro de aeronaves. <br>  3. [IN] O usuário preenche o formulário de cadastro com as informações necessárias<br> 4. [OUT] O sistema valida as informações fornecidas. [E2.1] [E2.2]<br> 5.[OUT] O sistema retorna a nova aeronave registrada. <br>|
-
+| 1. [IN]O usuário acessa a página de cadastro de aeronaves. <br> 2. [OUT] Sistema retorna página de cadstro de aeronaves. <br>  3. [IN] O usuário preenche o formulário de cadastro com as informações necessárias<br> 4. [OUT] O sistema valida as informações fornecidas. [E2.1] [E2.2]<br> 5.[OUT] O sistema retorna a nova aeronave registrada. <br>|
 ![DiagramaSeq4](Diagramas/DiagramaSeq4.png)
 <br>
 
-**RELATÓRIO DE AERONAVES** 
+|**RELATÓRIO DE AERONAVES**| 
+|:---|
+|1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema retorna as aeronaves que batem com a pesquisa.<br>|
 ![DiagramaSeq5](Diagramas/DiagramaSeq5.png)
 
-**RELATÓRIO DE VOOS** 
+
+|**RELATÓRIO DE VOOS**|
+|:---|
+|1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>|
 ![DiagramaSeq6](Diagramas/DiagramaSeq6.png)
 
 
-**REQUISIÇÃO DE VOOS INTERNACIONAIS** 
+|**REQUISIÇÃO DE VOOS INTERNACIONAIS PELA API**|
+|:---|
+|<br>1. [IN] O cliente acessa a interface de pesquisa de voos.<br>2. [IN] O sistema solicita que o cliente insira o código IATA ou ICAO do voo. <br> 3. [IN] O cliente insere o código do voo e confirma a pesquisa. <br> 4. [OUT] O sistema valida o código inserido. [RN1] <br>5. [INT] O sistema consulta a API da AviationStack.  <br>6. [OUT] A API retorna os dados do voo, como aeronave, status e localização. [E5.1] [E5.2] <br> 7. [OUT]O sistema apresenta os dados ao cliente. <br> 8. [INT] Caso haja, o cliente solicita localização em tempo real em um mapa. <br> 9. [OUT] O sistema retrna um mapa com a localização do voo <br> 10. [INT] O cliente finaliza a pesquisa. |
 ![DiagramaSeq1](Diagramas/DiagramaSeq1.png)
 
 <br>
