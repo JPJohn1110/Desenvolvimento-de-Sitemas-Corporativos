@@ -128,7 +128,7 @@ function atualizarUsuario(usuario) {
 
 //Requisição DELETE
 function deleteUsuario(id){
-    if (id === 1){
+    if (id === 1 || id === 2 || id === 3){
         return
     }
     const token = localStorage.getItem('token');
@@ -174,7 +174,7 @@ function inserirUsuario(usuario) {
 
 //responde o botão editar
 function editUsuario(id) {
-    if (id === 1){
+    if (id === 1 || id === 2 || id === 3){
         return
     }
     const usuario = encontrarUsuario(id);
