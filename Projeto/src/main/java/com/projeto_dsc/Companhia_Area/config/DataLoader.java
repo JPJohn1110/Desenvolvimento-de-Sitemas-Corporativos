@@ -15,6 +15,8 @@ public class DataLoader implements CommandLineRunner {
     private UsuarioRepository usuarioRepository;
     String encryptedPassword0 = new BCryptPasswordEncoder().encode("123456Jp@");
     String encryptedPassword1 = new BCryptPasswordEncoder().encode("KeLToNmd20");
+    String encryptedPassword2 = new BCryptPasswordEncoder().encode("Cavalo123@");
+
 
     @Override
     public void run(String... args) {
@@ -50,7 +52,7 @@ public class DataLoader implements CommandLineRunner {
             adminPaulo.setNome("Paulo Veloso");
             adminPaulo.setCpf("89715434600");
             adminPaulo.setTelefone("38988299517");
-            adminPaulo.setSenha(encryptedPassword0);
+            adminPaulo.setSenha(encryptedPassword2);
             usuarioRepository.save(adminPaulo);
         }
     }
