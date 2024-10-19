@@ -25,7 +25,8 @@ O Sistema possui acesso a API AviationStack para gerenciamento e conhecimento de
 2. **Criar Novo Usuário**: 
    <br> 1. Para criar o usuário você deve ir até a opção Funcionários na barra lateral
    <br> 2. Ao entrar na página de funcionários, existirá no canto superior direito um botão escrito  ***Incluir***
-   <br> 3. Ao clicar nesse botão, aparecerá uma tela para escolher o cargo do novo Usuário e o código de acesso que ele utilizará no ato do Cadastro 
+   <br> 3. Ao clicar nesse botão, aparecerá uma tela para escolher o cargo do novo Usuário e o código de acesso que ele utilizará no ato do Cadastro
+   <br> 4. Com o código recém criado, o novo funcionário poderá acessar a tela de cadastro e colocar suas credenciais e em seguida fazer login como novo funcionário.
 3. **Environment variables**: Copy `.env.example` to a new `.env.local`
 4. **Database Setup**: `npx prisma migrate dev --name init`
 5. **Start Developing**: `npm run start:dev (api) & npm run dev (frontend)`
