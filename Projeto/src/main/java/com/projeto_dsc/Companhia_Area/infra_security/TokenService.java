@@ -35,7 +35,7 @@ public class TokenService {
 			return token;
 
 		}catch(JWTCreationException exception){
-			throw new RuntimeException("ERROR WHILE GENERATION TOKEN", exception);
+			throw new RuntimeException("ERROR ENQUANTO GENERATION TOKEN", exception);
 		}
 	}
 

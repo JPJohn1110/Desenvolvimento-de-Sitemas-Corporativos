@@ -13,7 +13,7 @@
 5. [DIAGRAMA DE SEQUÊNCUA ](#5-diagrama-de-sequencia)
 6. [CASOS DE USO](#6-casos-de-uso)
 7. [MODELO CONCEITUAL](#7-modelo-conceitual)
-8. [MODELO RELACIOAL ](#8-modelo-relacional)
+8. [MODELO RELACIONAL ](#8-modelo-relacional)
 9. [DIAGRAMA DE CLASSES](#9-diagramas-de-classes)
 
 
@@ -180,8 +180,19 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 
 ## 5. DIAGRAMAS DE SEQUÊNCIA
 
-![DiagramaSeq1](/Documentação/Diagramas/DiagramaSeq1.png)
-<br>
+
+| **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
+|![DiagramaSeq1](/Documentação/Diagramas/DiagramaSeq1.png)<br> |
+
+| **CRUD USUÁRIO** |
+|![DiagramaSeq2](/Documentação/Diagramas/DiagramaSeq2.png)<br>|
+
+| **CRUD VOOS** |
+|![DiagramaSeq3](/Documentação/Diagramas/DiagramaSeq3.png) <br>|
+
+| **CRUD AERONAVES** |
+|![DiagramaSeq4](/Documentação/Diagramas/DiagramaSeq4.png)<br>|
+
 
 
 ## 6. CASOS DE USO

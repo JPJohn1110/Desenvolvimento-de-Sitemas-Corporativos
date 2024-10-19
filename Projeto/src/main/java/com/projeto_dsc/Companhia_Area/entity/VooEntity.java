@@ -39,7 +39,6 @@ public class VooEntity {
 
     }
 
-    //Get e Set Id
     public Long getId() {
         return id;
     }
@@ -48,7 +47,6 @@ public class VooEntity {
         this.id = id;
     }
 
-    //Get e Set origem
     public String getOrigem() {
         return origem;
     }
@@ -57,7 +55,6 @@ public class VooEntity {
         this.origem = origem;
     }
 
-    //Get e Set destino
     public String getDestino() {
         return destino;
     }
@@ -66,7 +63,6 @@ public class VooEntity {
         this.destino = destino;
     }
 
-    //Get e Set duracao
     public String getDuracao() {
         return duracao;
     }
@@ -75,7 +71,6 @@ public class VooEntity {
         this.duracao = duracao;
     }
 
-    //Get e Set numero do VOo
     public int getNumeroVoo() {
         return numeroVoo;
     }
@@ -84,7 +79,6 @@ public class VooEntity {
         this.numeroVoo = numeroVoo;
     }
 
-    //Get e Set aeronave
     public AeronaveEntity getAeronave() {
         return aeronave;
     }
@@ -93,7 +87,6 @@ public class VooEntity {
         this.aeronave = aeronave;
     }
 
-    //Hash e equal
     @Override
     public int hashCode() {
         return Objects.hashCode(id);

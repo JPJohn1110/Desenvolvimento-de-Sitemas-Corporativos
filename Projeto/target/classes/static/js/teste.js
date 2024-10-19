@@ -24,7 +24,7 @@ async function fetchFlightData(flight) {
     }
 }
 
-// Função para obter todos os voos
+// Lançar voos e segregar
 async function fetchAllFlights() {
     const url = `https://api.aviationstack.com/v1/flights?access_key=${API_KEY}`; // Sem filtro
     const options = {
@@ -121,7 +121,7 @@ btnRastrear.onclick = async (e) => {
     }
 };
 
-// Função para mostrar todos os voos
+// Lançar todos os voos
 btnMostrarTodos.onclick = async (e) => {
     e.preventDefault();
     try {

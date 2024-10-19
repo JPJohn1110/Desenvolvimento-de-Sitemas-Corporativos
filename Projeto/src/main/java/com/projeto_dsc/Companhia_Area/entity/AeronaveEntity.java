@@ -45,12 +45,10 @@ public class AeronaveEntity {
     @JsonIgnore
     private List<VooEntity> voos = new ArrayList<>();
 
-    //Construtores
     public AeronaveEntity() {
     }
     public AeronaveEntity(AeronaveDTO aeronave) {BeanUtils.copyProperties(aeronave, this);}
 
-    //Get e Set id
     public Long getId() {
         return id;
     }
@@ -59,7 +57,6 @@ public class AeronaveEntity {
         this.id = id;
     }
 
-    //Get e Set modelo
     public String getModelo() {
         return modelo;
     }
@@ -68,7 +65,6 @@ public class AeronaveEntity {
         this.modelo = modelo;
     }
 
-    //Get e Set PesoMaxDecol
     public Double getPesoMaxDecol() {
         return pesoMaxDecol;
     }
@@ -77,7 +73,6 @@ public class AeronaveEntity {
         this.pesoMaxDecol = pesoMaxDecol;
     }
 
-    //Get e Set PesoVazio
     public Double getPesoVazio() {
         return pesoVazio;
     }
@@ -86,7 +81,6 @@ public class AeronaveEntity {
         this.pesoVazio = pesoVazio;
     }
 
-    //Get e Set CapacidadeOcupantes
     public int getCapacidadeOcupantes() {
         return capacidadeOcupantes;
     }
@@ -95,7 +89,6 @@ public class AeronaveEntity {
         this.capacidadeOcupantes = capacidadeOcupantes;
     }
 
-    //Get e Set VelocidadeMedia
     public Double getVelocidadeMedia() {
         return velocidadeMedia;
     }
@@ -104,7 +97,6 @@ public class AeronaveEntity {
         this.velocidadeMedia = velocidadeMedia;
     }
 
-    //Get e Set CombustivelMax
     public Double getCombustivelMax() {
         return combustivelMax;
     }
@@ -113,7 +105,6 @@ public class AeronaveEntity {
         this.combustivelMax = combustivelMax;
     }
 
-    //Get e Set ConsumoHora
     public Double getConsumoHora() {
         return consumoHora;
     }
@@ -122,7 +113,6 @@ public class AeronaveEntity {
         this.consumoHora = consumoHora;
     }
 
-    //Get e Set Tipo
     public String getTipo() {
         return tipo;
     }
@@ -131,7 +121,6 @@ public class AeronaveEntity {
         this.tipo = tipo;
     }
 
-    //Get e Set Voo
     public List<VooEntity> getVoos() {
         return voos;
     }
@@ -163,7 +152,7 @@ public class AeronaveEntity {
         return this.capacidadeOcupantes - primeiraClasse();
     }
 
-    //Hassh e equal
+
     @Override
     public int hashCode() {
         return Objects.hashCode(id);

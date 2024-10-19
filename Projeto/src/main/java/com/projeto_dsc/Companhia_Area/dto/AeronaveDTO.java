@@ -21,11 +21,10 @@ public class AeronaveDTO {
     private Double consumoHora;
     private List<VooEntity> voos = new ArrayList<>();
 
-    //Construtores
+
     public AeronaveDTO(AeronaveEntity aeronave) {BeanUtils.copyProperties(aeronave, this);}
     public AeronaveDTO() {}
 
-    //Get e Set id
     public Long getId() {
         return id;
     }
@@ -34,7 +33,7 @@ public class AeronaveDTO {
         this.id = id;
     }
 
-    //Get e Set modelo
+
     public String getModelo() {
         return modelo;
     }
@@ -43,7 +42,6 @@ public class AeronaveDTO {
         this.modelo = modelo;
     }
 
-    //Get e Set PesoMaxDecol
     public Double getPesoMaxDecol() {
         return pesoMaxDecol;
     }
@@ -52,7 +50,6 @@ public class AeronaveDTO {
         this.pesoMaxDecol = pesoMaxDecol;
     }
 
-    //Get e Set PesoVazio
     public Double getPesoVazio() {
         return pesoVazio;
     }
@@ -61,7 +58,6 @@ public class AeronaveDTO {
         this.pesoVazio = pesoVazio;
     }
 
-    //Get e Set CapacidadeOcupantes
     public int getCapacidadeOcupantes() {
         return capacidadeOcupantes;
     }
@@ -70,7 +66,6 @@ public class AeronaveDTO {
         this.capacidadeOcupantes = capacidadeOcupantes;
     }
 
-    //Get e Set VelocidadeMedia
     public Double getVelocidadeMedia() {
         return velocidadeMedia;
     }
@@ -79,7 +74,6 @@ public class AeronaveDTO {
         this.velocidadeMedia = velocidadeMedia;
     }
 
-    //Get e Set CombustivelMax
     public Double getCombustivelMax() {
         return combustivelMax;
     }
@@ -88,7 +82,6 @@ public class AeronaveDTO {
         this.combustivelMax = combustivelMax;
     }
 
-    //Get e Set ConsumoHora
     public Double getConsumoHora() {
         return consumoHora;
     }
@@ -97,7 +90,6 @@ public class AeronaveDTO {
         this.consumoHora = consumoHora;
     }
 
-    //Get e Set Tipo
     public String getTipo() {
         return tipo;
     }
@@ -106,7 +98,6 @@ public class AeronaveDTO {
         this.tipo = tipo;
     }
 
-    //Get e Set voos
     public List<VooEntity> getVoos() {
         return voos;
     }

@@ -14,7 +14,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-    String encryptedPassword0 = new BCryptPasswordEncoder().encode("123456jP@");
+    String encryptedPassword0 = new BCryptPasswordEncoder().encode("123456Jp@");
     String encryptedPassword1 = new BCryptPasswordEncoder().encode("KeLToNmd20");
 
     @Override
