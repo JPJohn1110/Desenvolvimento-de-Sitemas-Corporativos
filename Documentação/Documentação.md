@@ -155,11 +155,11 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 | **UC01. CADASTRO DE USUÁRIO** |
 |:---|
-| **NOME DO CASO DE USO:**<br> Cadastro de usuário |
-| **ATOR:**<br>Cliente | 
-| **OBJETIVO:**<br> Oferecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
-| **PRÉ-CONDIÇÕES:**<br> 1. O usuário não deve possuir uma conta registrada no sistema.|
-| **PÓS-CONDIÇOES:**<br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
+| **NOME DO CASO DE USO:** <br> Cadastro de usuário |
+| **ATOR:** <br>Cliente | 
+| **OBJETIVO:** <br> Oferecer a possibilidade de cadastro no sistema para utilizar os serviços oferecidos.|
+| **PRÉ-CONDIÇÕES:** <br> 1. O usuário não deve possuir uma conta registrada no sistema.|
+| **PÓS-CONDIÇOES:** <br> O usuário é registrado no sistema e pode realizar login para utilizar as funcionalidades disponíveis.|
 | **CENÁRIO PRINCIPAL:** <br> 1. [IN]O usuário acessa a página de cadastro. <br> 2. [IN] O usuário preenche o formulário de cadastro com as informações necessárias [RN1]<br>3. [OUT] O sistema valida as informações fornecidas. [E1] [E2]<br> 4.[OUT] O sistema registra o novo usuário no banco de dados. <br> 5. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.|
 | **CENÁRIO ALTERNATIVO:**<br> |
 |**EXCEÇÃO**<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
@@ -254,22 +254,32 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 ## 6. DIAGRAMAS DE SEQUÊNCIA
 
 
-| **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
-|![DiagramaSeq1](Diagramas/DiagramaSeq1.png) |
+
+
+ **CRUD USUÁRIO** 
+![DiagramaSeq2](Diagramas/DiagramaSeq2.png)
 <br>
 
-| **CRUD USUÁRIO** |
-|![DiagramaSeq2](Diagramas/DiagramaSeq2.png)|
+ **CRUD VOOS** 
+![DiagramaSeq3](Diagramas/DiagramaSeq3.png) 
 <br>
 
-| **CRUD VOOS** |
-|![DiagramaSeq3](Diagramas/DiagramaSeq3.png) |
+ **CRUD AERONAVES** 
+![DiagramaSeq4](Diagramas/DiagramaSeq4.png)
 <br>
 
-| **CRUD AERONAVES** |
-|![DiagramaSeq4](Diagramas/DiagramaSeq4.png)|
-<br>
+**RELATÓRIO DE AAERONAVES** 
+![DiagramaSeq1](Diagramas/DiagramaSeq1.png)
 
+**RELATÓRIO DE VOOS** 
+![DiagramaSeq1](Diagramas/DiagramaSeq1.png)
+
+
+**REQUISIÇÃO DE VOOS INTERNACIONAIS** 
+![DiagramaSeq1](Diagramas/DiagramaSeq1.png)
+
+
+<br>
 ---
 
 ## 7. Modelo Conceitual
