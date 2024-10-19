@@ -16,7 +16,7 @@ O Sistema possui acesso a API AviationStack para gerenciamento e conhecimento de
 
 <!--- # "Verify icons availability here https://github.com/tandpfun/skill-icons" -->
 
-[![My Skills](https://skillicons.dev/icons?i=java,spring,javascript,html,css,postgresql,git,aws)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=java,spring,javascript,html,css,postgresql,github,aws)](https://skillicons.dev)
 
 ## Getting Started
 
