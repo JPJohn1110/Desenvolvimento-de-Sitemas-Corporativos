@@ -188,17 +188,20 @@ Além disso, é preciso indicar a duração do voo. A quantidade máxima de pass
 
 
 | **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
-|![DiagramaSeq1](/Documentação/Diagramas/DiagramaSeq1.png)<br> |
+|![DiagramaSeq1](/Documentação/Diagramas/DiagramaSeq1.png) |
+<br>
 
 | **CRUD USUÁRIO** |
-|![DiagramaSeq2](/Documentação/Diagramas/DiagramaSeq2.png)<br>|
+|![DiagramaSeq2](/Documentação/Diagramas/DiagramaSeq2.png)|
+<br>
 
 | **CRUD VOOS** |
-|![DiagramaSeq3](/Documentação/Diagramas/DiagramaSeq3.png) <br>|
+|![DiagramaSeq3](/Documentação/Diagramas/DiagramaSeq3.png) |
+<br>
 
 | **CRUD AERONAVES** |
-|![DiagramaSeq4](/Documentação/Diagramas/DiagramaSeq4.png)<br>|
-
+|![DiagramaSeq4](/Documentação/Diagramas/DiagramaSeq4.png)|
+<br>
 
 
 ## 6. CASOS DE USO
