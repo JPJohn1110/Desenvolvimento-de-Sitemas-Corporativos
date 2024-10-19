@@ -154,21 +154,32 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 ## 5. DIAGRAMAS DE SEQUÊNCIA
 
 
-| **REQUISIÇÃO DE VOOS INTERNACIONAIS** |
-|![DiagramaSeq1](/Diagramas/DiagramaSeq1.png) |
+ **REQUISIÇÃO DE VOOS INTERNACIONAIS** 
+![DiagramaSeq1](/Diagramas/DiagramaSeq1.png)
 <br>
 
-| **CRUD USUÁRIO** |
-|![DiagramaSeq2](Diagramas/DiagramaSeq2.png)|
+ **CRUD USUÁRIO** 
+![DiagramaSeq2](Diagramas/DiagramaSeq2.png)
 <br>
 
-| **CRUD VOOS** |
-|![DiagramaSeq3](Diagramas/DiagramaSeq3.png) |
+ **CRUD VOOS** 
+![DiagramaSeq3](Diagramas/DiagramaSeq3.png) 
 <br>
 
-| **CRUD AERONAVES** |
-|![DiagramaSeq4](Diagramas/DiagramaSeq4.png)|
+ **CRUD AERONAVES** 
+![DiagramaSeq4](Diagramas/DiagramaSeq4.png)
 <br>
+
+ **RELATÓRIO AERONAVES** 
+![DiagramaSeq5](Diagramas/DiagramaSeq5.png)
+<br>
+
+ **RELATÓRIO VOOS** 
+![DiagramaSeq5](Diagramas/DiagramaSeq5.png)
+<br>
+
+
+
 
 
 ## 6. CASOS DE USO
