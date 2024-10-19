@@ -1,32 +1,42 @@
 package com.projeto_dsc.Companhia_Area.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
 import com.projeto_dsc.Companhia_Area.dto.VooDTO;
 
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 @Table (name = "VOO")
 public class VooEntity {
 
+    //Get e Set Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Get e Set origem
     @Column (nullable = false)
     private String origem;
 
+    //Get e Set numero do VOo
     @Column (nullable = false)
     private int numeroVoo;
 
+    //Get e Set destino
     @Column (nullable = false)
     private String destino;
 
+    //Get e Set duracao
     @Column (nullable = false)
-    private String duracao;
+    private Double distancia;
 
+    //Get e Set aeronave
     @ManyToOne
     @JoinColumn(name = "aeronave_id")
     private AeronaveEntity aeronave;
@@ -37,60 +47,6 @@ public class VooEntity {
 
     public VooEntity() {
 
-    }
-
-    //Get e Set Id
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    //Get e Set origem
-    public String getOrigem() {
-        return origem;
-    }
-
-    public void setOrigem(String origem) {
-        this.origem = origem;
-    }
-
-    //Get e Set destino
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-    //Get e Set duracao
-    public String getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
-    }
-
-    //Get e Set numero do VOo
-    public int getNumeroVoo() {
-        return numeroVoo;
-    }
-
-    public void setNumeroVoo(int numeroVoo) {
-        this.numeroVoo = numeroVoo;
-    }
-
-    //Get e Set aeronave
-    public AeronaveEntity getAeronave() {
-        return aeronave;
-    }
-
-    public void setAeronave(AeronaveEntity aeronave) {
-        this.aeronave = aeronave;
     }
 
     //Hash e equal

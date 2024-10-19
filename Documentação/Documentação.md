@@ -52,8 +52,8 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 1. Gerenciar funcionarios
 2. Gerenciar voos
 3. Gerenciar aeronaves
-5. Realizar o rastreamento de voos
-6. Gerar Planejamento
+4. Realizar o rastreamento de voos
+5. Gerar Planejamento
 
 ---
 
@@ -77,6 +77,12 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 9. O sistema deverá gerar um código de acesso para os funcionários, o qual deverá conter 12 dígitos, sendo uma combinação de números e letras.
 
+10. O sistema deverá ter três usuários administradores cadastrados, que não poderão ser editados ou excluídos. As informações necessárias para o cadastro desses usuários serão fornecidas pelos responsáveis de cada conta.
+
+11. O sistema devera permitir que somente usuarios admins acesse a pagina de funcionarios.
+
+12. O cadastro do voo deve incluir o número do voo, a origem, o destino e a distância do percurso,  conforme as orientações estabelecidas pelo departamento responsável..
+
 ---
 
 ### 3.3. REQUISITOS SUPLEMENTARES
@@ -91,31 +97,31 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ## 4. DETALHAMENTO DE REQUISITOS 
 
-| **RF1. CRUD de usuários administradores** |
+| **RF1. Gerenciar funcionarios** |
 |:---|
-| **Descrição:**<br>O administrador chefe do sistema poderá criar editar permissões para novos funcionários que irão administrar o sistema. Esse processo inclui a troca de código de acesso. Ou por meio de cadastro com código especial|
-| **Fontes:** |
-| **Usuários:**<br>Administrador|
-| **Informações de entrada:**<br>O administrador chefe poderá alterar os dados do novo funcionário, incluindo nome completo, endereço de e-mail, senha, cargo/posição, telefone de contato, CPF e número de acesso.
-| **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
-| **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
+| **Descrição:**<br>O usuário administrador terá a capacidade de criar e editar os dados de novos funcionários que serão integrados ao sistema. Este processo incluirá a definição de permissões, a atribuição de um código de acesso e a escolha do cargo. Após o pré-cadastro, o usuário administrador deverá compartilhar o código de acesso com o funcionário, que, por sua vez, usará esse código para se cadastrar no sistema, fornecendo as informações necessárias.|
+| **Fontes:**<br>Administradores da Cavalo Airlines|
+| **Usuários:**<br>Usuario Administrador e Usuario padrão|
+| **Informações de entrada:**<br>O sistema gerará um código de acesso; o usuário administrador selecionará o cargo do novo funcionário. Após isso, o administrador compartilhará o código de acesso. O novo funcionário usará esse código para acessar o sistema e preencher seus dados. | 
+| **Informações de saída:**<br>O sistema exibirá uma confirmação visual com uma mensagem de sucesso, informando que o novo usuário foi criado corretamente, juntamente com a exibição das credenciais de acesso geradas na página de funcionários. |
+| **Requisitos não funcionais:**<br>RNF 1: A criação de usuários deverá ser realizada por meio de um processo de pré-cadastro, onde será definido o código de acesso e o cargo do usuário no sistema.<br><br>RNF 2: O cadastro dos usuários deve conter email, senha, cpf, nome e telefone.<br><br>RNF 9: O sistema deverá gerar um código de acesso para os funcionários, o qual deverá conter 12 dígitos, sendo uma combinação de números e letras.<br><br>RNF 10: O sistema deverá ter três usuários administradores cadastrados, que não poderão ser editados ou excluídos. As informações necessárias para o cadastro desses usuários serão fornecidas pelos responsáveis de cada conta.<br><br>RNF 11: O sistema devera permitir que somente usuarios admins acesse a pagina de funcionarios.|
 ---
 
 
-| **RF2. Realizar login de usuários administradores** |
+| **RF2. Gerenciar voos** |
 |:---|
-| **Descrição:**<br>O usuário poderá acessar o sistema fornecendo suas credenciais para autenticação e autorização de acesso. |
-| **Fontes:**<br>Documentação de segurança do sistema.<br>Políticas de autenticação e credenciais da empresa. |
-| **Usuários:**<br>Usuário administrador |
-| **Informações de entrada:**<br>O usuário administrador deverá fornecer seu e-mail e senha. |
-| **Informações de saída:**<br>Confirmação de Login, redirecionamento para a página inicial do painel de administração ou mensagem de falha caso haja falha de autenticação. |
-| **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores. |
+| **Descrição:**<br>O sistema deverá gerenciar os voos da companhia aérea, permitindo que os usuários cadastrem, editem e excluam informações sobre os voos. Isso inclui todas as operações necessárias para o gerenciamento eficaz, garantindo que as informações relevantes estejam sempre atualizadas e precisas.|
+| **Fontes:**<br>Departamento de Gerenciamento de Voos|
+| **Usuários:**<br>Usuário Administrador e Usuário Padrão|
+| **Informações de entrada:**<br>O usuário deverá fornecer as informações básicas para cadastrar um voo, incluindo o número do voo, a origem, o destino e a distância do percurso. Além disso, o usuário deverá selecionar a aeronave responsável por esse voo. O sistema também permitirá que o usuário edite ou exclua voos existentes.|
+| **Informações de saída:**<br>Após o cadastro, a edição ou a exclusão de um voo, o sistema atualizará a tela de exibição, refletindo as alterações realizadas.|
+| **Requisitos não funcionais:**<br>RNF 12: O cadastro do voo deve incluir o número do voo, a origem, o destino e a distância do percurso, conforme as orientações estabelecidas pelo departamento responsável.|
 
-| **RF3. Pré-Cadastro Usuário** |
+| **RF3. Gerenciar aeronaves** |
 |:---|
-| **Descrição:**<br>O administrador chefe do sistema criará novos códigos que irão ser usados pelos funcionários no ato de seu cadastro. Esse processo inclui a autenticação do código de acesso.|
-| **Fontes:** <br> Sistema |
-| **Usuários:**<br>Administrador|
+| **Descrição:**<br>O sistema deverá gerenciar as aeronaves da companhia aérea, permitindo que os usuários cadastrem, editem e excluam informações sobre as aeronaves. Isso inclui todas as operações necessárias para o gerenciamento eficaz, garantindo que as informações relevantes estejam sempre atualizadas e precisas.|
+| **Fontes:** <br>Departamento gestor de aeronaves|
+| **Usuários:**<br>Usuário Administrador e Usuário Padrão|
 | **Informações de entrada:**<br>O administrador incluirá novo funcionário e adicionará um código de acesso e um nível ao novo funcionário.
 | **Informações de saída:**<br>Confirmação visual com mensagem de sucesso informando que o novo usuário foi criado corretamente e a exibição das credenciais de acesso geradas. |
 | **Requisitos não funcionais:**<br>Desempenho com tempo de resposta rápido juntamente a segurança de registro para novos usuários por meio de credenciais únicas e criptografia. |
