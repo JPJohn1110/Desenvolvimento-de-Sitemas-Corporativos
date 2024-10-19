@@ -59,7 +59,7 @@ O Sistema possui acesso a API AviationStack para gerenciamento e conhecimento de
    <br> 5. Para visualização de posicionamento geofráfico a linha aérea deve disponibilizar as coordenardas, e aquelas que disponibilizarem podem ser vistas clicando ao botão ***Mostrar no mapa*** ao lado.
    <br> 6. Existe um limite para quantidade de voos que podem ser retornadas, nesse sentido nem todos os vôos podem ser vistos numa mesma requisição
 
-## Contribute
+## Colaboradores
 
 1. **Principais Colaboradores**: João Pedro Santos Rodrigues e Kelton Martins Dias
 2. **Clone project**: `git@github.com:Keltonmd/Desenvolvimento-de-Sitemas-Corporativos.git`
