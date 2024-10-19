@@ -255,7 +255,10 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 ## 6. DIAGRAMAS DE SEQUÊNCIA
 
- **CRUD USUÁRIO** 
+|**CRUD USUÁRIO**|
+|:---|
+| 1. [IN] Um administrador cria um código de Acesso pro novo usuário <br> 2.[OUT]. O sistema retorna o código de acesso pela lista <br>3. [IN] O usuário acessa a página de cadastro. <br> 4. [IN] O usuário preenche o formulário de cadastro com as informações necessárias <br>5. [OUT] O sistema valida as informações fornecidas. [E1.1] [E1.2]<br>6.[OUT] O sistema registra o novo usuário no banco de dados. <br> 7. [OUT] O sistema exibe uma mensagem de confirmação e envia um e-mail de boas-vindas ao usuário.||
+
 ![DiagramaSeq2](Diagramas/DiagramaSeq2.png)
 <br>
 
