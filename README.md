@@ -13,7 +13,7 @@ OBS: AWS só permite 4h de instância ligada, caso ela não esteja ligada, avise
 
 ## Banco de Dados
 #### Para funcionamento do banco de Dados deve utilizar postgresSQL com username `postgres` e senha `postgres`
-#### Ter no SGBD um BD chamado `Companhia_Area`
+#### Criar no SGBD um BD chamado `Companhia_Area`
 
 ## Projeto Desenvolvimento De Softwares Corporativos 2024
 
