@@ -185,7 +185,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 |**EXCEÇÃO**<br>[E1] Se o e-mail fornecido já estiver associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login com a conta existente. <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br> RN1 - O usuário deve preencher campos com origem com NOME, CPF, DATA DE NASCIMENTO, TELEFONE e E-MAIL. |
 
-![CasoDeUso](/Diagramas/CasoDeUso.png)
+![CasoDeUso](Diagramas/CasoDeUso.png)
 <br>
 
 ---
@@ -205,7 +205,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **EXCEÇÃO**<br>[E1] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o administrador corrija as informações. |  
 | **REGRAS DE NEGÓCIO** <br>RN1 - O administrador deve preencher campos obrigatórios: Modelo, Tipo, Peso Máx. Decolagem, Peso Vazio, Nº Máx. de Ocupantes, Velocidade Média, Combustível Máximo, Combustível por Hora. |
 
-![CasoDeUso2](/Diagramas/CasoDeUso2.png)
+![CasoDeUso2](Diagramas/CasoDeUso2.png)
 <br>
 ---
 
@@ -221,7 +221,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 |**EXCEÇÃO**<br>[E1] Se o e-mail fornecido associado a uma conta existente, o sistema notifica o usuário e solicita a utilização de outro e-mail ou o login <br> [E2] Se alguma informação estiver incorreta ou faltar, o sistema exibe uma mensagem de erro e solicita que o usuário corrija as informações.| 
 |**REGRAS DE NEGÓCIO** <br>RN1 - O usuário deve preencher campos obrigatórios: N° Voo, Aeronave, Duração, Origem, Destino.|
 
-![CasoDeUso3](/Diagramas/CasoDeUso3.png)
+![CasoDeUso3](Diagramas/CasoDeUso3.png)
 <br>
 
 ---
@@ -248,7 +248,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **CENÁRIO PRINCIPAL:** <br>1. [IN] O usuário acessa a interface de pesquisa escolhendo a filtragem desejada .<br> 2. [OUT] O sistema valida o o dado pesquisado. <br> 3. [OUT] O sistema valida retorna os voos da empresa que batem com a pesquisa.<br>
 | **CENÁRIO ALTERNATIVO:** <BR> NÃO HÁ <BR>|
 
-![CasoDeUso4](/Diagramas/CasoDeUso4.png)
+![CasoDeUso4](Diagramas/CasoDeUso4.png)
 <br>
 
 ---
@@ -266,7 +266,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 | **REGRAS DE NEGÓCIO:** <br>[RN1] - O sistema deve validar o código IATA ou ICAO inserido pelo cliente. [RN2] - O sistema só deve acessar a API se a chave de API estiver válida e com requisições disponíveis. <br> [RN3] - O sistema deve registrar e notificar o cliente em caso de falha na pesquisa devido à indisponibilidade da API. |
 
 
-![CasoDeUso5](/Diagramas/CasoDeUso5.png)
+![CasoDeUso5](Diagramas/CasoDeUso5.png)
 <br>
 
 ---
