@@ -134,6 +134,7 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 |:---|
 | **Descrição:**<br>O recurso permite que o usuário realize buscas por viagens passadas e futuras, consulte dados de viagens anteriores de aeronaves internacionais  |
 | **Fontes:**<br>Documentação do sistema e Documentação da API |
+| **Usuários:**<br>Usuário Administrador e Usuário Padrão |
 | **Informações de entrada:**<br>O usuário deve informar o código IATA/ICAO do vôo desejado. |
 | **Informações de saída:**<br>Tela com as informações de voos compatíveis com a busca, priorizando uma ordem e um mapa com sua localização atual caso esteja ativo.  |
 | **Requisitos não funcionais:**<br> Funciona a partir de requisição ao Banco de Dados DA API |
@@ -142,12 +143,12 @@ _O diagrama acima representa o processo de gerenciamento de Planejamento_
 
 | **RF5. Gerar Planejamento** |
 |:---|
-| **Descrição:**<br>O sistema deverá gerar relatorio, editem e excluam informações sobre as aeronaves. Isso inclui todas as operações necessárias para o gerenciamento eficaz, garantindo que as informações relevantes estejam sempre atualizadas e precisas. |
-| **Fontes:**<br>Documentação do sistema |
-| **Usuários:**<br>Usuário normal |
-| **Informações de entrada:**<br>O usuário deverá fornecer seu e-mail e senha. |
-| **Informações de saída:**<br>Confirmação de Login, redirecionamento para a página inicial do sistema ou mensagem de falha caso haja falha de autenticação.  |
-| **Requisitos não funcionais:**<br>O sistema deve implementar criptografia para proteger as credenciais transmitidas durante o login, tempo de resposta rápido, mensagens de erros devem ser claras e deve possuir compatibilidade com diversos navegadores.  |
+| **Descrição:**<br>O sistema deverá gerar um relatório detalhado para cada aeronave cadastrada, permitindo a aplicação de filtros para selecionar aeronaves específicas. O relatório deverá incluir informações sobre a autonomia, quantidade de voos, número de assentos da primeira classe e da classe econômica, além do peso disponível para cada aeronave. |
+| **Fontes:**<br>Departamento de gereciamento de rotas |
+| **Usuários:**<br>Usuário Administrador e Usuário Padrão |
+| **Informações de entrada:**<br>O usuário poderá aplicar filtros para buscar aeronaves específicas, selecionando o modelo da aeronave e iniciando a busca. |
+| **Informações de saída:**<br>O sistema atualizará a tela de exibição, apresentando o relatório detalhado das aeronaves com as informações filtradas.  |
+| **Requisitos não funcionais:**<br>RNF 3: O sistema deverá calcular a autonomia de cada aeronave por meio do seguinte cálculo: $Autonomia = \frac{Combustível Máximo}{Consumo Por Hora} \times Velocidade Média$.<br><br>RNF 6: O sistema deverá calcular o peso disponível para ser preenchido em cada voo através do seguinte cálculo: $Peso livre = Peso Máximo de  decolagem - Peso da Aeronave Vazia$.<br><br>RNF 7: O sistema deverá calcular o número de cadeiras para a primeira classe e para a classe econômica de acordo com a seguinte regra: a primeira classe deve ocupar 40% das cadeiras totais, e a classe econômica será composta pelas cadeiras restantes. No entanto, se a quantidade total de cadeiras for inferior ou igual a 20, todas as cadeiras serão destinadas exclusivamente à primeira classe.<br><br>RNF 8: O sistema deverá fornecer a quantidade de voos cadastrados para cada aeronave. |
 
 ---
 
